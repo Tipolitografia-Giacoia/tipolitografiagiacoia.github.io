@@ -106,7 +106,7 @@ body::after {
     background-image: url('data/Tavola disegno 6@3x.png'); /* Specifica l'immagine */
     
     /* --- QUESTA È LA SOLUZIONE --- */
-    background-size: 400px; /* Imposta una dimensione fissa per il pattern */
+    background-size: 2850px; /* Imposta una dimensione fissa per il pattern */
     /* ----------------------------- */
 
     background-repeat: repeat; /* Assicura che l'immagine si ripeta */
@@ -137,7 +137,7 @@ body::after {
     background-image: url('data/Tavola disegno 6@3x.png');
 
     /* --- APPLICA LA STESSA SOLUZIONE QUI --- */
-    background-size: 400px;
+    background-size: 2850px;;
     /* -------------------------------------- */
     
     background-repeat: repeat;
@@ -146,16 +146,6 @@ body::after {
 .carousel { position: relative; width: min(800px, 92vw); margin: 0 auto; background: transparent; box-shadow: none; padding: 0; display: flex; align-items: center; gap: 1.5rem; }
 .carousel-viewport { position: relative; flex-grow: 1; background: transparent; border: none; box-shadow: none; padding: 0; backdrop-filter: none; -webkit-backdrop-filter: none; display: flex; flex-direction: column; justify-content: center; align-items: center; }
 .carousel-viewport img { max-width: 100%; max-height: 80%; object-fit: contain; transition: opacity 0.4s ease; }
-.product-label {
-    /* Cambiamo il colore dell'etichetta in scuro per renderla leggibile */
-    color: var(--ink);
-    font-family: var(--font-body);
-    font-weight: bold;
-    font-size: 1.1rem;
-    text-align: center;
-    padding-top: 1.5rem;
-    transition: opacity 0.4s ease;
-}
 .arrow { background: var(--fuchsia); color: var(--white); border: none; width: 40px; height: 40px; border-radius: 50%; font-size: 1.5rem; font-weight: bold; cursor: pointer; transition: background 0.3s; flex-shrink: 0; }
 .arrow:hover { background: var(--violet); }
 .cta-button { display: block; width: fit-content; margin: 2rem auto 0; padding: 12px 28px; border-radius: 999px; border: none; cursor: pointer; background: linear-gradient(90deg, var(--violet), var(--fuchsia)); color: var(--white); font-family: var(--font-body); font-weight: bold; text-decoration: none; box-shadow: var(--shadow); transition: filter .25s ease, transform .1s ease; }

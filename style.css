@@ -79,7 +79,10 @@ body::after {
     backdrop-filter: saturate(140%) blur(6px);
 }
 .navbar { display: flex; justify-content: space-between; align-items: center; height: 80px; padding: 0 2rem; }
-.nav-logo img { width: 80px; }
+.nav-logo img {
+    height: 45px; /* Imposta l'altezza desiderata */
+    width: auto;  /* Lascia che la larghezza si adatti in modo proporzionale */
+}
 .nav-menu { display: flex; list-style: none; gap: 2.5rem; }
 .nav-link { color: var(--white); text-decoration: none; font-weight: bold; transition: color 0.3s; }
 .nav-link:hover { color: var(--yellow); }
@@ -98,7 +101,17 @@ body::after {
 .separator { height: 10px; background: url("data/Tavola disegno 4@3x.png") center/cover no-repeat; box-shadow: 0 -1px 0 rgba(255,255,255,.06), 0 1px 0 rgba(0,0,0,.25); }
 
 /* ========= CHI SIAMO ========= */
-.chi-siamo { background: linear-gradient(180deg, rgba(0,0,0,.20), rgba(0,0,0,.12)); }
+.chi-siamo { 
+    background-color: var(--muted); /* Mantiene il colore di base chiaro */
+    background-image: url('data/Tavola disegno 6@3x.png'); /* Specifica l'immagine */
+    
+    /* --- QUESTA È LA SOLUZIONE --- */
+    background-size: 400px; /* Imposta una dimensione fissa per il pattern */
+    /* ----------------------------- */
+
+    background-repeat: repeat; /* Assicura che l'immagine si ripeta */
+    color: var(--ink);
+}
 .chi-siamo-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 2rem; align-items: center; margin-bottom: 4rem; }
 .shape-stack { position: relative; min-height: 400px; }
 .shape { position: absolute; }
@@ -108,7 +121,10 @@ body::after {
 .shape.s3 { top: 140px; right: 10%; width: 68%; z-index: 1; }
 .shape.s4 { left: -4%; top: -18px; width: 58%; transform: rotate(-2deg); z-index: 0; }
 .chi-siamo-copy { background: linear-gradient(160deg, rgba(255,255,255,.06), rgba(255,255,255,.02)); border: 1px solid rgba(255,255,255,.12); border-radius: var(--radius); padding: 2rem; box-shadow: var(--shadow); }
-.chi-siamo-copy .section-title { text-align: left; margin-bottom: 1rem; }
+.chi-siamo-copy .section-title span { 
+    /* Il giallo su sfondo chiaro è illeggibile, usiamo un colore forte del tema */
+    color: var(--fuchsia); 
+}
 .metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-top: 1.5rem; text-align: center; }
 .metric { padding: 1rem; border-radius: var(--radius); background: linear-gradient(135deg, rgba(255,255,255,.08), rgba(255,255,255,.02)); border: 1px solid rgba(255,255,255,.12); }
 .metric .num { font-family: var(--font-heading); font-size: 1.8rem; }
@@ -116,19 +132,50 @@ body::after {
 .factory-image { border-radius: 18px; overflow: hidden; box-shadow: var(--shadow); }
 
 /* ========= PRODOTTI (CAROUSEL) ========= */
-.prodotti {}
+.prodotti {
+    background-color: var(--muted);
+    background-image: url('data/Tavola disegno 6@3x.png');
+
+    /* --- APPLICA LA STESSA SOLUZIONE QUI --- */
+    background-size: 400px;
+    /* -------------------------------------- */
+    
+    background-repeat: repeat;
+    color: var(--ink);
+}
 .carousel { position: relative; width: min(800px, 92vw); margin: 0 auto; background: transparent; box-shadow: none; padding: 0; display: flex; align-items: center; gap: 1.5rem; }
 .carousel-viewport { position: relative; flex-grow: 1; background: transparent; border: none; box-shadow: none; padding: 0; backdrop-filter: none; -webkit-backdrop-filter: none; display: flex; flex-direction: column; justify-content: center; align-items: center; }
 .carousel-viewport img { max-width: 100%; max-height: 80%; object-fit: contain; transition: opacity 0.4s ease; }
-.product-label { color: var(--white); font-family: var(--font-body); font-weight: bold; font-size: 1.1rem; text-align: center; padding-top: 1.5rem; transition: opacity 0.4s ease; }
+.product-label {
+    /* Cambiamo il colore dell'etichetta in scuro per renderla leggibile */
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-align: center;
+    padding-top: 1.5rem;
+    transition: opacity 0.4s ease;
+}
 .arrow { background: var(--fuchsia); color: var(--white); border: none; width: 40px; height: 40px; border-radius: 50%; font-size: 1.5rem; font-weight: bold; cursor: pointer; transition: background 0.3s; flex-shrink: 0; }
 .arrow:hover { background: var(--violet); }
 .cta-button { display: block; width: fit-content; margin: 2rem auto 0; padding: 12px 28px; border-radius: 999px; border: none; cursor: pointer; background: linear-gradient(90deg, var(--violet), var(--fuchsia)); color: var(--white); font-family: var(--font-body); font-weight: bold; text-decoration: none; box-shadow: var(--shadow); transition: filter .25s ease, transform .1s ease; }
 .cta-button:hover { filter: brightness(1.1); }
 
-/* ========= VIDEO BAND ========= */
-.video-band { position: relative; overflow: hidden; line-height: 0; }
-.video-band video { width: 100%; height: 60vh; min-height: 400px; object-fit: cover; filter: saturate(115%) contrast(108%); }
+/* ========= IMAGE BAND ========= */
+.image-band {
+    /* Manteniamo le dimensioni che aveva il video */
+    height: 60vh;
+    min-height: 400px;
+
+    /* Proprietà per l'immagine di sfondo */
+    background-image: url('data/image-environment.jpg');
+    background-size: cover; /* Assicura che l'immagine copra sempre la sezione */
+    background-position: center center; /* Centra l'immagine */
+    background-repeat: no-repeat;
+    
+    /* BONUS: Effetto Parallasse */
+    background-attachment: fixed; /* L'immagine sta ferma mentre la pagina scorre */
+}
 
 /* ========= CONTATTI ========= */
 .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }

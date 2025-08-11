@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tipolitografia Giacoia | Stampa & Design</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="top">
+
+    <!-- ========= HEADER / NAVBAR ========= -->
+    <header class="header">
+        <nav class="navbar">
+            <a href="#top" class="nav-logo">
+                <img src="data/dd.png" alt="Logo Tipolitografia Giacoia">
+            </a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#chi-siamo" class="nav-link">Chi Siamo</a></li>
+                <li class="nav-item"><a href="#prodotti" class="nav-link">Prodotti</a></li>
+                <li class="nav-item"><a href="#contattaci" class="nav-link">Contattaci</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- ========= HERO SECTION ========= -->
+        <section id="hero" class="hero">
+            <video autoplay muted loop playsinline class="hero-video">
+                <source src="data/aaa.mp4" type="video/mp4">
+                Il tuo browser non supporta i video.
+            </video>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1 class="hero-title">DESIGN CHE <span>ISPIRA</span>. STAMPA CHE <span>SEDUCE</span>.</h1>
+            </div>
+        </section>
+
+        <div class="separator"></div>
+
+        <!-- ========= CHI SIAMO ========= -->
+        <section id="chi-siamo" class="section chi-siamo">
+            <div class="container">
+                <div class="chi-siamo-grid">
+                    <div class="shape-stack">
+                        <img class="shape s1 reveal" alt="Forma decorativa 1" src="data/Tavola disegno 2 copia@3x.png">
+                        <img class="shape s2 reveal" alt="Forma decorativa 2" src="data/dd.png">
+                        <img class="shape s3 reveal" alt="Forma decorativa 3" src="data/Tavola disegno 3@3x.png">
+                        <img class="shape s4 reveal" alt="Forma decorativa 4" src="data/Tavola disegno 1@3x.png">
+                    </div>
+                    <article class="chi-siamo-copy reveal">
+                        <h2 class="section-title">CHI <span>SIAMO</span>.</h2>
+                        <p>Artigiani della stampa, maestri del dettaglio. Da oltre 30 anni trasformiamo carta e colore in emozioni tangibili.</p>
+                        <div class="metrics">
+                            <div class="metric">
+                                <div class="num">+ 30 ANNI</div>
+                                <small>di esperienza sul campo</small>
+                            </div>
+                            <div class="metric">
+                                <div class="num">+ 3.000</div>
+                                <small>clienti soddisfatti</small>
+                            </div>
+                            <div class="metric">
+                                <div class="num">+ 10.000</div>
+                                <small>progetti realizzati</small>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <figure class="factory-image reveal">
+                    <img src="data/capannone def.png" alt="Sede della Tipolitografia Giacoia">
+                </figure>
+            </div>
+        </section>
+
+        <div class="separator"></div>
+        
+        <!-- ========= PRODOTTI (CAROUSEL) ========= -->
+        <section id="prodotti" class="section prodotti">
+            <div class="container">
+                <h2 class="section-title">PRODOTTI.</h2>
+                <div class="carousel">
+                    <button class="arrow prev" aria-label="Prodotto precedente">&lt;</button>
+                    <div class="carousel-viewport">
+                        <img id="product-image" src="" alt="Prodotto in mostra">
+                        <div id="product-label" class="product-label"></div>
+                    </div>
+                    <button class="arrow next" aria-label="Prodotto successivo">&gt;</button>
+                </div>
+                 <a href="#contattaci" class="cta-button">RICHIEDI INFORMAZIONI</a>
+            </div>
+        </section>
+
+        <!-- ========= VIDEO BAND ========= -->
+        <section class="video-band">
+            <video autoplay muted loop playsinline>
+                <source src="data/0888c83f-3a83-4ac1-96bd-94f6fdd558cd.mp4" type="video/mp4">
+            </video>
+        </section>
+
+        <div class="separator"></div>
+
+        <!-- ========= CONTATTI ========= -->
+        <section id="contattaci" class="section">
+            <div class="container">
+                <h2 class="section-title">CONTATTACI.</h2>
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <div class="contact-item reveal">
+                            <img src="data/event.gif" alt="Indirizzo">
+                            <div>
+                                <strong>Via Salvatore Fitto, 9 – ZONA P.I.P. 74014 Laterza (TA)</strong>
+                                <small>Lunedì–Venerdì 9–13 / 16–19</small>
+                            </div>
+                        </div>
+                        <div class="contact-item reveal">
+                            <img src="data/email.gif" alt="Email">
+                            <div>
+                                <a href="mailto:giacoia-e@libero.it"><strong>giacoia-e@libero.it</strong></a>
+                                <small>Rispondiamo entro 24h</small>
+                            </div>
+                        </div>
+                        <div class="contact-item reveal">
+                            <img src="data/phone.gif" alt="Telefono">
+                            <div>
+                                <a href="tel:+390998296355"><strong>+39 099 829 63 55</strong></a>
+                                <small>Chiamaci per urgenze</small>
+                            </div>
+                        </div>
+                    </div>
+                    <form id="contact-form" class="reveal">
+                        <input type="text" id="nome" name="nome" placeholder="Il tuo nome *" required>
+                        <input type="email" id="email" name="email" placeholder="La tua email *" required>
+                        <textarea id="messaggio" name="messaggio" rows="5" placeholder="Scrivi qui la tua richiesta... *" required></textarea>
+                        <button type="submit" class="cta-button">INVIA MESSAGGIO</button>
+                        <small id="form-note"></small>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ========= FOOTER ========= -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-main">
+                <div class="footer-column footer-info">
+                    <img src="data/logo-intero.png" alt="Logo Tipolitografia Giacoia" class="footer-logo">
+                    <p>
+                        Via Salvatore Fitto, 9 - ZONA P.I.P.<br>
+                        74014 Laterza (TA)
+                    </p>
+                    <p>
+                        P.IVA 02095980732<br>
+                        <a href="mailto:giacoia-e@libero.it">giacoia-e@libero.it</a>
+                    </p>
+                    <p>
+                        <a href="tel:+390998296355">+39 099 829 63 55</a><br>
+                        <a href="tel:+393288938063">+39 328 89 38 063</a>
+                    </p>
+                </div>
+
+                <div class="footer-column footer-links">
+                    <h4>LINK RAPIDI</h4>
+                    <ul>
+                        <li><a href="#chi-siamo">Chi Siamo</a></li>
+                        <li><a href="#prodotti">Prodotti</a></li>
+                        <li><a href="#contattaci">Contattaci</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column footer-social">
+                    <a href="#work-in-progress" aria-label="Facebook" class="social-icon js-wip-trigger">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5V327.7h-63V256h63v-54.6c0-62.2 37-96.5 93.7-96.5 27.1 0 55.5 4.8 55.5 4.8v61h-31.3c-30.8 0-40.4 19.1-40.4 38.7V256h68.8l-11 71.7h-57.8V504.5C429.3 476.8 512 376 512 256z"/></svg>
+                    </a>
+                    <a href="#work-in-progress" aria-label="Instagram" class="social-icon js-wip-trigger">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+                    </a>
+                    <a href="#work-in-progress" aria-label="TikTok" class="social-icon js-wip-trigger">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z"/></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Giacoia Tipolitografia - Tutti i diritti riservati</p>
+                <div class="legal-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Cookie Policy</a>
+                    <a href="#">Termini e condizioni</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========= OVERLAY WORK IN PROGRESS ========= -->
+    <div id="wip-overlay" class="wip-overlay">
+        <div class="wip-content">
+            <img src="data/logo.png" alt="Logo Tipolitografia Giacoia">
+            <h2>Work in Progress</h2>
+            <p>Stiamo preparando le nostre pagine social. Torna a trovarci presto!</p>
+            <button id="wip-close" class="cta-button">Torna al sito</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

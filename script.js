@@ -29,39 +29,40 @@ document.addEventListener('DOMContentLoaded', function() {
     }, { threshold: 0.1 });
     revealElements.forEach(el => revealObserver.observe(el));
 
-    // 3. CAROSELLO PRODOTTI
+    // ========= 3. CAROSELLO PRODOTTI (VERSIONE FLUIDA E ROBUSTA) =========
+
     const productImages = [
-    'data/prodotti/Tavola disegno 2@3x.png',
-    'data/prodotti/Tavola disegno 3@3x.png',
-    'data/prodotti/Tavola disegno 4@3x.png',
-    'data/prodotti/Tavola disegno 5@3x.png',
-    'data/prodotti/Tavola disegno 6@3x.png',
-    'data/prodotti/Tavola disegno 7@3x.png',
-    'data/prodotti/Tavola disegno 8@3x.png',
-    'data/prodotti/Tavola disegno 9@3x.png',
-    'data/prodotti/Tavola disegno 10@3x.png',
-    'data/prodotti/Tavola disegno 11@3x.png',
-    'data/prodotti/Tavola disegno 12@3x.png',
-    'data/prodotti/Tavola disegno 13@3x.png',
-    'data/prodotti/Tavola disegno 14@3x.png',
-    'data/prodotti/Tavola disegno 15@3x.png',
-    'data/prodotti/Tavola disegno 16@3x.png',
-    'data/prodotti/Tavola disegno 17@3x.png',
-    'data/prodotti/Tavola disegno 18@3x.png',
-    'data/prodotti/Tavola disegno 19@3x.png',
-    'data/prodotti/Tavola disegno 20@3x.png',
-    'data/prodotti/Tavola disegno 21@3x.png',
-    'data/prodotti/Tavola disegno 22@3x.png',
-    'data/prodotti/Tavola disegno 23@3x.png',
-    'data/prodotti/Tavola disegno 24@3x.png',
-    'data/prodotti/Tavola disegno 25@3x.png',
-    'data/prodotti/Tavola disegno 26@3x.png',
-    'data/prodotti/Tavola disegno 27@3x.png',
-    'data/prodotti/Tavola disegno 28@3x.png',
-    'data/prodotti/Tavola disegno 29@3x.png',
-    'data/prodotti/Tavola disegno 30@3x.png',
-    'data/prodotti/Tavola disegno 31@3x.png',
-    'data/prodotti/Tavola disegno 32@3x.png'
+        'data/prodotti/Tavola disegno 2@3x.png',
+        'data/prodotti/Tavola disegno 3@3x.png',
+        'data/prodotti/Tavola disegno 4@3x.png',
+        'data/prodotti/Tavola disegno 5@3x.png',
+        'data/prodotti/Tavola disegno 6@3x.png',
+        'data/prodotti/Tavola disegno 7@3x.png',
+        'data/prodotti/Tavola disegno 8@3x.png',
+        'data/prodotti/Tavola disegno 9@3x.png',
+        'data/prodotti/Tavola disegno 10@3x.png',
+        'data/prodotti/Tavola disegno 11@3x.png',
+        'data/prodotti/Tavola disegno 12@3x.png',
+        'data/prodotti/Tavola disegno 13@3x.png',
+        'data/prodotti/Tavola disegno 14@3x.png',
+        'data/prodotti/Tavola disegno 15@3x.png',
+        'data/prodotti/Tavola disegno 16@3x.png',
+        'data/prodotti/Tavola disegno 17@3x.png',
+        'data/prodotti/Tavola disegno 18@3x.png',
+        'data/prodotti/Tavola disegno 19@3x.png',
+        'data/prodotti/Tavola disegno 20@3x.png',
+        'data/prodotti/Tavola disegno 21@3x.png',
+        'data/prodotti/Tavola disegno 22@3x.png',
+        'data/prodotti/Tavola disegno 23@3x.png',
+        'data/prodotti/Tavola disegno 24@3x.png',
+        'data/prodotti/Tavola disegno 25@3x.png',
+        'data/prodotti/Tavola disegno 26@3x.png',
+        'data/prodotti/Tavola disegno 27@3x.png',
+        'data/prodotti/Tavola disegno 28@3x.png',
+        'data/prodotti/Tavola disegno 29@3x.png',
+        'data/prodotti/Tavola disegno 30@3x.png',
+        'data/prodotti/Tavola disegno 31@3x.png',
+        'data/prodotti/Tavola disegno 32@3x.png'
     ];
 
     let currentProductIndex = 0;
@@ -69,25 +70,61 @@ document.addEventListener('DOMContentLoaded', function() {
     const prevButton = document.querySelector('.arrow.prev');
     const nextButton = document.querySelector('.arrow.next');
 
-    function showProduct(index) {
-        if (!productImageEl) return;
+    let isTransitioning = false; // Variabile "lucchetto" per evitare click ravvicinati
+    const transitionDuration = 400; // Durata della transizione in ms (deve corrispondere al CSS)
+
+    function showProduct(newIndex) {
+        // Se un'animazione è già in corso, non fare nulla
+        if (isTransitioning) {
+            return;
+        }
+        // Blocca nuove animazioni
+        isTransitioning = true;
+
+        // 1. Inizia la dissolvenza dell'immagine attuale
         productImageEl.style.opacity = '0';
-        setTimeout(() => {
-            productImageEl.src = productImages[index];
-            productImageEl.alt = `Prodotto ${index + 1}`; // Alt text per accessibilità
+
+        // 2. PRE-CARICA la nuova immagine in background
+        const nextImage = new Image();
+        nextImage.src = productImages[newIndex];
+
+        // 3. QUANDO l'immagine è stata completamente scaricata...
+        nextImage.onload = () => {
+            // ...aggiorna l'elemento immagine visibile...
+            productImageEl.src = nextImage.src;
+            productImageEl.alt = `Prodotto ${newIndex + 1}`;
+
+            // ...e solo ORA fai partire la nuova dissolvenza in entrata.
             productImageEl.style.opacity = '1';
-        }, 400);
+
+            // 4. Attendi la fine dell'animazione per sbloccare i click
+            setTimeout(() => {
+                isTransitioning = false;
+            }, transitionDuration);
+        };
+
+        // Fallback: se l'immagine non si carica, sblocca comunque dopo un po'
+        nextImage.onerror = () => {
+            console.error("Errore caricamento immagine:", nextImage.src);
+            isTransitioning = false;
+        };
+        
+        currentProductIndex = newIndex;
     }
 
     if (productImageEl && prevButton && nextButton) {
-        showProduct(currentProductIndex);
+        // Carica la prima immagine
+        productImageEl.src = productImages[currentProductIndex];
+        productImageEl.alt = `Prodotto ${currentProductIndex + 1}`;
+
         nextButton.addEventListener('click', () => { 
-            currentProductIndex = (currentProductIndex + 1) % productImages.length; 
-            showProduct(currentProductIndex); 
+            const newIndex = (currentProductIndex + 1) % productImages.length; 
+            showProduct(newIndex); 
         });
+
         prevButton.addEventListener('click', () => { 
-            currentProductIndex = (currentProductIndex - 1 + productImages.length) % productImages.length; 
-            showProduct(currentProductIndex); 
+            const newIndex = (currentProductIndex - 1 + productImages.length) % productImages.length; 
+            showProduct(newIndex); 
         });
     }
 

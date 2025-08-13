@@ -79,10 +79,7 @@ body::after {
     backdrop-filter: saturate(140%) blur(6px);
 }
 .navbar { display: flex; justify-content: space-between; align-items: center; height: 80px; padding: 0 2rem; }
-.nav-logo img {
-    height: 45px; /* Imposta l'altezza desiderata */
-    width: auto;  /* Lascia che la larghezza si adatti in modo proporzionale */
-}
+.nav-logo img { height: 50px; width: auto; }
 .nav-menu { display: flex; list-style: none; gap: 2.5rem; }
 .nav-link { color: var(--white); text-decoration: none; font-weight: bold; transition: color 0.3s; }
 .nav-link:hover { color: var(--yellow); }
@@ -100,71 +97,191 @@ body::after {
 /* ========= SEPARATOR ========= */
 .separator { height: 10px; background: url("data/Tavola disegno 4@3x.png") center/cover no-repeat; box-shadow: 0 -1px 0 rgba(255,255,255,.06), 0 1px 0 rgba(0,0,0,.25); }
 
-/* ========= CHI SIAMO ========= */
-.chi-siamo { 
-    background-color: var(--muted); /* Mantiene il colore di base chiaro */
-    background-image: url('data/Tavola disegno 6@3x.png'); /* Specifica l'immagine */
-    
-    /* --- QUESTA È LA SOLUZIONE --- */
-    background-size: 2850px; /* Imposta una dimensione fissa per il pattern */
-    /* ----------------------------- */
-
-    background-repeat: repeat; /* Assicura che l'immagine si ripeta */
-    color: var(--ink);
+/* ========= STILE NUOVA SEZIONE CHI SIAMO (VERSIONE FINALE) ========= */
+.about-section {
+    padding: 0;
+    background-color: #e9e9e9;
 }
-.chi-siamo-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 2rem; align-items: center; margin-bottom: 4rem; }
-.shape-stack { position: relative; min-height: 400px; }
-.shape { position: absolute; }
-.shape img { width: 100%; }
-.shape.s1 { top: -40px; right: 8%; width: 64%; z-index: 3; }
-.shape.s2 { top: 46px; right: 2%; width: 72%; z-index: 2; transform: rotate(5deg); }
-.shape.s3 { top: 140px; right: 10%; width: 68%; z-index: 1; }
-.shape.s4 { left: -4%; top: -18px; width: 58%; transform: rotate(-2deg); z-index: 0; }
-.chi-siamo-copy { background: linear-gradient(160deg, rgba(255,255,255,.06), rgba(255,255,255,.02)); border: 1px solid rgba(255,255,255,.12); border-radius: var(--radius); padding: 2rem; box-shadow: var(--shadow); }
-.chi-siamo-copy .section-title span { 
-    /* Il giallo su sfondo chiaro è illeggibile, usiamo un colore forte del tema */
-    color: var(--fuchsia); 
+.about-top {
+    position: relative;
+    padding: clamp(4rem, 8vw, 6rem) 0;
+    background-image: url('data/Image 2.jpg');
+    background-size: cover;
+    background-position: center top;
 }
-.metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-top: 1.5rem; text-align: center; }
-.metric { padding: 1rem; border-radius: var(--radius); background: linear-gradient(135deg, rgba(255,255,255,.08), rgba(255,255,255,.02)); border: 1px solid rgba(255,255,255,.12); }
-.metric .num { font-family: var(--font-heading); font-size: 1.8rem; }
-.metric small { opacity: .9; }
-.factory-image { border-radius: 18px; overflow: hidden; box-shadow: var(--shadow); }
+.about-top-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(107, 13, 180, 0.7), rgba(226, 22, 115, 0.7));
+    z-index: 1;
+}
+.about-top .container {
+    position: relative;
+    z-index: 2;
+}
+.about-top-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 3rem;
+    align-items: flex-start;
+}
+.about-text-box {
+    color: var(--white);
+}
+.about-text-box .section-title {
+    text-align: left;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+.about-text-box p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+.about-metrics-box {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.metric-item {
+    background-color: rgba(40, 30, 120, 0.85);
+    color: var(--white);
+    padding: 1.5rem;
+    border-radius: var(--radius);
+}
+.metric-item .num {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    margin-bottom: 0.25rem;
+}
+.metric-item small {
+    opacity: 0.9;
+}
+.about-bottom {
+    line-height: 0;
+}
+.about-bottom img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
 
-/* ========= PRODOTTI (CAROUSEL) ========= */
+/* ========= CAROSELLO COVER FLOW ========= */
 .prodotti {
     background-color: var(--muted);
     background-image: url('data/Tavola disegno 6@3x.png');
-
-    /* --- APPLICA LA STESSA SOLUZIONE QUI --- */
-    background-size: 2850px;;
-    /* -------------------------------------- */
-    
+    background-size: 400px;
     background-repeat: repeat;
     color: var(--ink);
 }
-.carousel { position: relative; width: min(800px, 92vw); margin: 0 auto; background: transparent; box-shadow: none; padding: 0; display: flex; align-items: center; gap: 1.5rem; }
-.carousel-viewport { position: relative; flex-grow: 1; background: transparent; border: none; box-shadow: none; padding: 0; backdrop-filter: none; -webkit-backdrop-filter: none; display: flex; flex-direction: column; justify-content: center; align-items: center; }
-.carousel-viewport img { max-width: 100%; max-height: 80%; object-fit: contain; transition: opacity 0.4s ease; }
-.arrow { background: var(--fuchsia); color: var(--white); border: none; width: 40px; height: 40px; border-radius: 50%; font-size: 1.5rem; font-weight: bold; cursor: pointer; transition: background 0.3s; flex-shrink: 0; }
-.arrow:hover { background: var(--violet); }
-.cta-button { display: block; width: fit-content; margin: 2rem auto 0; padding: 12px 28px; border-radius: 999px; border: none; cursor: pointer; background: linear-gradient(90deg, var(--violet), var(--fuchsia)); color: var(--white); font-family: var(--font-body); font-weight: bold; text-decoration: none; box-shadow: var(--shadow); transition: filter .25s ease, transform .1s ease; }
+.carousel-container {
+    position: relative;
+    width: 100%;
+    height: 60vh; /* << Aumentato per dare più spazio */
+    min-height: 500px; /* << Aumentato per dare più spazio */
+    max-width: 1000px;
+    margin: 0 auto;
+    perspective: 1500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.carousel-track {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    order: 1;
+}
+.carousel-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out, z-index 0s 0.25s;
+    opacity: 0;
+    transform: translateX(0) scale(0.5);
+    z-index: 1;
+}
+.carousel-item img {
+    max-width: 80%;
+    max-height: 80%;
+    object-fit: contain;
+    -webkit-box-reflect: none;
+}
+.carousel-item.is-active {
+    opacity: 1;
+    transform: translateX(0) scale(1.15); /* << Ora è il 15% più grande di prima */
+    z-index: 3;
+}
+
+.carousel-item.is-prev {
+    opacity: 0.6;
+    transform: translateX( min(max(-55vw, -450px), -200px) ) scale(0.9); /* << Ora è al 90% della dimensione base */
+    z-index: 2;
+}
+
+.carousel-item.is-next {
+    opacity: 0.6;
+    transform: translateX( min(max(55vw, 200px), 450px) ) scale(0.9); /* << Ora è al 90% della dimensione base */
+    z-index: 2;
+}
+.carousel-navigation {
+    order: 2;
+    margin-top: 1.5rem;
+}
+.carousel-container .arrow {
+    position: static;
+    transform: none;
+    z-index: 10;
+    margin: 0 10px;
+    background: var(--fuchsia);
+    color: var(--white);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.carousel-container .arrow:hover {
+    background: var(--violet);
+}
+.cta-button {
+    display: block;
+    width: fit-content;
+    margin: 2rem auto 0;
+    padding: 12px 28px;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(90deg, var(--violet), var(--fuchsia));
+    color: var(--white);
+    font-family: var(--font-body);
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: var(--shadow);
+    transition: filter .25s ease, transform .1s ease;
+}
 .cta-button:hover { filter: brightness(1.1); }
 
 /* ========= IMAGE BAND ========= */
 .image-band {
-    /* Manteniamo le dimensioni che aveva il video */
     height: 60vh;
     min-height: 400px;
-
-    /* Proprietà per l'immagine di sfondo */
-    background-image: url('data/image-environment.jpg');
-    background-size: cover; /* Assicura che l'immagine copra sempre la sezione */
-    background-position: center center; /* Centra l'immagine */
+    background-image: url('data/image-environment.png');
+    background-size: cover;
+    background-position: center center;
     background-repeat: no-repeat;
-    
-    /* BONUS: Effetto Parallasse */
-    background-attachment: fixed; /* L'immagine sta ferma mentre la pagina scorre */
+    background-attachment: fixed;
 }
 
 /* ========= CONTATTI ========= */
@@ -173,6 +290,7 @@ body::after {
 .contact-item { display: grid; grid-template-columns: 46px auto; gap: 1rem; align-items: center; background: linear-gradient(135deg, rgba(255,255,255,.07), rgba(255,255,255,.02)); border: 1px solid rgba(255,255,255,.14); border-radius: var(--radius); padding: 1rem; }
 .contact-item img { width: 46px; height: 46px; }
 .contact-item a { text-decoration: none; color: inherit; }
+.contact-item a:hover { color: var(--yellow); }
 .contact-item small { opacity: .85; }
 #contact-form { display: flex; flex-direction: column; gap: 1rem; }
 #contact-form input, #contact-form textarea { width: 100%; padding: 12px 14px; border-radius: var(--radius); border: 1px solid rgba(255,255,255,.22); background: rgba(0,0,0,.2); color: var(--white); font-family: var(--font-body); font-size: 1rem; }
@@ -187,12 +305,12 @@ body::after {
 .footer-column + .footer-column { border-left: 1px solid rgba(255, 255, 255, 0.15); }
 .footer-logo { max-width: 180px; margin-bottom: 1.5rem; }
 .footer-info p { margin-bottom: 1.2rem; line-height: 1.7; }
-.footer-info a {color: var(--white); text-decoration: none; transition: color 0.3s; }
+.footer-info a { text-decoration: none; color: var(--white); transition: color 0.3s; }
 .footer-info a:hover { color: var(--yellow); }
 .footer-links h4 { font-family: var(--font-heading); margin-bottom: 1.5rem; font-size: 1rem; letter-spacing: 1px; }
 .footer-links ul { list-style: none; padding: 0; margin: 0; }
 .footer-links li { margin-bottom: 1rem; }
-.footer-links a {color: var(--white); text-decoration: none; transition: color 0.3s; }
+.footer-links a { text-decoration: none; color: var(--white); transition: color 0.3s; }
 .footer-links a:hover { color: var(--yellow); }
 .footer-social { display: flex; gap: 1rem; padding-top: 2rem; }
 .social-icon { display: grid; place-items: center; width: 40px; height: 40px; border: 2px solid var(--white); border-radius: 50%; transition: background-color 0.3s; }
@@ -201,7 +319,7 @@ body::after {
 .social-icon:hover svg { fill: var(--ink); }
 .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 2rem; font-size: 0.85rem; opacity: 0.8; flex-wrap: wrap; gap: 1rem; }
 .legal-links { display: flex; gap: 1.5rem; }
-.legal-links a { color: var(--white); text-decoration: none; transition: color 0.3s; }
+.legal-links a { text-decoration: none; color: var(--white); transition: color 0.3s; }
 .legal-links a:hover { color: var(--yellow); }
 
 /* ========= STILE OVERLAY WORK IN PROGRESS ========= */
@@ -214,8 +332,7 @@ body::after {
 
 /* ========= RESPONSIVE DESIGN (MOBILE) ========= */
 @media (max-width: 992px) {
-    .chi-siamo-grid { grid-template-columns: 1fr; }
-    .shape-stack { min-height: 280px; margin-bottom: 2rem; }
+    .about-top-grid { grid-template-columns: 1fr; }
     .contact-grid { grid-template-columns: 1fr; }
     .footer-main { grid-template-columns: 1fr; text-align: center; }
     .footer-column + .footer-column { border-left: none; border-top: 1px solid rgba(255, 255, 255, 0.15); padding-top: 2rem; }
@@ -231,4 +348,6 @@ body::after {
     .nav-menu { position: fixed; left: -100%; top: 0; flex-direction: column; justify-content: center; background-color: var(--ink); width: 100%; height: 100vh; text-align: center; transition: 0.3s; gap: 2rem; }
     .nav-menu.active { left: 0; }
     .nav-item { font-size: 1.5rem; }
+    .carousel-item.is-prev { transform: translateX(-45%) scale(0.7); }
+    .carousel-item.is-next { transform: translateX(45%) scale(0.7); }
 }

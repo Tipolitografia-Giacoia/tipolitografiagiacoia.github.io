@@ -1,7 +1,4 @@
-// Questo è l'unico blocco di codice che deve essere in script.js
 document.addEventListener('DOMContentLoaded', function() {
-
-    console.log("Script caricato e DOM pronto.");
 
     // 1. MENU HAMBURGER
     const hamburger = document.querySelector(".hamburger");
@@ -29,103 +26,48 @@ document.addEventListener('DOMContentLoaded', function() {
     }, { threshold: 0.1 });
     revealElements.forEach(el => revealObserver.observe(el));
 
-    // ========= 3. CAROSELLO PRODOTTI (VERSIONE FLUIDA E ROBUSTA) =========
-
+    // 3. CAROSELLO PRODOTTI (COVER FLOW)
     const productImages = [
-        'data/prodotti/Tavola disegno 2@3x.png',
-        'data/prodotti/Tavola disegno 3@3x.png',
-        'data/prodotti/Tavola disegno 4@3x.png',
-        'data/prodotti/Tavola disegno 5@3x.png',
-        'data/prodotti/Tavola disegno 6@3x.png',
-        'data/prodotti/Tavola disegno 7@3x.png',
-        'data/prodotti/Tavola disegno 8@3x.png',
-        'data/prodotti/Tavola disegno 9@3x.png',
-        'data/prodotti/Tavola disegno 10@3x.png',
-        'data/prodotti/Tavola disegno 11@3x.png',
-        'data/prodotti/Tavola disegno 12@3x.png',
-        'data/prodotti/Tavola disegno 13@3x.png',
-        'data/prodotti/Tavola disegno 14@3x.png',
-        'data/prodotti/Tavola disegno 15@3x.png',
-        'data/prodotti/Tavola disegno 16@3x.png',
-        'data/prodotti/Tavola disegno 17@3x.png',
-        'data/prodotti/Tavola disegno 18@3x.png',
-        'data/prodotti/Tavola disegno 19@3x.png',
-        'data/prodotti/Tavola disegno 20@3x.png',
-        'data/prodotti/Tavola disegno 21@3x.png',
-        'data/prodotti/Tavola disegno 22@3x.png',
-        'data/prodotti/Tavola disegno 23@3x.png',
-        'data/prodotti/Tavola disegno 24@3x.png',
-        'data/prodotti/Tavola disegno 25@3x.png',
-        'data/prodotti/Tavola disegno 26@3x.png',
-        'data/prodotti/Tavola disegno 27@3x.png',
-        'data/prodotti/Tavola disegno 28@3x.png',
-        'data/prodotti/Tavola disegno 29@3x.png',
-        'data/prodotti/Tavola disegno 30@3x.png',
-        'data/prodotti/Tavola disegno 31@3x.png',
-        'data/prodotti/Tavola disegno 32@3x.png'
+        'data/prodotti/Tavola disegno 2@3x.png', 'data/prodotti/Tavola disegno 3@3x.png', 'data/prodotti/Tavola disegno 4@3x.png', 'data/prodotti/Tavola disegno 5@3x.png', 'data/prodotti/Tavola disegno 6@3x.png', 'data/prodotti/Tavola disegno 7@3x.png', 'data/prodotti/Tavola disegno 8@3x.png', 'data/prodotti/Tavola disegno 9@3x.png', 'data/prodotti/Tavola disegno 10@3x.png', 'data/prodotti/Tavola disegno 11@3x.png', 'data/prodotti/Tavola disegno 12@3x.png', 'data/prodotti/Tavola disegno 13@3x.png', 'data/prodotti/Tavola disegno 14@3x.png', 'data/prodotti/Tavola disegno 15@3x.png', 'data/prodotti/Tavola disegno 16@3x.png', 'data/prodotti/Tavola disegno 17@3x.png', 'data/prodotti/Tavola disegno 18@3x.png', 'data/prodotti/Tavola disegno 19@3x.png', 'data/prodotti/Tavola disegno 20@3x.png', 'data/prodotti/Tavola disegno 21@3x.png', 'data/prodotti/Tavola disegno 22@3x.png', 'data/prodotti/Tavola disegno 23@3x.png', 'data/prodotti/Tavola disegno 24@3x.png', 'data/prodotti/Tavola disegno 25@3x.png', 'data/prodotti/Tavola disegno 26@3x.png', 'data/prodotti/Tavola disegno 27@3x.png', 'data/prodotti/Tavola disegno 28@3x.png', 'data/prodotti/Tavola disegno 29@3x.png', 'data/prodotti/Tavola disegno 30@3x.png', 'data/prodotti/Tavola disegno 31@3x.png', 'data/prodotti/Tavola disegno 32@3x.png'
     ];
+    const carouselTrack = document.querySelector('.carousel-track');
+    const carouselPrevButton = document.querySelector('.carousel-container .arrow.prev');
+    const carouselNextButton = document.querySelector('.carousel-container .arrow.next');
 
-    let currentProductIndex = 0;
-    const productImageEl = document.getElementById('product-image');
-    const prevButton = document.querySelector('.arrow.prev');
-    const nextButton = document.querySelector('.arrow.next');
-
-    let isTransitioning = false; // Variabile "lucchetto" per evitare click ravvicinati
-    const transitionDuration = 400; // Durata della transizione in ms (deve corrispondere al CSS)
-
-    function showProduct(newIndex) {
-        // Se un'animazione è già in corso, non fare nulla
-        if (isTransitioning) {
-            return;
+    if (carouselTrack && carouselPrevButton && carouselNextButton) {
+        let currentIndex = 0;
+        productImages.forEach(src => {
+            const listItem = document.createElement('li');
+            listItem.className = 'carousel-item';
+            const image = document.createElement('img');
+            image.src = src;
+            image.alt = 'Prodotto Giacoia';
+            listItem.appendChild(image);
+            carouselTrack.appendChild(listItem);
+        });
+        const items = document.querySelectorAll('.carousel-item');
+        const totalItems = items.length;
+        function updateCarousel() {
+            items.forEach((item, i) => {
+                item.classList.remove('is-active', 'is-prev', 'is-next');
+                if (i === currentIndex) {
+                    item.classList.add('is-active');
+                } else if (i === (currentIndex - 1 + totalItems) % totalItems) {
+                    item.classList.add('is-prev');
+                } else if (i === (currentIndex + 1) % totalItems) {
+                    item.classList.add('is-next');
+                }
+            });
         }
-        // Blocca nuove animazioni
-        isTransitioning = true;
-
-        // 1. Inizia la dissolvenza dell'immagine attuale
-        productImageEl.style.opacity = '0';
-
-        // 2. PRE-CARICA la nuova immagine in background
-        const nextImage = new Image();
-        nextImage.src = productImages[newIndex];
-
-        // 3. QUANDO l'immagine è stata completamente scaricata...
-        nextImage.onload = () => {
-            // ...aggiorna l'elemento immagine visibile...
-            productImageEl.src = nextImage.src;
-            productImageEl.alt = `Prodotto ${newIndex + 1}`;
-
-            // ...e solo ORA fai partire la nuova dissolvenza in entrata.
-            productImageEl.style.opacity = '1';
-
-            // 4. Attendi la fine dell'animazione per sbloccare i click
-            setTimeout(() => {
-                isTransitioning = false;
-            }, transitionDuration);
-        };
-
-        // Fallback: se l'immagine non si carica, sblocca comunque dopo un po'
-        nextImage.onerror = () => {
-            console.error("Errore caricamento immagine:", nextImage.src);
-            isTransitioning = false;
-        };
-        
-        currentProductIndex = newIndex;
-    }
-
-    if (productImageEl && prevButton && nextButton) {
-        // Carica la prima immagine
-        productImageEl.src = productImages[currentProductIndex];
-        productImageEl.alt = `Prodotto ${currentProductIndex + 1}`;
-
-        nextButton.addEventListener('click', () => { 
-            const newIndex = (currentProductIndex + 1) % productImages.length; 
-            showProduct(newIndex); 
+        carouselNextButton.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % totalItems;
+            updateCarousel();
         });
-
-        prevButton.addEventListener('click', () => { 
-            const newIndex = (currentProductIndex - 1 + productImages.length) % productImages.length; 
-            showProduct(newIndex); 
+        carouselPrevButton.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+            updateCarousel();
         });
+        updateCarousel();
     }
 
     // 4. FORM DI CONTATTO
@@ -152,11 +94,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const wipOverlay = document.getElementById('wip-overlay');
     const wipCloseButton = document.getElementById('wip-close');
     const wipTriggers = document.querySelectorAll('.js-wip-trigger');
-    
-    // Log di Debug
-    console.log("Overlay WIP trovato:", wipOverlay);
-    console.log("Pulsanti Social trovati:", wipTriggers.length);
-
     if (wipTriggers.length > 0 && wipOverlay) {
         const openOverlay = (event) => {
             event.preventDefault();
@@ -171,7 +108,5 @@ document.addEventListener('DOMContentLoaded', function() {
         if (wipCloseButton) {
             wipCloseButton.addEventListener('click', closeOverlay);
         }
-    } else {
-        console.error("Errore: Elementi per l'overlay WIP non trovati.");
     }
 });

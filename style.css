@@ -341,11 +341,12 @@ body::after {
 
 .map-container {
     width: 100%;
-    aspect-ratio: 1 / 1; /* Crea un quadrato perfetto */
-    background-color: var(--white); /* Sfondo bianco per il riquadro */
+    height: 242px; /* <<== IMPOSTA L'ALTEZZA DESIDERATA QUI */
+    background-color: var(--white);
     border-radius: var(--radius);
-    overflow: hidden; /* Nasconde gli angoli dell'iframe */
+    overflow: hidden;
     box-shadow: var(--shadow);
+    margin-top: 2rem; /* Aggiungiamo un po' di spazio sopra */
 }
 
 .map-container iframe {

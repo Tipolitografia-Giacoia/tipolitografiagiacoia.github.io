@@ -163,32 +163,36 @@ document.addEventListener('DOMContentLoaded', function() {
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
+            e.preventDefault(); // Impedisce al form di ricaricare la pagina
+
+            // 1. Recupera i valori dai campi del form
             const nome = document.getElementById('nome').value.trim();
-            const email = document.getElementById('email').value.trim();
+            const emailMittente = document.getElementById('email').value.trim();
+            const prodottoSelezionato = document.getElementById('product-search').value.trim();
             const messaggio = document.getElementById('messaggio').value.trim();
-            const prodottoSelezionato = document.getElementById('prodotto').value; // Recupera il prodotto selezionato
             const formNote = document.getElementById('form-note');
 
-            if (!nome || !email || !messaggio) {
-                if(formNote) formNote.textContent = 'Per favore, compila tutti i campi obbligatori.';
+            // 2. Validazione semplice
+            if (!nome || !emailMittente || !messaggio) {
+                if (formNote) formNote.textContent = 'Per favore, compila tutti i campi obbligatori.';
                 return;
             }
 
-            // Costruisci il corpo dell'email includendo il prodotto
-            const subject = encodeURIComponent(`Richiesta dal sito - ${nome}`);
-            const body = encodeURIComponent(
-                `Nome: ${nome}\n` +
-                `Email: ${email}\n` +
-                `Prodotto di interesse: ${prodottoSelezionato || 'Non specificato'}\n\n` +
-                `Messaggio:\n${messaggio}`
-            );
+            // 3. Costruisci il nuovo oggetto dell'email
+            const oggettoMail = `Richiesta Informazioni da sito web - ${prodottoSelezionato || 'Generica'}`;
 
+            // 4. Costruisci il nuovo corpo del messaggio, includendo tutti i campi
+            const corpoMail = `Nome: ${nome}\n\n` +
+                              `Email: ${emailMittente}\n\n` +
+                              `Messaggio:\n${messaggio}`;
+
+            // 5. Codifica i testi per l'URL e crea il link mailto
+            const subject = encodeURIComponent(oggettoMail);
+            const body = encodeURIComponent(corpoMail);
+            
             window.location.href = `mailto:giacoia-e@libero.it?subject=${subject}&body=${body}`;
-            if(formNote) formNote.textContent = 'Sto aprendo il tuo client di posta...';
         });
     }
-
     // ===================================================
     // 6. OVERLAY "WORK IN PROGRESS" PER SOCIAL
     // ===================================================

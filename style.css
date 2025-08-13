@@ -37,6 +37,7 @@ body {
     background-color: var(--ink);
     color: var(--white);
     line-height: 1.6;
+    overflow-x: hidden;
 }
 body::before {
     content: "";
@@ -44,7 +45,8 @@ body::before {
     inset: 0;
     background:
         url("data/back 2.png") center/cover no-repeat,
-        radial-gradient(1200px 800px at 10% 0%, rgba(255,255,255,.06), transparent 60%),
+        /* Modifichiamo la posizione del gradiente da '10% 0%' a 'center top' */
+        radial-gradient(1200px 800px at center top, rgba(255,255,255,.06), transparent 70%),
         linear-gradient(135deg, var(--violet), var(--fuchsia) 40%, var(--red));
     z-index: -3;
 }

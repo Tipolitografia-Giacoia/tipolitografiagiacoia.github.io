@@ -113,43 +113,63 @@
             <div class="container">
                 <h2 class="section-title">CONTATTACI.</h2>
                 <div class="contact-grid">
+
+                    <!-- Colonna Sinistra: Info e Mappa -->
                     <div class="contact-info">
-                        <div class="contact-item reveal">
-                            <img src="data/event.gif" alt="Indirizzo">
+                        <div class="contact-item-simple">
+                            <img src="data/event.gif" alt="Icona indirizzo" class="contact-icon-gif icon-map">
+                            <a href="https://www.google.com/maps/search/?api=1&query=Via+Salvatore+Fitto+9+74014+Laterza+TA" target="_blank" rel="noopener noreferrer">
+                                Via Salvatore Fitto, 9 - ZONA P.I.P.<br>74014 Laterza (TA)
+                            </a>
+                        </div>
+                        <div class="contact-item-simple">
+                            <img src="data/email.gif" alt="Icona email" class="contact-icon-gif">
+                            <a href="mailto:giacoia-e@libero.it">giacoia-e@libero.it</a>
+                        </div>
+                        <div class="contact-item-simple">
+                            <img src="data/phone.gif" alt="Icona telefono" class="contact-icon-gif icon-phone">
                             <div>
-                                <a href="https://www.google.com/maps/search/?api=1&query=Via+Salvatore+Fitto+9+74014+Laterza+TA" target="_blank" rel="noopener noreferrer">
-                                    <strong>Via Salvatore Fitto, 9 – ZONA P.I.P. 74014 Laterza (TA)</strong>
-                                </a>
-                                <small>Lunedì–Venerdì 9–13 / 16–19</small>
+                                <a href="tel:+390998296355">+39 099 829 63 55</a><br>
+                                <a href="tel:+393288938063">+39 328 89 38 063</a>
                             </div>
                         </div>
-                        <div class="contact-item reveal">
-                            <img src="data/email.gif" alt="Email">
-                            <div>
-                                <a href="mailto:giacoia-e@libero.it"><strong>giacoia-e@libero.it</strong></a>
-                                <small>Rispondiamo entro 24h</small>
-                            </div>
-                        </div>
-                        <div class="contact-item reveal">
-                            <img src="data/phone.gif" alt="Telefono">
-                            <div>
-                                <a href="tel:+390998296355"><strong>+39 099 829 63 55</strong></a>
-                                <small>Chiamaci per urgenze</small>
-                            </div>
+                        <!-- Mappa di Google Maps -->
+                        <div class="map-container">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.992224095493!2d16.79373981534951!3d40.63004897934091!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1346e090f0a4c2a7%3A0x6334a1738e45bf94!2sVia%20Salvatore%20Fitto%2C%209%2C%2074014%20Laterza%20TA!5e0!3m2!1sit!2sit!4v1660000000000!5m2!1sit!2sit" 
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mappa della nostra sede"></iframe>
                         </div>
                     </div>
-                    <form id="contact-form" class="reveal">
-                        <input type="text" id="nome" name="nome" placeholder="Il tuo nome *" required>
-                        <input type="email" id="email" name="email" placeholder="La tua email *" required>
-                        <textarea id="messaggio" name="messaggio" rows="5" placeholder="Scrivi qui la tua richiesta... *" required></textarea>
-                        <button type="submit" class="cta-button">INVIA MESSAGGIO</button>
+
+                    <!-- Colonna Destra: Form -->
+                    <form id="contact-form" class="contact-form-column">
+                        <label for="nome">Nome <span class="form-required">*obbligatorio</span></label>
+                        <input type="text" id="nome" name="nome" required>
+                        
+                        <label for="email">E-mail <span class="form-required">*obbligatorio</span></label>
+                        <input type="email" id="email" name="email" required>
+
+                        <label for="product-search">Selezione Prodotto</label>
+                        <div class="product-search-container">
+                            <input type="text" id="product-search" name="prodotto" placeholder="Cerca un prodotto o servizio..." autocomplete="off">
+                            <div id="product-suggestions" class="product-suggestions">
+                                <!-- I suggerimenti verranno inseriti qui da JavaScript -->
+                            </div>
+                        </div>
+
+                        <label for="messaggio">Messaggio <span class="form-required">*obbligatorio</span></label>
+                        <div class="textarea-container">
+                            <textarea id="messaggio" name="messaggio" rows="8" required></textarea>
+                            <div id="textarea-placeholder" class="textarea-placeholder">
+                                Inserisci una descrizione chiara e completa del progetto: obiettivi, dettagli tecnici, formato, materiali, tempistiche e qualsiasi informazione utile per una corretta analisi e preventivazione.
+                            </div>
+                        </div>
+
+                        <button type="submit" class="cta-button">INVIA</button>
                         <small id="form-note"></small>
                     </form>
                 </div>
             </div>
         </section>
-    </main>
-
     <!-- ========= FOOTER ========= -->
     <footer class="footer">
         <div class="container">

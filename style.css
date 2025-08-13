@@ -287,18 +287,225 @@ body::after {
 }
 
 /* ========= CONTATTI ========= */
-.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
-.contact-info { display: flex; flex-direction: column; gap: 1rem; }
-.contact-item { display: grid; grid-template-columns: 46px auto; gap: 1rem; align-items: center; background: linear-gradient(135deg, rgba(255,255,255,.07), rgba(255,255,255,.02)); border: 1px solid rgba(255,255,255,.14); border-radius: var(--radius); padding: 1rem; }
-.contact-item img { width: 46px; height: 46px; }
-.contact-item a { text-decoration: none; color: inherit; }
-.contact-item a:hover { color: var(--yellow); }
-.contact-item small { opacity: .85; }
-#contact-form { display: flex; flex-direction: column; gap: 1rem; }
-#contact-form input, #contact-form textarea { width: 100%; padding: 12px 14px; border-radius: var(--radius); border: 1px solid rgba(255,255,255,.22); background: rgba(0,0,0,.2); color: var(--white); font-family: var(--font-body); font-size: 1rem; }
-#contact-form input::placeholder, #contact-form textarea::placeholder { color: rgba(255,255,255,.7); }
-#contact-form .cta-button { align-self: flex-start; margin-top: 0; }
-#form-note { margin-top: 0.5rem; font-size: 0.9rem; color: var(--yellow); }
+#contattaci.section {
+    padding-top: clamp(4rem, 8vw, 6rem);
+    padding-bottom: clamp(4rem, 8vw, 6rem);
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr; /* Colonna sinistra più piccola */
+    gap: 4rem; /* Spazio tra le due colonne */
+    align-items: start;
+}
+
+/* --- Colonna Sinistra: Info e Mappa --- */
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem; /* Spazio tra gli elementi informativi */
+}
+
+.contact-item-simple {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.contact-icon-gif {
+    width: 40px; /* Adatta la dimensione se necessario */
+    height: 40px;
+    flex-shrink: 0;
+}
+
+.icon-map {
+    width: 48px;  /* Aumenta la dimensione (prova con valori diversi se vuoi) */
+    height: 48px;
+}
+
+.icon-phone {
+    width: 32px;  /* Diminuisce la dimensione (prova con valori diversi se vuoi) */
+    height: 32px;
+}
+
+.contact-item-simple a {
+    color: var(--white);
+    text-decoration: none;
+    line-height: 1.5;
+    transition: color 0.3s;
+}
+
+.contact-item-simple a:hover {
+    color: var(--yellow);
+}
+
+.map-container {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Crea un quadrato perfetto */
+    background-color: var(--white); /* Sfondo bianco per il riquadro */
+    border-radius: var(--radius);
+    overflow: hidden; /* Nasconde gli angoli dell'iframe */
+    box-shadow: var(--shadow);
+}
+
+.map-container iframe {
+    /* Filtro per rendere la mappa in bianco e nero/desaturata */
+    filter: grayscale(100%);
+    transition: filter 0.3s;
+}
+
+.map-container:hover iframe {
+    filter: grayscale(0%); /* La mappa torna a colori al passaggio del mouse */
+}
+
+
+/* --- Colonna Destra: Form --- */
+.contact-form-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form-column label {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.contact-form-column input,
+.contact-form-column select,
+.contact-form-column textarea {
+    width: 100%;
+    padding: 14px 18px;
+    margin-bottom: 1.5rem;
+    border: none;
+    border-radius: var(--radius);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--ink); /* Testo scuro dentro i campi */
+    
+    /* Applichiamo lo stesso sfondo della sezione prodotti */
+    background-color: var(--muted);
+    background-image: url('data/Tavola disegno 6@3x.png');
+    background-size: 400px;
+}
+
+.contact-form-column select {
+    appearance: none; /* Rimuove lo stile di default del select */
+    background-image: url('data/Tavola disegno 6@3x.png'), 
+                      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath fill='%231a1a1a' d='M201.4 342.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 274.7 86.6 137.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z'/%3E%3C/svg%3E");
+    background-repeat: repeat, no-repeat;
+    background-position: 0 0, right 15px center;
+    background-size: 400px, 16px;
+}
+
+.textarea-container {
+    position: relative;
+}
+
+.textarea-placeholder {
+    position: absolute;
+    top: 14px;
+    left: 18px;
+    
+    /* === MODIFICHE CHIAVE === */
+    /* 1. Calcoliamo la larghezza: 100% del contenitore meno lo spazio laterale */
+    width: calc(100% - 36px); /* 18px a sinistra + 18px a destra */
+    
+    /* 2. Rimuoviamo la possibilità di selezionare il testo (migliora l'usabilità) */
+    user-select: none;
+    /* ======================== */
+
+    color: rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+    transition: opacity 0.2s;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.contact-form-column .cta-button {
+    align-self: flex-start;
+    margin-top: 0;
+}
+
+/* Responsive per la griglia dei contatti */
+@media (max-width: 992px) {
+    .contact-grid {
+        grid-template-columns: 1fr; /* Le colonne si impilano */
+    }
+}
+
+.form-required {
+    opacity: 0.6;      /* Rende il testo più trasparente */
+    font-weight: normal; /* Opzionale: rende il testo meno grassetto, se lo è */
+    font-size: 0.8em;    /* Opzionale: rende il testo leggermente più piccolo */
+    margin-left: 8px;    /* Opzionale: aggiunge un po' di spazio dal nome del campo */
+}
+
+/* ============================================== */
+/* STILE PER LA RICERCA PRODOTTO CON SUGGERIMENTI */
+/* ============================================== */
+
+/* Contenitore che avvolge l'input e la tendina dei suggerimenti */
+.product-search-container {
+    position: relative; /* Fondamentale per posizionare la tendina */
+    margin-bottom: 1.5rem;
+}
+
+/* Stile specifico per il campo di ricerca (se necessario) */
+#product-search {
+    width: 100%;
+    margin-bottom: 0 !important; /* Impedisce che abbia un margine inferiore, dato che lo ha già il suo contenitore */
+}
+
+/* Stile della "tendina" dei suggerimenti */
+.product-suggestions {
+    position: absolute; /* Si posiziona rispetto a .product-search-container */
+    top: 100%; /* Appare subito sotto il campo di input */
+    left: 0;
+    right: 0;
+    
+    /* Sfondo texturizzato, uguale agli altri campi del form */
+    background-color: var(--muted);
+    background-image: url('data/Tavola disegno 6@3x.png');
+    background-size: 400px;
+    
+    /* Ombra per dare un effetto di profondità */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-top: none;
+    border-radius: 0 0 var(--radius) var(--radius); /* Arrotonda solo gli angoli inferiori */
+    
+    max-height: 250px; /* Altezza massima prima di mostrare la scrollbar */
+    overflow-y: auto; /* Aggiunge la scrollbar se i risultati sono troppi */
+    z-index: 10; /* Assicura che sia sopra gli altri elementi */
+    
+    display: none; /* Nascosto di default */
+}
+
+/* Classe per mostrare la tendina (gestita da JavaScript) */
+.product-suggestions.active {
+    display: block;
+}
+
+/* Stile per ogni singolo suggerimento nella tendina */
+.suggestion-item {
+    padding: 12px 18px;
+    cursor: pointer;
+    color: var(--ink); /* Testo scuro */
+    transition: background-color 0.2s;
+    font-size: 0.95rem;
+}
+
+/* Effetto al passaggio del mouse su un suggerimento */
+.suggestion-item:hover {
+    background-color: rgba(0, 0, 0, 0.05); /* Leggero scurimento */
+}
+
+/* Stile per l'ultimo elemento della lista (per gli angoli arrotondati) */
+.suggestion-item:last-child {
+    border-radius: 0 0 var(--radius) var(--radius);
+}
 
 /* ========= FOOTER ========= */
 .footer { background: linear-gradient(180deg, rgba(0,0,0,.2), rgba(0,0,0,.55)); padding: 4rem 0 2rem 0; font-size: 0.95rem; }
@@ -352,4 +559,16 @@ body::after {
     .nav-item { font-size: 1.5rem; }
     .carousel-item.is-prev { transform: translateX(-45%) scale(0.7); }
     .carousel-item.is-next { transform: translateX(45%) scale(0.7); }
+}
+
+.contact-item-simple > a {
+    display: flex;
+    align-items: center;
+}
+
+/* Per il gruppo di link del telefono */
+.contact-text-group {
+    display: flex;
+    flex-direction: column; /* Impila i numeri uno sopra l'altro */
+    justify-content: center; /* Centra verticalmente il gruppo di numeri */
 }

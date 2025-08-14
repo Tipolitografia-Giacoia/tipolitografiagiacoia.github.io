@@ -234,4 +234,25 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // ========= 8. GESTIONE BANNER COOKIE =========
+    const cookieBanner = document.getElementById('cookie-banner');
+    const acceptCookiesButton = document.getElementById('accept-cookies');
+
+    // Controlla se l'utente ha già dato il consenso
+    if (!localStorage.getItem('cookie_consent')) {
+        // Se non c'è il consenso, mostra il banner dopo un breve ritardo
+        setTimeout(() => {
+            if(cookieBanner) cookieBanner.classList.add('active');
+        }, 1000);
+    }
+
+    // Quando l'utente clicca "Accetta"
+    if (acceptCookiesButton) {
+        acceptCookiesButton.addEventListener('click', () => {
+            // Salva il consenso nel localStorage del browser
+            localStorage.setItem('cookie_consent', 'true');
+            // Nascondi il banner
+            if(cookieBanner) cookieBanner.classList.remove('active');
+        });
+    }
 }); // Fine del DOMContentLoaded

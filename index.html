@@ -8,230 +8,222 @@
 </head>
 <body id="top">
 
-    <!-- ========= HEADER / NAVBAR ========= -->
-    <header class="header">
-        <nav class="navbar">
-            <a href="#top" class="nav-logo">
-                <img src="data/logo-intero.png" alt="Logo Tipolitografia Giacoia">
-            </a>
-            <ul class="nav-menu">
-                <li class="nav-item"><a href="#chi-siamo" class="nav-link">Chi Siamo</a></li>
-                <li class="nav-item"><a href="#prodotti" class="nav-link">Prodotti</a></li>
-                <li class="nav-item"><a href="#contattaci" class="nav-link">Contattaci</a></li>
-            </ul>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-        </nav>
-    </header>
+    <div class="page-wrapper">
+        <!-- HEADER / NAVBAR -->
+        <header class="header">
+            <nav class="navbar">
+                <a href="#top" class="nav-logo">
+                    <img src="data/logo-intero.png" alt="Logo Tipolitografia Giacoia">
+                </a>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="#chi-siamo" class="nav-link">Chi Siamo</a></li>
+                    <li class="nav-item"><a href="#prodotti" class="nav-link">Prodotti</a></li>
+                    <li class="nav-item"><a href="#contattaci" class="nav-link">Contattaci</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </header>
 
-    <main>
-        <!-- ========= HERO SECTION ========= -->
-        <section id="hero" class="hero">
-            <video autoplay muted loop playsinline class="hero-video">
-                <source src="data/aaa.mp4" type="video/mp4">
-                Il tuo browser non supporta i video.
-            </video>
-            <div class="hero-overlay"></div>
-            <div class="hero-content">
-                <h1 class="hero-title">DESIGN CHE <span>ISPIRA</span>.<br>
-                    STAMPA CHE <span>SEDUCE</span>.</h1>
-            </div>
-        </section>
+        <main>
+            <!-- HERO SECTION -->
+            <section id="hero" class="hero">
+                <video autoplay muted loop playsinline class="hero-video">
+                    <source src="data/aaa.mp4" type="video/mp4">
+                    Il tuo browser non supporta i video.
+                </video>
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <h1 class="hero-title">DESIGN CHE <span>ISPIRA</span>. STAMPA CHE <span>SEDUCE</span>.</h1>
+                </div>
+            </section>
 
-        <div class="separator"></div>
+            <div class="separator"></div>
 
-        <!-- ========= NUOVA SEZIONE CHI SIAMO (VERSIONE FINALE) ========= -->
-        <section id="chi-siamo" class="about-section">
-            <!-- PARTE SUPERIORE: Testo e sfondo con l'immagine della ragazza -->
-            <div class="about-top">
-                <div class="about-top-overlay"></div> <!-- Overlay per la leggibilità -->
+            <!-- SEZIONE CHI SIAMO -->
+            <section id="chi-siamo" class="about-section">
+                <div class="about-top">
+                    <div class="about-top-overlay"></div>
+                    <div class="container">
+                        <div class="about-top-grid">
+                            <div class="about-text-box reveal">
+                                <h2 class="section-title">CHI SIAMO.</h2>
+                                <p>Artigiani della stampa, maestri del dettaglio.</p>
+                                <p>Da <strong>oltre 30 anni</strong> trasformiamo carta e colore in emozione, con la precisione di una macchina e il tocco caldo di una bottega. Diamo forma alle idee, vestiamo i progetti, <strong>rendiamo reale ciò che esiste nella tua mente</strong>.</p>
+                                <p>Sperimentiamo, consigliamo, accompagniamo. Usiamo la tecnologia per <strong>potenziare la creatività</strong>, non per sostituirla. E ogni progetto è un pezzo unico, perché ci <strong>mettiamo testa, mani e cuore</strong>.</p>
+                            </div>
+                            <div class="about-metrics-box reveal">
+                                <div class="metric-item">
+                                    <div class="num">+ 30 ANNI</div>
+                                    <small>di esperienza sul campo.</small>
+                                </div>
+                                <div class="metric-item">
+                                    <div class="num">+ 3.000</div>
+                                    <small>tra aziende, professionisti e privati soddisfatti.</small>
+                                </div>
+                                <div class="metric-item">
+                                    <div class="num">+ 10.000</div>
+                                    <small>progetti realizzati.</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-bottom">
+                    <img src="data/capannone def.png" alt="Sede della Tipolitografia Giacoia" loading="lazy">
+                </div>
+            </section>
+
+            <div class="separator"></div>
+            
+            <!-- CAROSELLO COVER FLOW -->
+            <section id="prodotti" class="section prodotti">
                 <div class="container">
-                    <div class="about-top-grid">
-                        <!-- Colonna sinistra: Testo descrittivo -->
-                        <div class="about-text-box reveal">
-                            <h2 class="section-title">CHI SIAMO.</h2>
-                            <p>Artigiani della stampa, maestri del dettaglio.</p>
-                            <p>Da <strong>oltre 30 anni</strong> trasformiamo carta e colore in emozione, con la precisione di una macchina e il tocco caldo di una bottega. Diamo forma alle idee, vestiamo i progetti, <strong>rendiamo reale ciò che esiste nella tua mente</strong>.</p>
-                            <p>Sperimentiamo, consigliamo, accompagniamo. Usiamo la tecnologia per <strong>potenziare la creatività</strong>, non per sostituirla. E ogni progetto è un pezzo unico, perché ci <strong>mettiamo testa, mani e cuore</strong>.</p>
-                        </div>
-                        <!-- Colonna destra: Metriche -->
-                        <div class="about-metrics-box reveal">
-                            <div class="metric-item">
-                                <div class="num">+ 30 ANNI</div>
-                                <small>di esperienza sul campo.</small>
-                            </div>
-                            <div class="metric-item">
-                                <div class="num">+ 3.000</div>
-                                <small>tra aziende, professionisti e privati soddisfatti.</small>
-                            </div>
-                            <div class="metric-item">
-                                <div class="num">+ 10.000</div>
-                                <small>progetti realizzati.</small>
-                            </div>
+                    <h2 class="section-title">PRODOTTI.</h2>
+                    <div class="carousel-container">
+                        <ul class="carousel-track"></ul>
+                        <div class="carousel-navigation">
+                            <button class="arrow prev" aria-label="Prodotto precedente">&lt;</button>
+                            <button class="arrow next" aria-label="Prodotto successivo">&gt;</button>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- PARTE INFERIORE: Immagine del capannone a larghezza piena -->
-            <div class="about-bottom">
-                <img src="data/capannone def.png" alt="Sede della Tipolitografia Giacoia">
-            </div>
-        </section>
+            </section>
 
+            <!-- IMAGE BAND -->
+            <section class="image-band">
+                <!-- Sfondo via CSS -->
+            </section>
 
-        <div class="separator"></div>
-        
-        <!-- ========= CAROSELLO COVER FLOW ========= -->
-        <section id="prodotti" class="section prodotti">
-            <div class="container">
-                <h2 class="section-title">PRODOTTI.</h2>
-                <div class="carousel-container">
-                    <ul class="carousel-track">
-                        <!-- Le immagini verranno generate qui da JavaScript -->
-                    </ul>
-                    <!-- Nuovo contenitore per le frecce -->
-                    <div class="carousel-navigation">
-                        <button class="arrow prev" aria-label="Prodotto precedente">&lt;</button>
-                        <button class="arrow next" aria-label="Prodotto successivo">&gt;</button>
+            <div class="separator"></div>
+
+            <!-- CONTATTI -->
+            <section id="contattaci" class="section">
+                <div class="container">
+                    <h2 class="section-title">CONTATTACI.</h2>
+                    <div class="contact-grid">
+                        <div class="contact-info">
+                            <div class="contact-item-simple">
+                                <img src="data/event.gif" alt="Icona indirizzo" class="contact-icon-gif icon-map">
+                                <a href="https://www.google.com/maps/search/?api=1&query=Via+Salvatore+Fitto+9+74014+Laterza+TA" target="_blank" rel="noopener noreferrer">
+                                    Via Salvatore Fitto, 9 - ZONA P.I.P.<br>74014 Laterza (TA)
+                                </a>
+                            </div>
+                            <div class="contact-item-simple">
+                                <img src="data/email.gif" alt="Icona email" class="contact-icon-gif">
+                                <a href="mailto:giacoia-e@libero.it">giacoia-e@libero.it</a>
+                            </div>
+                            <div class="contact-item-simple">
+                                <img src="data/phone.gif" alt="Icona telefono" class="contact-icon-gif icon-phone">
+                                <div class="contact-text-group">
+                                    <a href="tel:+390998296355">+39 099 829 63 55</a><br>
+                                    <a href="tel:+393288938063">+39 328 89 38 063</a>
+                                </div>
+                            </div>
+                            <div class="map-container">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.992224095493!2d16.79373981534951!3d40.63004897934091!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1346e090f0a4c2a7%3A0x6334a1738e45bf94!2sVia%20Salvatore%20Fitto%2C%209%2C%2074014%20Laterza%20TA!5e0!3m2!1sit!2sit!4v1660000000000!5m2!1sit!2sit" 
+                                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mappa della nostra sede"></iframe>
+                            </div>
+                        </div>
+                        <form id="contact-form" class="contact-form-column">
+                            <label for="nome">Nome <span class="form-required">*obbligatorio</span></label>
+                            <input type="text" id="nome" name="nome" required>
+                            <label for="email">E-mail <span class="form-required">*obbligatorio</span></label>
+                            <input type="email" id="email" name="email" required>
+                            <label for="product-search">Selezione Prodotto</label>
+                            <div class="product-search-container">
+                                <input type="text" id="product-search" name="prodotto" placeholder="Cerca un prodotto o servizio..." autocomplete="off">
+                                <div id="product-suggestions" class="product-suggestions"></div>
+                            </div>
+                            <label for="messaggio">Messaggio <span class="form-required">*obbligatorio</span></label>
+                            <div class="textarea-container">
+                                <textarea id="messaggio" name="messaggio" rows="8" required></textarea>
+                                <div id="textarea-placeholder" class="textarea-placeholder">
+                                    Inserisci una descrizione chiara e completa del progetto: obiettivi, dettagli tecnici, formato, materiali, tempistiche e qualsiasi informazione utile per una corretta analisi e preventivazione.
+                                </div>
+                            </div>
+                            <button type="submit" class="cta-button">INVIA</button>
+                            <small id="form-note"></small>
+                        </form>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </main>
 
-
-        <!-- ========= IMAGE BAND ========= -->
-        <section class="image-band">
-            <!-- Lo sfondo verrà applicato via CSS -->
-        </section>
-
-        <div class="separator"></div>
-
-        <!-- ========= CONTATTI ========= -->
-        <section id="contattaci" class="section">
+        <!-- FOOTER -->
+        <footer class="footer">
             <div class="container">
-                <h2 class="section-title">CONTATTACI.</h2>
-                <div class="contact-grid">
-
-                    <!-- Colonna Sinistra: Info e Mappa -->
-                    <div class="contact-info">
-                        <div class="contact-item-simple">
-                            <img src="data/event.gif" alt="Icona indirizzo" class="contact-icon-gif icon-map">
+                <div class="footer-main">
+                    <div class="footer-column footer-info">
+                        <img src="data/logo-intero.png" alt="Logo Tipolitografia Giacoia" class="footer-logo">
+                        <p>
                             <a href="https://www.google.com/maps/search/?api=1&query=Via+Salvatore+Fitto+9+74014+Laterza+TA" target="_blank" rel="noopener noreferrer">
-                                Via Salvatore Fitto, 9 - ZONA P.I.P.<br>74014 Laterza (TA)
+                                Via Salvatore Fitto, 9 - ZONA P.I.P.<br>
+                                74014 Laterza (TA)
                             </a>
-                        </div>
-                        <div class="contact-item-simple">
-                            <img src="data/email.gif" alt="Icona email" class="contact-icon-gif">
+                        </p>
+                        <p>
+                            P.IVA 02095980732<br>
                             <a href="mailto:giacoia-e@libero.it">giacoia-e@libero.it</a>
-                        </div>
-                        <div class="contact-item-simple">
-                            <img src="data/phone.gif" alt="Icona telefono" class="contact-icon-gif icon-phone">
-                            <div>
-                                <a href="tel:+390998296355">+39 099 829 63 55</a><br>
-                                <a href="tel:+393288938063">+39 328 89 38 063</a>
-                            </div>
-                        </div>
-                        <!-- Mappa di Google Maps -->
-                        <div class="map-container">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.992224095493!2d16.79373981534951!3d40.63004897934091!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1346e090f0a4c2a7%3A0x6334a1738e45bf94!2sVia%20Salvatore%20Fitto%2C%209%2C%2074014%20Laterza%20TA!5e0!3m2!1sit!2sit!4v1660000000000!5m2!1sit!2sit" 
-                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mappa della nostra sede"></iframe>
-                        </div>
+                        </p>
+                        <p>
+                            <a href="tel:+390998296355">+39 099 829 63 55</a><br>
+                            <a href="tel:+393288938063">+39 328 89 38 063</a>
+                        </p>
                     </div>
-
-                    <!-- Colonna Destra: Form -->
-                    <form id="contact-form" class="contact-form-column">
-                        <label for="nome">Nome <span class="form-required">*obbligatorio</span></label>
-                        <input type="text" id="nome" name="nome" required>
-                        
-                        <label for="email">E-mail <span class="form-required">*obbligatorio</span></label>
-                        <input type="email" id="email" name="email" required>
-
-                        <label for="product-search">Selezione Prodotto</label>
-                        <div class="product-search-container">
-                            <input type="text" id="product-search" name="prodotto" placeholder="Cerca un prodotto o servizio..." autocomplete="off">
-                            <div id="product-suggestions" class="product-suggestions">
-                                <!-- I suggerimenti verranno inseriti qui da JavaScript -->
-                            </div>
-                        </div>
-
-                        <label for="messaggio">Messaggio <span class="form-required">*obbligatorio</span></label>
-                        <div class="textarea-container">
-                            <textarea id="messaggio" name="messaggio" rows="8" required></textarea>
-                            <div id="textarea-placeholder" class="textarea-placeholder">
-                                Inserisci una descrizione chiara e completa del progetto: obiettivi, dettagli tecnici, formato, materiali, tempistiche e qualsiasi informazione utile per una corretta analisi e preventivazione.
-                            </div>
-                        </div>
-
-                        <button type="submit" class="cta-button">INVIA</button>
-                        <small id="form-note"></small>
-                    </form>
-                </div>
-            </div>
-        </section>
-    <!-- ========= FOOTER ========= -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-main">
-                <div class="footer-column footer-info">
-                    <img src="data/logo-intero.png" alt="Logo Tipolitografia Giacoia" class="footer-logo">
-                     <p>
-                        <a href="https://www.google.com/maps/search/?api=1&query=Via+Salvatore+Fitto+9+74014+Laterza+TA" target="_blank" rel="noopener noreferrer">
-                            Via Salvatore Fitto, 9 - ZONA P.I.P.<br>
-                            74014 Laterza (TA)
+                    <div class="footer-column footer-links">
+                        <h4>LINK RAPIDI</h4>
+                        <ul>
+                            <li><a href="#chi-siamo">Chi Siamo</a></li>
+                            <li><a href="#prodotti">Prodotti</a></li>
+                            <li><a href="#contattaci">Contattaci</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column footer-social">
+                        <a href="#work-in-progress" aria-label="Facebook" class="social-icon js-wip-trigger">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5V327.7h-63V256h63v-54.6c0-62.2 37-96.5 93.7-96.5 27.1 0 55.5 4.8 55.5 4.8v61h-31.3c-30.8 0-40.4 19.1-40.4 38.7V256h68.8l-11 71.7h-57.8V504.5C429.3 476.8 512 376 512 256z"/></svg>
                         </a>
-                    </p>
-                    <p>
-                        P.IVA 02095980732<br>
-                        <a href="mailto:giacoia-e@libero.it">giacoia-e@libero.it</a>
-                    </p>
-                    <p>
-                        <a href="tel:+390998296355">+39 099 829 63 55</a><br>
-                        <a href="tel:+393288938063">+39 328 89 38 063</a>
-                    </p>
+                        <a href="#work-in-progress" aria-label="Instagram" class="social-icon js-wip-trigger">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+                        </a>
+                        <a href="#work-in-progress" aria-label="TikTok" class="social-icon js-wip-trigger">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z"/></svg>
+                        </a>
+                    </div>
                 </div>
-                <div class="footer-column footer-links">
-                    <h4>LINK RAPIDI</h4>
-                    <ul>
-                        <li><a href="#chi-siamo">Chi Siamo</a></li>
-                        <li><a href="#prodotti">Prodotti</a></li>
-                        <li><a href="#contattaci">Contattaci</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column footer-social">
-                    <a href="#work-in-progress" aria-label="Facebook" class="social-icon js-wip-trigger">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5V327.7h-63V256h63v-54.6c0-62.2 37-96.5 93.7-96.5 27.1 0 55.5 4.8 55.5 4.8v61h-31.3c-30.8 0-40.4 19.1-40.4 38.7V256h68.8l-11 71.7h-57.8V504.5C429.3 476.8 512 376 512 256z"/></svg>
-                    </a>
-                    <a href="#work-in-progress" aria-label="Instagram" class="social-icon js-wip-trigger">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
-                    </a>
-                    <a href="#work-in-progress" aria-label="TikTok" class="social-icon js-wip-trigger">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z"/></svg>
-                    </a>
+                <div class="footer-bottom">
+                    <p>&copy; 2024 Giacoia Tipolitografia - Tutti i diritti riservati</p>
+                    <div class="legal-links">
+                        <a href="#">Privacy Policy</a>
+                        <a href="cookie-policy.html" target="_blank">Cookie Policy</a>
+                        <a href="#">Termini e condizioni</a>
+                    </div>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Giacoia Tipolitografia - Tutti i diritti riservati</p>
-                <div class="legal-links">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Cookie Policy</a>
-                    <a href="#">Termini e condizioni</a>
-                </div>
-            </div>
-        </div>
-    </footer>
+        </footer>
+    </div>
 
-    <!-- ========= OVERLAY WORK IN PROGRESS ========= -->
+    <!-- ELEMENTI FUORI DAL WRAPPER -->
     <div id="wip-overlay" class="wip-overlay">
         <div class="wip-content">
             <img src="data/logo.png" alt="Logo Tipolitografia Giacoia">
             <h2>Work in Progress</h2>
             <p>Stiamo preparando le nostre pagine social.<br>
-               Torna a trovarci presto!
-            </p>
+            Torna a trovarci presto!</p>
             <button id="wip-close" class="cta-button">Torna al sito</button>
+        </div>
+    </div>
+
+    <div id="cookie-banner" class="cookie-banner">
+        <div class="cookie-content">
+            <p>
+                Utilizziamo i cookie per migliorare la tua esperienza sul nostro sito. Incorporando servizi di terze parti come Google Maps, potrebbero essere installati cookie aggiuntivi.
+                <a href="cookie-policy.html" target="_blank">Leggi la nostra Cookie Policy</a>.
+            </p>
+            <button id="accept-cookies" class="cta-button">Accetta</button>
         </div>
     </div>
 

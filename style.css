@@ -1,20 +1,7 @@
-/* ========= IMPORTAZIONE FONT E VARIABILI ========= */
-@font-face {
-    font-family: 'DrukWide';
-    src: url('data/DrukWide-BoldItalic-Trial.otf') format('opentype');
-    font-weight: bold;
-    font-style: italic;
-}
-@font-face {
-    font-family: 'AirbnbCereal';
-    src: url('data/AirbnbCereal_W.otf') format('opentype');
-    font-weight: normal;
-}
-@font-face {
-    font-family: 'AirbnbCereal';
-    src: url('data/AirbnbCereal_W_Bk.otf') format('opentype');
-    font-weight: bold;
-}
+/* ========================================================= */
+/* STRUTTURA E SFONDO GLOBALE */
+/* ========================================================= */
+
 :root {
     --violet: #6B0DB4;
     --fuchsia: #E21673;
@@ -29,38 +16,33 @@
     --font-body: 'AirbnbCereal', sans-serif;
 }
 
-/* ========= STILI DI BASE E SFONDO ========= */
-/* Regola per l'HTML: la base di tutto */
-html {
-    background-color: var(--ink); /* Colore di fallback */
-    overflow-x: hidden; /* Prima barriera contro lo scorrimento laterale */
-}
+@font-face { font-family: 'DrukWide'; src: url('data/DrukWide-BoldItalic-Trial.otf') format('opentype'); font-weight: bold; font-style: italic; font-display: swap; }
+@font-face { font-family: 'AirbnbCereal'; src: url('data/AirbnbCereal_W.otf') format('opentype'); font-weight: normal; font-display: swap; }
+@font-face { font-family: 'AirbnbCereal'; src: url('data/AirbnbCereal_W_Bk.otf') format('opentype'); font-weight: bold; font-display: swap; }
 
-/* Regola per il BODY: il contenitore del contenuto */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html {
+    background-color: var(--ink);
+    scroll-behavior: smooth;
+}
+html, body, .page-wrapper {
+    width: 100%;
+    overflow-x: hidden;
+}
 body {
-    width: 100%; /* Occupa sempre tutta la larghezza */
-    overflow-x: hidden; /* Seconda barriera, per massima compatibilità */
-    background-color: transparent; /* Lascia vedere lo sfondo dell'HTML sottostante */
+    background-color: transparent;
     font-family: var(--font-body);
     color: var(--white);
     line-height: 1.6;
-    margin: 0;
-    padding: 0;
 }
-
-/* Sfondo con gradiente, ORA ATTACCATO A HTML */
 html::before {
     content: "";
     position: fixed;
     inset: 0;
-    background:
-        url("data/back 2.png") center/cover no-repeat,
-        radial-gradient(1200px 800px at center top, rgba(255,255,255,.06), transparent 70%),
-        linear-gradient(135deg, var(--violet), var(--fuchsia) 40%, var(--red));
+    background: url("data/back 2.png") center/cover no-repeat, radial-gradient(1200px 800px at center top, rgba(255,255,255,.06), transparent 70%), linear-gradient(135deg, var(--violet), var(--fuchsia) 40%, var(--red));
     z-index: -3;
 }
-
-/* Sfondo con texture, ORA ATTACCATO A HTML */
 html::after {
     content: "";
     position: fixed;
@@ -71,26 +53,17 @@ html::after {
     pointer-events: none;
     mix-blend-mode: soft-light;
 }
+
 .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
 .section { padding: clamp(5rem, 8vw, 8rem) 0; }
-.section-title {
-    font-family: var(--font-heading);
-    font-size: clamp(2rem, 5vw, 2.5rem);
-    text-align: center;
-    margin-bottom: 3rem;
-    text-transform: uppercase;
-}
+.section-title { font-family: var(--font-heading); font-size: clamp(2rem, 5vw, 2.5rem); text-align: center; margin-bottom: 3rem; text-transform: uppercase; }
 .section-title span { color: var(--yellow); }
 
-/* ========= HEADER / NAVBAR ========= */
-.header {
-    position: sticky;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    background: linear-gradient(to bottom, rgba(0,0,0,.55), rgba(0,0,0,0));
-    backdrop-filter: saturate(140%) blur(6px);
-}
+/* ========================================================= */
+/* COMPONENTI DEL SITO */
+/* ========================================================= */
+
+.header { position: sticky; top: 0; width: 100%; z-index: 1000; background: linear-gradient(to bottom, rgba(0,0,0,.55), rgba(0,0,0,0)); backdrop-filter: saturate(140%) blur(6px); }
 .navbar { display: flex; justify-content: space-between; align-items: center; height: 80px; padding: 0 2rem; }
 .nav-logo img { height: 50px; width: auto; }
 .nav-menu { display: flex; list-style: none; gap: 2.5rem; }
@@ -99,7 +72,6 @@ html::after {
 .hamburger { display: none; }
 .bar { display: block; width: 25px; height: 3px; margin: 5px auto; background-color: var(--white); transition: all 0.3s; }
 
-/* ========= HERO SECTION ========= */
 .hero { position: relative; height: 90vh; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; }
 .hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: saturate(110%) contrast(105%); }
 .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,.25), rgba(0,0,0,.45) 60%, rgba(0,0,0,.15)); }
@@ -107,424 +79,65 @@ html::after {
 .hero-title { font-family: var(--font-heading); font-size: clamp(2rem, 6vw, 4rem); text-transform: uppercase; }
 .hero-title span { color: var(--yellow); }
 
-/* ========= SEPARATOR ========= */
 .separator { height: 10px; background: url("data/Tavola disegno 4@3x.png") center/cover no-repeat; box-shadow: 0 -1px 0 rgba(255,255,255,.06), 0 1px 0 rgba(0,0,0,.25); }
 
-/* ========= STILE NUOVA SEZIONE CHI SIAMO (VERSIONE FINALE) ========= */
-.about-section {
-    padding: 0;
-    background-color: #e9e9e9;
-}
-.about-top {
-    position: relative;
-    padding: clamp(4rem, 8vw, 6rem) 0;
-    background-image: url('data/Image 2.jpg');
-    background-size: cover;
-    background-position: center top;
-}
-.about-top-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(107, 13, 180, 0.7), rgba(226, 22, 115, 0.7));
-    z-index: 1;
-}
-.about-top .container {
-    position: relative;
-    z-index: 2;
-}
-.about-top-grid {
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 3rem;
-    align-items: flex-start;
-}
-.about-text-box {
-    color: var(--white);
-}
-.about-text-box .section-title {
-    text-align: left;
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
-}
-.about-text-box p {
-    font-size: 1.1rem;
-    line-height: 1.7;
-    margin-bottom: 1.5rem;
-}
-.about-metrics-box {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-.metric-item {
-    background-color: rgba(40, 30, 120, 0.85);
-    color: var(--white);
-    padding: 1.5rem;
-    border-radius: var(--radius);
-}
-.metric-item .num {
-    font-family: var(--font-heading);
-    font-size: 1.8rem;
-    margin-bottom: 0.25rem;
-}
-.metric-item small {
-    opacity: 0.9;
-}
-.about-bottom {
-    line-height: 0;
-}
-.about-bottom img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
+.about-section { padding: 0; background-color: #e9e9e9; }
+.about-top { position: relative; padding: clamp(4rem, 8vw, 6rem) 0; background-image: url('data/Image 2.jpg'); background-size: cover; background-position: center top; }
+.about-top-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(107, 13, 180, 0.7), rgba(226, 22, 115, 0.7)); z-index: 1; }
+.about-top .container { position: relative; z-index: 2; }
+.about-top-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 3rem; align-items: flex-start; }
+.about-text-box { color: var(--white); }
+.about-text-box .section-title { text-align: left; font-size: 2.5rem; margin-bottom: 1.5rem; }
+.about-text-box p { font-size: 1.1rem; line-height: 1.7; margin-bottom: 1.5rem; }
+.about-metrics-box { display: flex; flex-direction: column; gap: 1.5rem; }
+.metric-item { background-color: rgba(40, 30, 120, 0.85); color: var(--white); padding: 1.5rem; border-radius: var(--radius); }
+.metric-item .num { font-family: var(--font-heading); font-size: 1.8rem; margin-bottom: 0.25rem; }
+.metric-item small { opacity: 0.9; }
+.about-bottom { line-height: 0; }
+.about-bottom img { width: 100%; height: auto; display: block; }
 
-/* ========= CAROSELLO COVER FLOW ========= */
-.prodotti {
-    background-color: var(--muted);
-    background-image: url('data/Tavola disegno 6@3x.png');
-    background-size: 400px;
-    background-repeat: repeat;
-    color: var(--ink);
-}
-.carousel-container {
-    position: relative;
-    width: 100%;
-    height: 60vh; /* << Aumentato per dare più spazio */
-    min-height: 500px; /* << Aumentato per dare più spazio */
-    max-width: 1000px;
-    margin: 0 auto;
-    perspective: 1500px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.carousel-track {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    order: 1;
-}
-.carousel-item {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: transform 0.5s ease-out, opacity 0.5s ease-out, z-index 0s 0.25s;
-    opacity: 0;
-    transform: translateX(0) scale(0.5);
-    z-index: 1;
-}
-.carousel-item img {
-    max-width: 80%;
-    max-height: 80%;
-    object-fit: contain;
-    -webkit-box-reflect: none;
-}
-.carousel-item.is-active {
-    opacity: 1;
-    transform: translateX(0) scale(1.15); /* << Ora è il 15% più grande di prima */
-    z-index: 3;
-}
+.prodotti { background-color: var(--muted); background-image: url('data/Tavola disegno 6@3x.png'); background-size: 400px; background-repeat: repeat; color: var(--ink); }
+.carousel-container { position: relative; width: 100%; height: 60vh; min-height: 500px; max-width: 1000px; margin: 0 auto; perspective: 1500px; display: flex; flex-direction: column; align-items: center; }
+.carousel-track { position: relative; width: 100%; height: 100%; list-style: none; padding: 0; margin: 0; order: 1; }
+.carousel-item { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; transition: transform 0.5s ease-out, opacity 0.5s ease-out, z-index 0s 0.25s; opacity: 0; transform: translateX(0) scale(0.5); z-index: 1; }
+.carousel-item img { max-width: 80%; max-height: 80%; object-fit: contain; -webkit-box-reflect: none; }
+.carousel-item.is-active { opacity: 1; transform: translateX(0) scale(1.15); z-index: 3; }
+.carousel-item.is-prev { opacity: 0.6; transform: translateX( min(max(-55vw, -450px), -200px) ) scale(0.9); z-index: 2; }
+.carousel-item.is-next { opacity: 0.6; transform: translateX( min(max(55vw, 200px), 450px) ) scale(0.9); z-index: 2; }
+.carousel-navigation { order: 2; margin-top: 1.5rem; }
+.carousel-container .arrow { position: static; transform: none; z-index: 10; margin: 0 10px; background: var(--fuchsia); color: var(--white); border: none; width: 40px; height: 40px; border-radius: 50%; font-size: 1.5rem; font-weight: bold; cursor: pointer; transition: background 0.3s; }
+.carousel-container .arrow:hover { background: var(--violet); }
 
-.carousel-item.is-prev {
-    opacity: 0.6;
-    transform: translateX( min(max(-55vw, -450px), -200px) ) scale(0.9); /* << Ora è al 90% della dimensione base */
-    z-index: 2;
-}
+.image-band { height: 60vh; min-height: 400px; background-image: url('data/image-environment.png'); background-size: cover; background-position: center center; background-repeat: no-repeat; background-attachment: fixed; }
 
-.carousel-item.is-next {
-    opacity: 0.6;
-    transform: translateX( min(max(55vw, 200px), 450px) ) scale(0.9); /* << Ora è al 90% della dimensione base */
-    z-index: 2;
-}
-.carousel-navigation {
-    order: 2;
-    margin-top: 1.5rem;
-}
-.carousel-container .arrow {
-    position: static;
-    transform: none;
-    z-index: 10;
-    margin: 0 10px;
-    background: var(--fuchsia);
-    color: var(--white);
-    border: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    font-size: 1.5rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-.carousel-container .arrow:hover {
-    background: var(--violet);
-}
-.cta-button {
-    display: block;
-    width: fit-content;
-    margin: 2rem auto 0;
-    padding: 12px 28px;
-    border-radius: 999px;
-    border: none;
-    cursor: pointer;
-    background: linear-gradient(90deg, var(--violet), var(--fuchsia));
-    color: var(--white);
-    font-family: var(--font-body);
-    font-weight: bold;
-    text-decoration: none;
-    box-shadow: var(--shadow);
-    transition: filter .25s ease, transform .1s ease;
-}
-.cta-button:hover { filter: brightness(1.1); }
+#contattaci.section { padding-top: clamp(4rem, 8vw, 6rem); padding-bottom: clamp(4rem, 8vw, 6rem); }
+.contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; align-items: start; }
+.contact-info { display: flex; flex-direction: column; gap: 2.5rem; }
+.contact-item-simple { display: flex; align-items: center; gap: 1.5rem; }
+.contact-icon-gif { width: 40px; height: 40px; flex-shrink: 0; }
+.icon-map { width: 48px; height: 48px; }
+.icon-phone { width: 32px; height: 32px; }
+.contact-text-group { display: flex; flex-direction: column; justify-content: center; }
+.contact-item-simple a { color: var(--white); text-decoration: none; line-height: 1.5; transition: color 0.3s; }
+.contact-item-simple a:hover { color: var(--yellow); }
+.map-container { width: 100%; height: 250px; background-color: var(--white); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); margin-top: 2rem; }
+.map-container iframe { filter: grayscale(100%); transition: filter 0.3s; }
+.map-container:hover iframe { filter: grayscale(0%); }
+.contact-form-column { display: flex; flex-direction: column; }
+.contact-form-column label { margin-bottom: 0.5rem; font-size: 0.9rem; opacity: 0.9; }
+.form-required { opacity: 0.6; font-weight: normal; font-size: 0.8em; margin-left: 8px; }
+.contact-form-column input, .contact-form-column select, .contact-form-column textarea { width: 100%; padding: 14px 18px; margin-bottom: 1.5rem; border: none; border-radius: var(--radius); font-family: var(--font-body); font-size: 1rem; color: var(--ink); background-color: var(--muted); background-image: url('data/Tavola disegno 6@3x.png'); background-size: 400px; }
+.textarea-container { position: relative; }
+.textarea-placeholder { position: absolute; top: 14px; left: 18px; width: calc(100% - 36px); user-select: none; color: rgba(0, 0, 0, 0.5); pointer-events: none; transition: opacity 0.2s; font-size: 1rem; line-height: 1.5; }
+.product-search-container { position: relative; margin-bottom: 1.5rem; }
+#product-search { width: 100%; margin-bottom: 0 !important; }
+.product-suggestions { position: absolute; top: 100%; left: 0; right: 0; background-color: var(--muted); background-image: url('data/Tavola disegno 6@3x.png'); background-size: 400px; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); border: 1px solid rgba(0, 0, 0, 0.1); border-top: none; border-radius: 0 0 var(--radius) var(--radius); max-height: 250px; overflow-y: auto; z-index: 10; display: none; }
+.product-suggestions.active { display: block; }
+.suggestion-item { padding: 12px 18px; cursor: pointer; color: var(--ink); transition: background-color 0.2s; font-size: 0.95rem; }
+.suggestion-item:hover { background-color: rgba(0, 0, 0, 0.05); }
+.suggestion-item:last-child { border-radius: 0 0 var(--radius) var(--radius); }
 
-/* ========= IMAGE BAND ========= */
-.image-band {
-    height: 60vh;
-    min-height: 400px;
-    background-image: url('data/image-environment.png');
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-}
-
-/* ========= CONTATTI ========= */
-#contattaci.section {
-    padding-top: clamp(4rem, 8vw, 6rem);
-    padding-bottom: clamp(4rem, 8vw, 6rem);
-}
-
-.contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.2fr; /* Colonna sinistra più piccola */
-    gap: 4rem; /* Spazio tra le due colonne */
-    align-items: start;
-}
-
-/* --- Colonna Sinistra: Info e Mappa --- */
-.contact-info {
-    display: flex;
-    flex-direction: column;
-    gap: 2.5rem; /* Spazio tra gli elementi informativi */
-}
-
-.contact-item-simple {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-}
-
-.contact-icon-gif {
-    width: 40px; /* Adatta la dimensione se necessario */
-    height: 40px;
-    flex-shrink: 0;
-}
-
-.icon-map {
-    width: 48px;  /* Aumenta la dimensione (prova con valori diversi se vuoi) */
-    height: 48px;
-}
-
-.icon-phone {
-    width: 32px;  /* Diminuisce la dimensione (prova con valori diversi se vuoi) */
-    height: 32px;
-}
-
-.contact-item-simple a {
-    color: var(--white);
-    text-decoration: none;
-    line-height: 1.5;
-    transition: color 0.3s;
-}
-
-.contact-item-simple a:hover {
-    color: var(--yellow);
-}
-
-.map-container {
-    width: 100%;
-    height: 242px; /* <<== IMPOSTA L'ALTEZZA DESIDERATA QUI */
-    background-color: var(--white);
-    border-radius: var(--radius);
-    overflow: hidden;
-    box-shadow: var(--shadow);
-    margin-top: 2rem; /* Aggiungiamo un po' di spazio sopra */
-}
-
-.map-container iframe {
-    /* Filtro per rendere la mappa in bianco e nero/desaturata */
-    filter: grayscale(100%);
-    transition: filter 0.3s;
-}
-
-.map-container:hover iframe {
-    filter: grayscale(0%); /* La mappa torna a colori al passaggio del mouse */
-}
-
-
-/* --- Colonna Destra: Form --- */
-.contact-form-column {
-    display: flex;
-    flex-direction: column;
-}
-
-.contact-form-column label {
-    margin-bottom: 0.5rem;
-    font-size: 0.9rem;
-    opacity: 0.9;
-}
-
-.contact-form-column input,
-.contact-form-column select,
-.contact-form-column textarea {
-    width: 100%;
-    padding: 14px 18px;
-    margin-bottom: 1.5rem;
-    border: none;
-    border-radius: var(--radius);
-    font-family: var(--font-body);
-    font-size: 1rem;
-    color: var(--ink); /* Testo scuro dentro i campi */
-    
-    /* Applichiamo lo stesso sfondo della sezione prodotti */
-    background-color: var(--muted);
-    background-image: url('data/Tavola disegno 6@3x.png');
-    background-size: 400px;
-}
-
-.contact-form-column select {
-    appearance: none; /* Rimuove lo stile di default del select */
-    background-image: url('data/Tavola disegno 6@3x.png'), 
-                      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath fill='%231a1a1a' d='M201.4 342.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 274.7 86.6 137.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z'/%3E%3C/svg%3E");
-    background-repeat: repeat, no-repeat;
-    background-position: 0 0, right 15px center;
-    background-size: 400px, 16px;
-}
-
-.textarea-container {
-    position: relative;
-}
-
-.textarea-placeholder {
-    position: absolute;
-    top: 14px;
-    left: 18px;
-    
-    /* === MODIFICHE CHIAVE === */
-    /* 1. Calcoliamo la larghezza: 100% del contenitore meno lo spazio laterale */
-    width: calc(100% - 36px); /* 18px a sinistra + 18px a destra */
-    
-    /* 2. Rimuoviamo la possibilità di selezionare il testo (migliora l'usabilità) */
-    user-select: none;
-    /* ======================== */
-
-    color: rgba(0, 0, 0, 0.5);
-    pointer-events: none;
-    transition: opacity 0.2s;
-    font-size: 1rem;
-    line-height: 1.5;
-}
-
-.contact-form-column .cta-button {
-    align-self: flex-start;
-    margin-top: 0;
-}
-
-/* Responsive per la griglia dei contatti */
-@media (max-width: 992px) {
-    .contact-grid {
-        grid-template-columns: 1fr; /* Le colonne si impilano */
-    }
-}
-
-.form-required {
-    opacity: 0.6;      /* Rende il testo più trasparente */
-    font-weight: normal; /* Opzionale: rende il testo meno grassetto, se lo è */
-    font-size: 0.8em;    /* Opzionale: rende il testo leggermente più piccolo */
-    margin-left: 8px;    /* Opzionale: aggiunge un po' di spazio dal nome del campo */
-}
-
-/* ============================================== */
-/* STILE PER LA RICERCA PRODOTTO CON SUGGERIMENTI */
-/* ============================================== */
-
-/* Contenitore che avvolge l'input e la tendina dei suggerimenti */
-.product-search-container {
-    position: relative; /* Fondamentale per posizionare la tendina */
-    margin-bottom: 1.5rem;
-}
-
-/* Stile specifico per il campo di ricerca (se necessario) */
-#product-search {
-    width: 100%;
-    margin-bottom: 0 !important; /* Impedisce che abbia un margine inferiore, dato che lo ha già il suo contenitore */
-}
-
-/* Stile della "tendina" dei suggerimenti */
-.product-suggestions {
-    position: absolute; /* Si posiziona rispetto a .product-search-container */
-    top: 100%; /* Appare subito sotto il campo di input */
-    left: 0;
-    right: 0;
-    
-    /* Sfondo texturizzato, uguale agli altri campi del form */
-    background-color: var(--muted);
-    background-image: url('data/Tavola disegno 6@3x.png');
-    background-size: 400px;
-    
-    /* Ombra per dare un effetto di profondità */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-    
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-top: none;
-    border-radius: 0 0 var(--radius) var(--radius); /* Arrotonda solo gli angoli inferiori */
-    
-    max-height: 250px; /* Altezza massima prima di mostrare la scrollbar */
-    overflow-y: auto; /* Aggiunge la scrollbar se i risultati sono troppi */
-    z-index: 10; /* Assicura che sia sopra gli altri elementi */
-    
-    display: none; /* Nascosto di default */
-}
-
-/* Classe per mostrare la tendina (gestita da JavaScript) */
-.product-suggestions.active {
-    display: block;
-}
-
-/* Stile per ogni singolo suggerimento nella tendina */
-.suggestion-item {
-    padding: 12px 18px;
-    cursor: pointer;
-    color: var(--ink); /* Testo scuro */
-    transition: background-color 0.2s;
-    font-size: 0.95rem;
-}
-
-/* Effetto al passaggio del mouse su un suggerimento */
-.suggestion-item:hover {
-    background-color: rgba(0, 0, 0, 0.05); /* Leggero scurimento */
-}
-
-/* Stile per l'ultimo elemento della lista (per gli angoli arrotondati) */
-.suggestion-item:last-child {
-    border-radius: 0 0 var(--radius) var(--radius);
-}
-
-/* ========= FOOTER ========= */
-.footer { 
-    /* La riga 'background' è stata rimossa */
-    padding: 4rem 0 2rem 0; 
-    font-size: 0.95rem; 
-}
+.footer { padding: 4rem 0 2rem 0; font-size: 0.95rem; }
 .footer-main { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 2.5rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(255, 255, 255, 0.15); }
 .footer-column { padding: 0 1.5rem; }
 .footer-column + .footer-column { border-left: 1px solid rgba(255, 255, 255, 0.15); }
@@ -547,34 +160,83 @@ html::after {
 .legal-links a { text-decoration: none; color: var(--white); transition: color 0.3s; }
 .legal-links a:hover { color: var(--yellow); }
 
-/* ========= STILE OVERLAY WORK IN PROGRESS ========= */
-.wip-overlay {
-    position: fixed;
-    inset: 0;
-    background-color: rgba(18, 18, 18, 0.95);
-    backdrop-filter: blur(10px);
-    z-index: 2000;
-    
-    display: none; /* <<== NASCOSTO DI DEFAULT IN MODO FORTE */
-    place-items: center;
-    padding: 2rem;
-    
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-}
-
-.wip-overlay.active {
-    display: grid; /* <<== MOSTRATO SOLO QUANDO ATTIVO */
-    opacity: 1;
-    pointer-events: auto;
-}
+.wip-overlay { position: fixed; inset: 0; background-color: rgba(18, 18, 18, 0.95); backdrop-filter: blur(10px); z-index: 2000; display: none; place-items: center; padding: 2rem; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+.wip-overlay.active { display: grid; opacity: 1; pointer-events: auto; }
 .wip-content { text-align: center; max-width: 400px; }
 .wip-content img { width: 80px; margin-bottom: 1.5rem; }
 .wip-content h2 { font-family: var(--font-heading); font-size: 2rem; margin-bottom: 1rem; }
 .wip-content p { color: var(--secondary-text-color, #a0a0a0); margin-bottom: 2rem; }
+.cta-button { display: block; width: fit-content; margin: 2rem auto 0; padding: 12px 28px; border-radius: 999px; border: none; cursor: pointer; background: linear-gradient(90deg, var(--violet), var(--fuchsia)); color: var(--white); font-family: var(--font-body); font-weight: bold; text-decoration: none; box-shadow: var(--shadow); transition: filter .25s ease, transform .1s ease; }
+.cta-button:hover { filter: brightness(1.1); }
 
-/* ========= RESPONSIVE DESIGN (MOBILE) ========= */
+/* ======================================================= */
+/* BANNER COOKIE
+/* ======================================================= */
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(18, 18, 18, 0.95);
+    backdrop-filter: blur(10px);
+    color: var(--white);
+    z-index: 3000;
+    padding: 1rem;
+    transform: translateY(100%); /* Nascosto sotto lo schermo di default */
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Classe per mostrare il banner (aggiunta da JavaScript) */
+.cookie-banner.active {
+    transform: translateY(0); /* Lo fa apparire */
+}
+
+/* Contenitore interno per centrare e gestire il layout del contenuto */
+.cookie-content {
+    display: flex;
+    flex-wrap: wrap; /* Permette di andare a capo su schermi piccoli */
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Stile per il testo del banner */
+.cookie-content p {
+    margin: 0;
+    font-size: 0.9rem;
+    opacity: 0.9;
+    text-align: center;
+    flex-grow: 1; /* Permette al testo di occupare spazio */
+    flex-basis: 300px; /* Base di partenza per la larghezza del testo */
+}
+
+/* Stile per il pulsante "Accetta" */
+.cookie-content .cta-button {
+    margin: 0;
+    flex-shrink: 0; /* Impedisce al pulsante di rimpicciolirsi */
+}
+
+
+/* --- FIX DEFINITIVO PER IL COLORE DEL LINK --- */
+/*
+  Questa regola super-specifica forza il colore giallo
+  per il link, sia normale che visitato.
+*/
+#cookie-banner .cookie-content a,
+#cookie-banner .cookie-content a:visited {
+    color: var(--yellow) !important;
+    text-decoration: underline;
+}
+
+#cookie-banner .cookie-content a:hover {
+    color: var(--white);
+}
+
+/* ========================================================= */
+/* RESPONSIVE DESIGN */
+/* ========================================================= */
 @media (max-width: 992px) {
     .about-top-grid { grid-template-columns: 1fr; }
     .contact-grid { grid-template-columns: 1fr; }
@@ -594,16 +256,4 @@ html::after {
     .nav-item { font-size: 1.5rem; }
     .carousel-item.is-prev { transform: translateX(-45%) scale(0.7); }
     .carousel-item.is-next { transform: translateX(45%) scale(0.7); }
-}
-
-.contact-item-simple > a {
-    display: flex;
-    align-items: center;
-}
-
-/* Per il gruppo di link del telefono */
-.contact-text-group {
-    display: flex;
-    flex-direction: column; /* Impila i numeri uno sopra l'altro */
-    justify-content: center; /* Centra verticalmente il gruppo di numeri */
 }

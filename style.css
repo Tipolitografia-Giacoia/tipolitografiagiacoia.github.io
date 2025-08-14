@@ -30,31 +30,38 @@
 }
 
 /* ========= STILI DI BASE E SFONDO ========= */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-html, body {
-    width: 100%; /* Occupa il 100% della larghezza del genitore (html -> viewport) */
-    min-width: 100%; /* Assicura che non sia mai più stretto della larghezza del viewport */
-    margin: 0;
-    padding: 0;
+/* Regola per l'HTML: la base di tutto */
+html {
+    background-color: var(--ink); /* Colore di fallback */
+    overflow-x: hidden; /* Prima barriera contro lo scorrimento laterale */
+}
+
+/* Regola per il BODY: il contenitore del contenuto */
+body {
+    width: 100%; /* Occupa sempre tutta la larghezza */
+    overflow-x: hidden; /* Seconda barriera, per massima compatibilità */
+    background-color: transparent; /* Lascia vedere lo sfondo dell'HTML sottostante */
     font-family: var(--font-body);
-    background-color: var(--ink);
     color: var(--white);
     line-height: 1.6;
-    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
 }
-body::before {
+
+/* Sfondo con gradiente, ORA ATTACCATO A HTML */
+html::before {
     content: "";
     position: fixed;
     inset: 0;
     background:
         url("data/back 2.png") center/cover no-repeat,
-        /* Modifichiamo la posizione del gradiente da '10% 0%' a 'center top' */
         radial-gradient(1200px 800px at center top, rgba(255,255,255,.06), transparent 70%),
         linear-gradient(135deg, var(--violet), var(--fuchsia) 40%, var(--red));
     z-index: -3;
 }
-body::after {
+
+/* Sfondo con texture, ORA ATTACCATO A HTML */
+html::after {
     content: "";
     position: fixed;
     inset: 0;
@@ -513,7 +520,11 @@ body::after {
 }
 
 /* ========= FOOTER ========= */
-.footer { background: linear-gradient(180deg, rgba(0,0,0,.2), rgba(0,0,0,.55)); padding: 4rem 0 2rem 0; font-size: 0.95rem; }
+.footer { 
+    /* La riga 'background' è stata rimossa */
+    padding: 4rem 0 2rem 0; 
+    font-size: 0.95rem; 
+}
 .footer-main { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 2.5rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(255, 255, 255, 0.15); }
 .footer-column { padding: 0 1.5rem; }
 .footer-column + .footer-column { border-left: 1px solid rgba(255, 255, 255, 0.15); }

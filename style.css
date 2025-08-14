@@ -17,9 +17,16 @@
 }
 
 @font-face { font-family: 'DrukWide'; src: url('data/DrukWide-BoldItalic-Trial.otf') format('opentype'); font-weight: bold; font-style: italic; font-display: swap; }
-@font-face { font-family: 'AirbnbCereal'; src: url('data/AirbnbCereal_W.otf') format('opentype'); font-weight: normal; font-display: swap; }
-@font-face { font-family: 'AirbnbCereal'; src: url('data/AirbnbCereal_W_Bk.otf') format('opentype'); font-weight: bold; font-display: swap; }
-
+@@font-face {
+    font-family: 'AirbnbCereal-Regular'; /* <-- NOME UNICO */
+    src: url('data/AirbnbCereal_W.otf') format('opentype');
+    font-display: swap;
+}
+@font-face {
+    font-family: 'AirbnbCereal-Bold'; /* <-- NOME UNICO */
+    src: url('data/AirbnbCereal_W_Bk.otf') format('opentype');
+    font-display: swap;
+}
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 html {
@@ -35,6 +42,10 @@ body {
     font-family: var(--font-body);
     color: var(--white);
     line-height: 1.6;
+}
+strong, b {
+    font-family: var(--font-body);
+    font-weight: bold; /* Usa esplicitamente il peso "bold" */
 }
 html::before {
     content: "";

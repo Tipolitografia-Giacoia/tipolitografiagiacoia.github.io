@@ -15,7 +15,7 @@
 <body>
     <div class="container">
         <h1>Cookie Policy</h1>
-        <p>Ultimo aggiornamento: [Inserisci la data di oggi, es. 25 Ottobre 2023]</p>
+        <p>Ultimo aggiornamento: 15 Agosto 2025</p>
 
         <h2>Cosa sono i cookie?</h2>
         <p>I cookie sono piccoli file di testo che i siti visitati dagli utenti inviano ai loro terminali, dove vengono memorizzati per essere poi ritrasmessi agli stessi siti alla successiva visita. Questo sito utilizza diverse tipologie di cookie.</p>
@@ -57,4 +57,132 @@
         <p>Dato che l'installazione di cookie operata da terze parti tramite i servizi utilizzati all'interno di questo sito non può essere tecnicamente controllata dal Titolare, ogni riferimento specifico a cookie installati da terze parti è da considerarsi indicativo.</p>
     </div>
 </body>
+
+    <style>
+        /* ========================================================= */
+        /* STILE MIGLIORATO PER LA PAGINA COOKIE POLICY */
+        /* ========================================================= */
+
+        /* 1. Importazione dei Font e Variabili del Sito Principale */
+        @font-face {
+            font-family: 'DrukWide';
+            src: url('data/DrukWide-BoldItalic-Trial.otf') format('opentype');
+            font-weight: bold;
+            font-style: italic;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'AirbnbCereal';
+            src: url('data/AirbnbCereal_W.otf') format('opentype');
+            font-weight: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'AirbnbCereal';
+            src: url('data/AirbnbCereal_W_Bk.otf') format('opentype');
+            font-weight: bold;
+            font-display: swap;
+        }
+
+        :root {
+            --violet: #6B0DB4;
+            --fuchsia: #E21673;
+            --red: #F2382C;
+            --yellow: #FFD400;
+            --ink: #1a1a1a;
+            --surface-color: #1e1e1e;
+            --white: #fff;
+            --radius: 14px;
+            --font-heading: 'DrukWide', sans-serif;
+            --font-body: 'AirbnbCereal', sans-serif;
+        }
+
+        /* 2. Stile di Base della Pagina */
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body), sans-serif;
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+            background-color: var(--ink); /* Sfondo scuro come il sito principale */
+            color: #e0e0e0; /* Testo bianco-grigio per una migliore leggibilità */
+        }
+
+        /* 3. Contenitore "Card" per il Testo */
+        .container {
+            max-width: 900px;
+            margin: 4rem auto; /* Spazio sopra/sotto e centrato */
+            padding: clamp(2rem, 5vw, 4rem);
+            background-color: var(--surface-color); /* Sfondo della card leggermente più chiaro */
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius);
+        }
+
+        /* 4. Stile degli Elementi di Testo */
+        h1 {
+            font-family: var(--font-heading);
+            font-size: clamp(2.5rem, 6vw, 3.5rem);
+            color: var(--white);
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-family: var(--font-body);
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: var(--fuchsia); /* Colore d'accento per i titoli delle sezioni */
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 0.5rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        a {
+            color: var(--yellow); /* Colore d'accento per i link */
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: var(--white);
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        code {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 3px 7px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+        
+        /* Responsive per mobile */
+        @media (max-width: 768px) {
+            .container {
+                margin: 2rem 1rem;
+                padding: 2rem;
+            }
+        }
+    </style>
 </html>

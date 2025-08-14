@@ -33,6 +33,10 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 html, body {
+    width: 100%; /* Occupa il 100% della larghezza del genitore (html -> viewport) */
+    min-width: 100%; /* Assicura che non sia mai più stretto della larghezza del viewport */
+    margin: 0;
+    padding: 0;
     font-family: var(--font-body);
     background-color: var(--ink);
     color: var(--white);

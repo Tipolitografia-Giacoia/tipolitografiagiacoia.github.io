@@ -161,26 +161,19 @@ html::after {
 }
 
 .chi-siamo-container {
-    /* Usiamo flexbox per gestire le colonne */
     display: flex;
-    justify-content: space-between; /* Crea spazio tra le colonne */
-    align-items: flex-start; /* Allinea gli elementi in alto */
-    gap: 2rem;
+    justify-content: space-between; /* Mette lo spazio massimo tra le colonne */
+    align-items: flex-start;
     
-    /* Posizionamento e dimensioni */
-    max-width: 1400px;
-    margin: 0 auto;
-    /* Rimuoviamo il padding sinistro, manteniamo quello destro */
-    padding: clamp(4rem, 10vh, 8rem) 2rem 0 0; 
+    /* Nessun padding laterale, le colonne toccheranno i bordi */
+    padding: clamp(4rem, 10vh, 8rem) 0 0;
 }
 
-/* --- Colonna Sinistra (Dimensione controllata) --- */
+/* --- Colonna Sinistra (Full Bleed a Sinistra) --- */
 .chi-siamo-left-col {
-    width: 45%; /* <<== Ridotto dal 55% */
-    max-width: 600px; /* <<== Ridotto da 700px */
+    width: 45%; /* <<== VALORE RIDOTTO */
+    max-width: 700px; /* Lasciamo la larghezza massima per sicurezza */
     flex-shrink: 0;
-    position: relative;
-    z-index: 2;
 }
 .chi-siamo-card-large {
     position: relative;
@@ -206,12 +199,11 @@ html::after {
 .card-content p { font-size: 1rem; opacity: 0.9; margin-bottom: 1em; }
 
 
-/* --- Colonna Destra --- */
+/* --- Colonna Destra (Full Bleed a Destra) --- */
 .chi-siamo-right-col {
-    width: 40%; /* Occupa il 40% dello spazio */
+    width: 35%;
     max-width: 450px;
-    position: relative;
-    z-index: 3;
+    flex-shrink: 0; 
 }
 .chi-siamo-metrics {
     display: flex;
@@ -256,7 +248,9 @@ html::after {
 /* --- Responsive --- */
 @media (max-width: 992px) {
     .chi-siamo-container {
-        display: block; /* Le colonne si impilano */
+        display: block;
+        padding-left: 2rem; /* Ripristiniamo i padding laterali */
+        padding-right: 2rem;
     }
     .chi-siamo-left-col,
     .chi-siamo-right-col {

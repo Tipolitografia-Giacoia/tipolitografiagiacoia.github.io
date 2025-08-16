@@ -255,4 +255,53 @@ document.addEventListener('DOMContentLoaded', function() {
             if(cookieBanner) cookieBanner.classList.remove('active');
         });
     }
+    // ===================================================
+    // 9. ANIMAZIONE PAROLE DINAMICHE (EFFETTO TYPEWRITER ASINCRONO)
+    // ===================================================
+
+    const dynamicWord1 = document.getElementById('dynamic-word-1');
+    const dynamicWord2 = document.getElementById('dynamic-word-2');
+
+    if (dynamicWord1 && dynamicWord2) {
+
+        const wordsForInspire = ["Guida", "Stimola", "Evoca", "Definisce", "Accende", "Anima", "Valorizza", "Racconta", "Orienta", "Modella"];
+        const wordsForSeduce = ["Affascina", "Attrae", "Cattura", "Conquista", "Incanta", "Avvince", "Ammalia", "Intriga", "Invoglia", "Coinvolge"];
+
+        // Funzione generica per l'effetto typewriter
+        function typeWriter(element, words, initialDelay) {
+            let wordIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+
+            function type() {
+                const currentWord = words[wordIndex].toUpperCase() + '.';
+                const currentText = isDeleting ? currentWord.substring(0, charIndex - 1) : currentWord.substring(0, charIndex + 1);
+                
+                element.textContent = currentText;
+
+                let typeSpeed = isDeleting ? 75 : 150; // Velocità di scrittura/cancellazione
+
+                if (!isDeleting && currentText === currentWord) {
+                    // Pausa alla fine della parola
+                    isDeleting = true;
+                    typeSpeed = 1500; // Pausa prima di cancellare
+                } else if (isDeleting && currentText === '') {
+                    // Passa alla parola successiva
+                    isDeleting = false;
+                    wordIndex = (wordIndex + 1) % words.length;
+                    typeSpeed = 500; // Pausa prima di scrivere la nuova parola
+                }
+
+                charIndex = isDeleting ? charIndex - 1 : charIndex + 1;
+                setTimeout(type, typeSpeed);
+            }
+            
+            // Avvia l'animazione dopo un ritardo iniziale
+            setTimeout(type, initialDelay);
+        }
+
+        // Avvia le due animazioni in modo asincrono
+        typeWriter(dynamicWord1, wordsForInspire, 1000); // La prima parte dopo 1 secondo
+        typeWriter(dynamicWord2, wordsForSeduce, 1800);  // La seconda parte dopo 1.8 secondi, per un effetto sfalsato
+    }
 }); // Fine del DOMContentLoaded

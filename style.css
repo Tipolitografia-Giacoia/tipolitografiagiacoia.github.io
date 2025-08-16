@@ -16,6 +16,12 @@
     --font-body: 'AirbnbCereal', sans-serif;
 }
 
+@font-face {
+    font-family: 'Universo-Light'; /* Diamo un nome unico */
+    src: url('data/Fontspring-DEMO-universo-light.otf') format('opentype');
+    font-weight: 300; /* È un font light, quindi impostiamo un peso leggero */
+    font-display: swap;
+}
 @font-face { font-family: 'DrukWide'; src: url('data/DrukWide-BoldItalic-Trial.otf') format('opentype'); font-weight: bold; font-style: italic; font-display: swap; }
 @@font-face {
     font-family: 'AirbnbCereal-Regular'; /* <-- NOME UNICO */
@@ -92,20 +98,135 @@ html::after {
 
 .separator { height: 10px; background: url("data/Tavola disegno 4@3x.png") center/cover no-repeat; box-shadow: 0 -1px 0 rgba(255,255,255,.06), 0 1px 0 rgba(0,0,0,.25); }
 
-.about-section { padding: 0; background-color: #e9e9e9; }
-.about-top { position: relative; padding: clamp(4rem, 8vw, 6rem) 0; background-image: url('data/Image 2.jpg'); background-size: cover; background-position: center top; }
-.about-top-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(107, 13, 180, 0.7), rgba(226, 22, 115, 0.7)); z-index: 1; }
-.about-top .container { position: relative; z-index: 2; }
-.about-top-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 3rem; align-items: flex-start; }
-.about-text-box { color: var(--white); }
-.about-text-box .section-title { text-align: left; font-size: 2.5rem; margin-bottom: 1.5rem; }
-.about-text-box p { font-size: 1.1rem; line-height: 1.7; margin-bottom: 1.5rem; }
-.about-metrics-box { display: flex; flex-direction: column; gap: 1.5rem; }
-.metric-item { background-color: rgba(40, 30, 120, 0.85); color: var(--white); padding: 1.5rem; border-radius: var(--radius); }
-.metric-item .num { font-family: var(--font-heading); font-size: 1.8rem; margin-bottom: 0.25rem; }
-.metric-item small { opacity: 0.9; }
-.about-bottom { line-height: 0; }
-.about-bottom img { width: 100%; height: auto; display: block; }
+/* Stile per il nuovo testo nella Hero Section */
+.hero-main-title {
+    text-align: left;
+    max-width: 1200px;
+    width: 90%;
+}
+.hero-main-title span {
+    display: block;
+    font-family: 'Universo-Light', sans-serif;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    line-height: 1.2;
+    color: rgba(255,255,255,0.8);
+}
+.hero-main-title b {
+    font-family: var(--font-heading);
+    color: var(--white);
+}
+
+
+/* Stile principale della nuova sezione */
+.chi-siamo-section {
+    position: relative;
+    padding: 0;
+    background-color: #e9e9e9; /* Sfondo chiaro come da immagine */
+    background-image: url('data/Tavola disegno 6@3x.png'); /* Pattern a griglia */
+    background-size: 20px; /* Dimensione piccola per la griglia */
+    
+    /* === Sovrapposizione sulla Hero Section === */
+    margin-top: -150px; /* Tira su l'intera sezione. Modifica questo valore se necessario. */
+    padding-bottom: 10%; /* Lascia spazio sotto per la sovrapposizione del capannone */
+}
+
+.chi-siamo-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr; /* Colonna sinistra più larga */
+    gap: 2rem;
+    align-items: start; /* Allinea gli elementi all'inizio della loro cella */
+    position: relative;
+    z-index: 10; /* Assicura che le card stiano sopra lo sfondo */
+}
+
+/* Card grande a sinistra */
+.chi-siamo-card-large {
+    background-image: url('data/Tavola disegno 1@3x.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    padding: clamp(3rem, 6vw, 5rem) clamp(2rem, 5vw, 4rem); /* Padding interno per il testo */
+    color: var(--white);
+}
+
+.chi-siamo-card-large .section-title {
+    text-align: left;
+    margin-bottom: 1.5rem;
+    color: var(--white);
+    font-size: 2.2rem;
+}
+
+.chi-siamo-card-large p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+}
+
+.chi-siamo-card-large strong {
+    font-family: var(--font-body); /* Usa lo stesso font del testo normale */
+    font-weight: bold; /* Ma lo rende grassetto */
+    opacity: 1;
+}
+
+/* Contenitore per le 3 card a destra */
+.chi-siamo-metrics {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding-top: 2rem; /* Spazio per allineare visivamente */
+}
+
+/* Stile comune per le 3 card piccole */
+.metric-card {
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+    color: var(--white);
+    text-align: center;
+}
+/* Sfondi specifici per ogni card */
+.metric-card.metric-1 { background-image: url('data/Tavola disegno 2 copia@3x.png'); }
+.metric-card.metric-2 { background-image: url('data/dd.png'); }
+.metric-card.metric-3 { background-image: url('data/Tavola disegno 3@3x.png'); }
+
+.metric-card .num {
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    margin-bottom: 0.25rem;
+}
+.metric-card small {
+    font-size: clamp(0.8rem, 2vw, 1rem);
+    opacity: 0.9;
+}
+
+/* Immagine del capannone in sovrimpressione */
+.capannone-overlay {
+    position: relative;
+    z-index: 5;
+    line-height: 0;
+    
+    /* === Sovrapposizione sulle card === */
+    margin-top: -20%; /* Tira su l'immagine. Modifica questo valore se necessario */
+}
+.capannone-overlay img {
+    width: 100%;
+    height: auto;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .chi-siamo-grid {
+        grid-template-columns: 1fr; /* Le colonne si impilano */
+    }
+    .chi-siamo-metrics {
+        padding-top: 0;
+    }
+    .chi-siamo-section {
+        margin-top: -80px;
+    }
+    .capannone-overlay {
+        margin-top: -10%;
+    }
+}
 
 .prodotti { background-color: var(--muted); background-image: url('data/Tavola disegno 6@3x.png'); background-size: 400px; background-repeat: repeat; color: var(--ink); }
 .carousel-container { position: relative; width: 100%; height: 60vh; min-height: 500px; max-width: 1000px; margin: 0 auto; perspective: 1500px; display: flex; flex-direction: column; align-items: center; }

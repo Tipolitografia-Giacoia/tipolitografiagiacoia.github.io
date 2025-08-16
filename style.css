@@ -160,79 +160,111 @@ html::after {
     transition: opacity 0.5s ease-in-out;
 }
 
-/* Griglia Chi Siamo */
-.chi-siamo-grid-wrapper {
-    /* Aggiunge spazio SOPRA la griglia delle card, spingendola in basso */
-    padding-top: clamp(6rem, 12vh, 10rem); 
-}
-
-.chi-siamo-grid {
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
+.chi-siamo-container {
+    /* Usiamo flexbox per gestire le colonne */
+    display: flex;
+    justify-content: space-between; /* Crea spazio tra le colonne */
+    align-items: flex-start; /* Allinea gli elementi in alto */
     gap: 2rem;
-    align-items: start;
+    
+    /* Posizionamento e dimensioni */
+    max-width: 1400px;
+    margin: 0 auto;
+    /* Rimuoviamo il padding sinistro, manteniamo quello destro */
+    padding: clamp(4rem, 10vh, 8rem) 2rem 0 0; 
 }
 
-/* Card grande a sinistra */
+/* --- Colonna Sinistra (Dimensione controllata) --- */
+.chi-siamo-left-col {
+    width: 45%; /* <<== Ridotto dal 55% */
+    max-width: 600px; /* <<== Ridotto da 700px */
+    flex-shrink: 0;
+    position: relative;
+    z-index: 2;
+}
 .chi-siamo-card-large {
-    background-image: url('data/Tavola disegno 1@3x.png');
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    padding: clamp(3rem, 6vw, 5rem) clamp(2rem, 5vw, 4rem);
+    position: relative;
+}
+.chi-siamo-card-large > img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.card-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: clamp(2rem, 5vw, 4rem);
     color: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
-.chi-siamo-card-large .section-title {
-    text-align: left;
-    margin-bottom: 1.5rem;
-    color: var(--white);
-    font-size: 2.2rem;
-}
-.chi-siamo-card-large p {
-    font-size: 1rem;
-    margin-bottom: 1.5rem;
-    opacity: 0.9;
-}
+.card-content .section-title { text-align: left; margin-bottom: 1.5rem; font-size: 2.2rem; color: var(--white); }
+.card-content p { font-size: 1rem; opacity: 0.9; margin-bottom: 1em; }
 
-/* Contenitore per le 3 card a destra */
+
+/* --- Colonna Destra --- */
+.chi-siamo-right-col {
+    width: 40%; /* Occupa il 40% dello spazio */
+    max-width: 450px;
+    position: relative;
+    z-index: 3;
+}
 .chi-siamo-metrics {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
     padding-top: 2rem;
 }
-
-/* Stile comune per le 3 card piccole */
 .metric-card {
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    padding: clamp(1.5rem, 4vw, 2.5rem);
+    position: relative;
+}
+.metric-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.metric-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     color: var(--white);
     text-align: center;
+    width: 90%;
 }
-.metric-card.metric-1 { background-image: url('data/Tavola disegno 2 copia@3x.png'); }
-.metric-card.metric-2 { background-image: url('data/dd.png'); }
-.metric-card.metric-3 { background-image: url('data/Tavola disegno 3@3x.png'); }
+.metric-text .num { font-family: var(--font-heading); font-size: clamp(1.5rem, 4vw, 2.2rem); margin-bottom: 0.25rem; }
+.metric-text small { font-size: clamp(0.8rem, 2vw, 1rem); opacity: 0.9; }
 
-.metric-card .num {
-    font-family: var(--font-heading);
-    font-size: clamp(1.5rem, 4vw, 2.2rem);
-    margin-bottom: 0.25rem;
-}
 
-/* Immagine del capannone in sovrimpressione */
+/* --- Immagine Capannone --- */
 .capannone-overlay {
+    margin-top: -20%;
+    position: relative;
+    z-index: 10;
     line-height: 0;
-    margin-top: -20%; /* Tira su l'immagine per sovrapporla */
 }
 .capannone-overlay img {
     width: 100%;
     height: auto;
 }
 
-/* Responsive */
+
+/* --- Responsive --- */
 @media (max-width: 992px) {
-    .chi-siamo-grid {
-        grid-template-columns: 1fr;
+    .chi-siamo-container {
+        display: block; /* Le colonne si impilano */
+    }
+    .chi-siamo-left-col,
+    .chi-siamo-right-col {
+        width: auto;
+        max-width: none;
+    }
+    .chi-siamo-right-col {
+        margin-top: 2rem;
     }
     .capannone-overlay {
         margin-top: -10%;

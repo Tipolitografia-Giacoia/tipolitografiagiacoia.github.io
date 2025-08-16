@@ -29,60 +29,65 @@
         </header>
 
         <main>
-            <!-- HERO SECTION -->
-            <section id="hero" class="hero">
-                <video autoplay muted loop playsinline class="hero-video">
-                    <source src="data/aaa.mp4" type="video/mp4">
-                    Il tuo browser non supporta i video.
-                </video>
-                <div class="hero-overlay"></div>
-                <div class="hero-content hero-main-title">
-                    <div class="hero-content hero-main-title">
-                        <span>DESIGN CHE <b id="dynamic-word-1">ISPIRA.</b></span>
-                        <span>STAMPA CHE <b id="dynamic-word-2">SEDUCE.</b></span>
-                    </div>
+
+        <!-- ========= SEZIONE UNIFICATA HERO + CHI SIAMO (CODICE FINALE) ========= -->
+            <section id="hero" class="hero-about-section">
+
+                <div class="hero-background">
+                    <video autoplay muted loop playsinline class="hero-video">
+                        <source src="data/aaa.mp4" type="video/mp4">
+                        <!-- Aggiungi qui la versione .webm se ce l'hai -->
+                        Il tuo browser non supporta i video.
+                    </video>
+                    <div class="hero-overlay"></div>
                 </div>
-            </section>
-
-            <div class="separator"></div>
-
-                        <!-- SEZIONE CHI SIAMO -->
-            <section id="chi-siamo" class="chi-siamo-section">
-                <div class="container">
-                    <div class="chi-siamo-grid">
-
-                        <!-- Colonna Sinistra: Card Grande -->
-                        <div class="chi-siamo-card-large reveal">
-                            <h2 class="section-title">CHI SIAMO.</h2>
-                            <p>Artigiani della stampa, maestri del dettaglio.</p>
-                            <p>Da <strong>oltre 30 anni</strong> trasformiamo carta e colore in emozione, con la precisione di una macchina e il tocco caldo di una bottega. Diamo forma alle idee, vestiamo i progetti, <strong>rendiamo reale ciò che esiste nella tua mente</strong>.</p>
-                            <p>Sperimentiamo, consigliamo, accompagniamo. Usiamo la tecnologia per <strong>potenziare la creatività</strong>, non per sostituirla. E ogni progetto è un pezzo unico, perché ci <strong>mettiamo testa, mani e cuore</strong>.</p>
-                            <p>Chi entra da noi non cerca solo una stampa: cerca un'esperienza, un impatto, un risultato che parli forte e chiaro.</p>
-                            <p>Benvenuti in <strong>Tipolitografia Giacoia</strong>. Dove ogni foglio ha una storia. E ogni storia <strong>merita di essere stampata come si deve</strong>.</p>
+                
+                <!-- Parte 2: Contenuto sovrapposto (titolo, card, capannone) -->
+                <div class="hero-about-content">
+                    
+                    <!-- Titolo Hero -->
+                    <div class="container">
+                        <div class="hero-main-title">
+                            <span>DESIGN CHE <b id="dynamic-word-1">ISPIRA.</b></span>
+                            <span>STAMPA CHE <b id="dynamic-word-2">SEDUCE.</b></span>
                         </div>
-
-                        <!-- Colonna Destra: 3 Card Metriche -->
-                        <div class="chi-siamo-metrics reveal">
-                            <div class="metric-card metric-1">
-                                <div class="num">+ 30 ANNI</div>
-                                <small>di esperienza sul campo.</small>
-                            </div>
-                            <div class="metric-card metric-2">
-                                <div class="num">+ 3.000</div>
-                                <small>tra aziende, professionisti e privati soddisfatti.</small>
-                            </div>
-                            <div class="metric-card metric-3">
-                                <div class="num">+ 10.000</div>
-                                <small>progetti realizzati.</small>
-                            </div>
-                        </div>
-                        
                     </div>
-                </div>
 
-                <!-- Immagine del Capannone in sovrimpressione -->
-                <div class="capannone-overlay reveal">
-                    <img src="data/capannone def.png" alt="Sede della Tipolitografia Giacoia">
+                    <!-- Griglia Chi Siamo -->
+                    <div class="chi-siamo-grid-wrapper">
+                        <div class="container">
+                            <div class="chi-siamo-grid">
+                                <!-- Colonna Sinistra: Card Grande -->
+                                <div class="chi-siamo-card-large reveal">
+                                    <h2 class="section-title">CHI SIAMO.</h2>
+                                    <p>Artigiani della stampa, maestri del dettaglio.</p>
+                                    <p>Da <strong>oltre 30 anni</strong> trasformiamo carta e colore in emozione, con la precisione di una macchina e il tocco caldo di una bottega. Diamo forma alle idee, vestiamo i progetti, <strong>rendiamo reale ciò che esiste nella tua mente</strong>.</p>
+                                    <p>Sperimentiamo, consigliamo, accompagniamo. Usiamo la tecnologia per <strong>potenziare la creatività</strong>, non per sostituirla. E ogni progetto è un pezzo unico, perché ci <strong>mettiamo testa, mani e cuore</strong>.</p>
+                                </div>
+
+                                <!-- Colonna Destra: 3 Card Metriche -->
+                                <div class="chi-siamo-metrics reveal">
+                                    <div class="metric-card metric-1">
+                                        <div class="num">+ 30 ANNI</div>
+                                        <small>di esperienza sul campo.</small>
+                                    </div>
+                                    <div class="metric-card metric-2">
+                                        <div class="num">+ 3.000</div>
+                                        <small>tra aziende, professionisti e privati soddisfatti.</small>
+                                    </div>
+                                    <div class="metric-card metric-3">
+                                        <div class="num">+ 10.000</div>
+                                        <small>progetti realizzati.</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Immagine del Capannone in sovrimpressione -->
+                    <div class="capannone-overlay reveal">
+                        <img src="data/capannone def.png" alt="Sede della Tipolitografia Giacoia">
+                    </div>
                 </div>
             </section>
 

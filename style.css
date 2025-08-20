@@ -1644,17 +1644,18 @@ html::after {
 /* ========================================================= */
 
 .cookie-banner {
+    background-color: #000000;
+    backdrop-filter: none;
+    /* Mantieni gli altri stili esistenti */
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(var(--color-charcoal-700-rgb), 0.95);
-    backdrop-filter: blur(10px);
-    color: var(--color-text);
+    color: var(--white);
     z-index: 3000;
-    padding: var(--space-16);
+    padding: 1rem;
     transform: translateY(100%);
-    transition: transform var(--duration-normal) var(--ease-standard);
+    transition: transform 0.5s ease-in-out;
 }
 
 .cookie-banner.active {
@@ -1914,7 +1915,7 @@ html::after {
 #dynamic-word-1, 
 #dynamic-word-2 {
   font-family: 'DrukWide', sans-serif;
-  color: #ffffff; /* Nero */
+  color: #ffffff; /* Bianco */
 }
 
 /* Titolo sezione Prodotti - font DrukWide, colore bianco */
@@ -1925,13 +1926,13 @@ html::after {
 
 #contattaci .section-title {
   font-family: 'DrukWide', sans-serif;
-  color: #fffff; /* Nero */
+  color: #ffffff; /* Bianco */
 }
 
 /* Testo normale nella sezione Prodotti resta bianco e font normale */
 .prodotti {
   font-family: var(--font-body);
-  color: #ffffff;
+  color: #ffffff; /* Bianco */
 }
 
 /* Parole dinamiche nel video hero con font DrukWide e nero */
@@ -1939,7 +1940,7 @@ html::after {
 #dynamic-word-1,
 #dynamic-word-2 {
   font-family: 'DrukWide', sans-serif;
-  color: #ffffff;
+  color: #ffffff; /* Bianco */
 }
 
 /* Titolo CHI SIAMO con font DrukWide e nero */
@@ -1951,11 +1952,11 @@ html::after {
 /* Numeri grandi delle metriche in DrukWide e nero */
 .chi-siamo-metrics .num {
   font-family: 'DrukWide', sans-serif;
-  color: #ffffff;
+  color: #ffffff; /* Bianco */
 }
 
 /* Testo piccolo sotto le metriche rimane normale e bianco */
 .chi-siamo-metrics small {
   font-family: var(--font-body);
-  color: #ffffff;
+  color: #ffffff; /* Bianco */
 }

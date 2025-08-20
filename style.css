@@ -899,20 +899,19 @@ html::after {
 }
 
 .hero-main-title span {
-    display: block;
-    font-family: 'Universo-Light', var(--font-family-base);
-    font-size: clamp(var(--font-size-xl), 4vw, var(--font-size-3xl));
-    line-height: var(--line-height-tight);
-    color: var(--color-text);
-    text-shadow: 0 2px 10px rgba(0,0,0,0.7);
+  font-family: 'Universo-Light', sans-serif;
+  font-size: clamp(2rem, 6vw, 3rem); /* Aumentato dimensione font per gli span */
+  line-height: 1.2;
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 2px 10px rgba(0,0,0,0.7);
+}
+.hero-main-title b {
+  font-family: var(--font-heading);
+  color: var(--white);
+  transition: opacity 0.5s ease-in-out;
+  font-size: clamp(1rem, 4vw, 3rem); /* Aggiunto dimensione maggiore per grassetto */
 }
 
-.hero-main-title b {
-    font-family: var(--font-family-base);
-    font-weight: var(--font-weight-bold);
-    color: var(--color-text);
-    transition: opacity var(--duration-normal) var(--ease-standard);
-}
 
 .chi-siamo-container {
     position: relative;
@@ -1092,13 +1091,22 @@ html::after {
 /* HEADER */
 /* ========================================================= */
 
-.header { 
-    position: sticky; 
-    top: 0; 
-    width: 100%; 
-    z-index: 1000; 
-    background: linear-gradient(to bottom, rgba(0,0,0,.55), rgba(0,0,0,0)); 
-    backdrop-filter: saturate(140%) blur(6px); 
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4); /* Vetro nero trasparente */
+  backdrop-filter: saturate(180%) blur(10px); /* Effetto vetro sfocato */
+  -webkit-backdrop-filter: saturate(180%) blur(10px);
+  color: var(--white); /* Testo bianco */
+  transition: background-color 0.3s ease;
+  z-index: 1000;
+}
+
+.header.scrolled {
+  background: rgba(0, 0, 0, 0.8); /* Sfondo scuro opaco dopo scroll */
+  backdrop-filter: saturate(140%) blur(6px); /* Effetto leggero di sfocatura */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Ombra per definire la navbar */
 }
 
 .navbar { 
@@ -1120,16 +1128,16 @@ html::after {
     gap: calc(var(--space-16) * 1.5); 
 }
 
-.nav-link { 
-    color: var(--color-text); 
-    text-decoration: none; 
-    font-weight: var(--font-weight-bold); 
-    transition: color var(--duration-fast) var(--ease-standard); 
+/* Assicurati che i link nella navbar siano bianchi */
+.nav-link {
+  color: var(--white);
+  transition: color 0.3s;
 }
 
-.nav-link:hover { 
-    color: var(--color-warning); 
+.nav-link:hover {
+  color: var(--yellow);
 }
+
 
 .hamburger { 
     display: none; 
@@ -1241,15 +1249,27 @@ html::after {
     background: var(--color-primary); 
 }
 
-.image-band { 
-    height: 60vh; 
-    min-height: 400px; 
-    background-image: url('data/image-environment.png'); 
-    background-size: cover; 
-    background-position: center center; 
-    background-repeat: no-repeat; 
-    background-attachment: scroll; 
+/* ========================================================= */
+/* IMAGE BAND */
+/* ========================================================= */
+.image-band {
+  position: relative;
+  width: 100%;
+  /* Altezza basata su aspect ratio 16:9 rispetto alla larghezza */
+  padding-top: 56.25%; /* 9/16 = 0.5625 => 56.25% */
+  overflow: hidden;
 }
+
+.image-band video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: auto; /* Per mantenere il 16:9 */
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+}
+
 
 @media (min-width: 768px) {
     .image-band { 

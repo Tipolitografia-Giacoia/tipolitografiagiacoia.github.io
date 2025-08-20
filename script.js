@@ -264,8 +264,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (dynamicWord1 && dynamicWord2) {
 
-        const wordsForInspire = ["Guida", "Stimola", "Evoca", "Definisce", "Accende", "Anima", "Valorizza", "Racconta", "Orienta", "Modella"];
-        const wordsForSeduce = ["Affascina", "Attrae", "Cattura", "Conquista", "Incanta", "Avvince", "Ammalia", "Intriga", "Invoglia", "Coinvolge"];
+        const wordsForInspire = ["Guida", "Comunica", "Evoca", "Definisce", "Accende", "Valorizza", "Racconta", "Orienta", "Modella", "Ispira"];
+        const wordsForSeduce = ["Affascina", "Attrae", "Cattura", "Conquista", "Incanta", "Avvince", "Ammalia", "Invoglia", "Coinvolge", "Seduce"];
 
         // Funzione generica per l'effetto typewriter
         function typeWriter(element, words, initialDelay) {
@@ -304,4 +304,5 @@ document.addEventListener('DOMContentLoaded', function() {
         typeWriter(dynamicWord1, wordsForInspire, 1000); // La prima parte dopo 1 secondo
         typeWriter(dynamicWord2, wordsForSeduce, 1800);  // La seconda parte dopo 1.8 secondi, per un effetto sfalsato
     }
+
 }); // Fine del DOMContentLoaded

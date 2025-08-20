@@ -945,24 +945,26 @@ html::after {
     left: 0;
     width: 100%;
     height: 100%;
-    padding: clamp(var(--space-16), 5vw, var(--space-32));
-    color: var(--color-text);
+    /* Aumentiamo il padding per dare più respiro al testo */
+    padding: clamp(2rem, 8vw, 6rem); 
+    color: var(--white);
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-
-.card-content .section-title { 
-    text-align: left; 
-    margin-bottom: var(--space-24); 
-    font-size: var(--font-size-3xl); 
-    color: var(--color-text); 
+.card-content .section-title {
+    text-align: left;
+    margin-bottom: 1.5rem;
+    /* Valori di font-size aumentati e più reattivi */
+    font-size: clamp(1.8rem, 5.5vw, 3rem); 
+    color: var(--white);
 }
-
-.card-content p { 
-    font-size: var(--font-size-base); 
-    opacity: 0.9; 
-    margin-bottom: var(--space-16); 
+.card-content p {
+    /* Valori di font-size aumentati e più reattivi */
+    font-size: clamp(0.9rem, 2.5vw, 1.2rem); 
+    opacity: 0.9;
+    margin-bottom: 1em;
+    line-height: 1.6; /* Aumentiamo l'interlinea per leggibilità */
 }
 
 .chi-siamo-right-col {

@@ -1159,27 +1159,25 @@ html::after {
 /* CAROSELLO PRODOTTI */
 /* ========================================================= */
 
-.carousel-container { 
-    position: relative; 
-    width: 100%; 
-    height: 60vh; 
-    min-height: 500px; 
-    max-width: 1000px; 
-    margin: 0 auto; 
-    perspective: 1500px; 
-    display: flex; 
-    flex-direction: column; 
-    align-items: center; 
+.carousel-container {
+  position: relative; /* importante per contenere elementi posizionati */
+  display: flex;
+  flex-direction: column; /* per mettere il nav sotto il carosello */
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  height: auto; /* lascia il contenuto decidere l'altezza */
 }
 
-.carousel-track { 
-    position: relative; 
-    width: 100%; 
-    height: 100%; 
-    list-style: none; 
-    padding: 0; 
-    margin: 0; 
-    order: 1; 
+
+.carousel-track {
+  position: relative;
+  width: 100%;
+  height: 60vh; /* o altezza voluta per il carosello */
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem 0; /* margine inferiore per spazio tra carosello e nav */
+  order: 1;
 }
 
 .carousel-item { 
@@ -1223,30 +1221,65 @@ html::after {
     z-index: 2; 
 }
 
-.carousel-navigation { 
-    order: 2; 
-    margin-top: var(--space-24); 
+.carousel-navigation {
+  order: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  width: 100%;
 }
 
-.carousel-container .arrow { 
-    position: static; 
-    transform: none; 
-    z-index: 10; 
-    margin: 0 var(--space-10); 
-    background: var(--color-primary-hover); 
-    color: var(--color-btn-primary-text); 
-    border: none; 
-    width: 40px; 
-    height: 40px; 
-    border-radius: var(--radius-full); 
-    font-size: var(--font-size-xl); 
-    font-weight: var(--font-weight-bold); 
-    cursor: pointer; 
-    transition: background var(--duration-fast) var(--ease-standard); 
+.carousel-container .arrow {
+  background: transparent;
+  border: none;
+  width: 50px;  /* dimensioni adeguate al tuo file immagine */
+  height: 50px;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  transition: filter 0.3s ease;
 }
 
-.carousel-container .arrow:hover { 
-    background: var(--color-primary); 
+.carousel-container .arrow.next {
+  background-image: url('data/Tavola disegno 5@3x.png');
+}
+
+.carousel-container .arrow.prev {
+  background-image: url('data/Tavola disegno 5@3x.png');
+  transform: scaleX(-1); /* Flip orizzontale */
+}
+
+.carousel-container .arrow.prev,
+.carousel-container .arrow.next {
+  margin-left: 0;
+  margin-right: 0;
+}
+.carousel-container .arrow:hover {
+  filter: brightness(1.2);
+}
+
+.request-info-button {
+  background: linear-gradient(90deg, #6B0DB4, #E21673); /* Viola a Magenta */
+  color: var(--white);
+  border: none;
+  border-radius: 14px;
+  padding: 12px 24px;
+  font-weight: bold;
+  font-family: var(--font-body);
+  cursor: pointer;
+  transition: background 0.3s ease;
+  box-shadow: 0 4px 10px rgba(107, 13, 180, 0.5);
+  display: inline-block;
+  white-space: nowrap;
+  user-select: none;
+  margin: 0 20px;
+}
+
+.request-info-button:hover {
+  background: linear-gradient(90deg, #7E1ED3, #F1328B);
+  box-shadow: 0 6px 14px rgba(126, 30, 211, 0.7);
 }
 
 /* ========================================================= */
@@ -1352,9 +1385,26 @@ html::after {
     filter: grayscale(0%); 
 }
 
-.contact-form-column { 
-    display: flex; 
-    flex-direction: column; 
+.contact-form-column .cta-button {
+  background: linear-gradient(90deg, #6B0DB4, #E21673); /* Gradiente viola-magenta */
+  color: var(--white);
+  border: none;
+  border-radius: 14px;
+  padding: 12px 24px;
+  font-weight: bold;
+  font-family: var(--font-body);
+  cursor: pointer;
+  transition: background 0.3s ease;
+  box-shadow: 0 4px 10px rgba(107, 13, 180, 0.5);
+  user-select: none;
+  width: fit-content;
+  margin-top: 1rem;
+}
+
+/* Hover più acceso */
+.contact-form-column .cta-button:hover {
+  background: linear-gradient(90deg, #7E1ED3, #F1328B);
+  box-shadow: 0 6px 14px rgba(126, 30, 211, 0.7);
 }
 
 .contact-form-column label { 

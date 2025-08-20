@@ -4,10 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tipolitografia Giacoia | Stampa & Design</title>
+    
+    <!-- Meta tags SEO -->
+    <meta name="description" content="Tipografia Giacoia - 30 anni di esperienza nella stampa digitale, offset e grande formato. Servizi di design, branding e allestimenti a Laterza (TA).">
+    <meta name="keywords" content="tipografia, stampa, design, branding, Laterza, Taranto, stampa digitale, offset">
+    <meta name="author" content="Tipografia Giacoia">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Tipografia Giacoia - Design che Ispira, Stampa che Seduce">
+    <meta property="og:description" content="30 anni di esperienza nella stampa e design. Servizi professionali per aziende e privati.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tipolitografiagiacoia.github.io">
+
+    <!-- Preload font critici -->
+    <link rel="preload" href="data/DrukWide-BoldItalic-Trial.otf" as="font" type="font/otf" crossorigin>
+    <link rel="preload" href="data/AirbnbCereal_W.otf" as="font" type="font/otf" crossorigin>
+    
     <link rel="stylesheet" href="style.css">
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "PrintShop",
+      "name": "Tipolitografia Giacoia",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Via Salvatore Fitto, 9 - ZONA P.I.P.",
+        "addressLocality": "Laterza",
+        "addressRegion": "TA",
+        "postalCode": "74014",
+        "addressCountry": "IT"
+      },
+      "telephone": "+39 099 82 02 35",
+      "email": "giacoia-e@libero.it",
+      "foundingDate": "1993",
+      "description": "Tipografia specializzata in stampa digitale, offset e servizi di design"
+    }
+    </script>
 </head>
 <body id="top">
-
     <div class="page-wrapper">
         <!-- HEADER / NAVBAR -->
         <header class="header">
@@ -15,36 +51,33 @@
                 <a href="#top" class="nav-logo">
                     <img src="data/logo-intero.png" alt="Logo Tipolitografia Giacoia">
                 </a>
-                <ul class="nav-menu">
-                    <li class="nav-item"><a href="#chi-siamo" class="nav-link">Chi Siamo</a></li>
-                    <li class="nav-item"><a href="#prodotti" class="nav-link">Prodotti</a></li>
-                    <li class="nav-item"><a href="#contattaci" class="nav-link">Contattaci</a></li>
+                <ul class="nav-menu" role="menubar" aria-hidden="true">
+                    <li class="nav-item" role="none"><a href="#chi-siamo" class="nav-link" role="menuitem">Chi Siamo</a></li>
+                    <li class="nav-item" role="none"><a href="#prodotti" class="nav-link" role="menuitem">Prodotti</a></li>
+                    <li class="nav-item" role="none"><a href="#contattaci" class="nav-link" role="menuitem">Contattaci</a></li>
                 </ul>
-                <div class="hamburger">
+                <button class="hamburger" aria-label="Menu di navigazione" aria-expanded="false">
                     <span class="bar"></span>
                     <span class="bar"></span>
                     <span class="bar"></span>
-                </div>
+                </button>
             </nav>
         </header>
 
-        <main>
-
-        <!-- ========= SEZIONE UNIFICATA HERO + CHI SIAMO (CODICE FINALE) ========= -->
+        <main id="main-content">
+            <!-- SEZIONE UNIFICATA HERO + CHI SIAMO -->
             <section id="hero" class="hero-about-section">
-
+                <!-- Sfondo video hero -->
                 <div class="hero-background">
                     <video autoplay muted loop playsinline class="hero-video">
                         <source src="data/aaa.mp4" type="video/mp4">
-                        <!-- Aggiungi qui la versione .webm se ce l'hai -->
                         Il tuo browser non supporta i video.
                     </video>
                     <div class="hero-overlay"></div>
                 </div>
                 
-                <!-- Parte 2: Contenuto sovrapposto (titolo, card, capannone) -->
+                <!-- Contenuto sovrapposto -->
                 <div class="hero-about-content">
-                    
                     <!-- Titolo Hero -->
                     <div class="container">
                         <div class="hero-main-title">
@@ -53,66 +86,67 @@
                         </div>
                     </div>
 
-                <!-- ========= SEZIONE CHI SIAMO (APPROCCIO FINALE E CORRETTO) ========= -->
-                <div id="chi-siamo" class="chi-siamo-container">
-                    
-                    <!-- Colonna Sinistra (Full Bleed) -->
-                    <div class="chi-siamo-left-col">
-                        <div class="chi-siamo-card-large reveal">
-                            <img src="data/Tavola disegno 1@3x.png" alt="Card Chi Siamo">
-                            <div class="card-content">
-                                <h2 class="section-title">CHI SIAMO.</h2>
-                                <p>Artigiani della stampa, maestri del dettaglio.</p>
-                                <p>Da <strong>oltre 30 anni</strong> trasformiamo carta e colore in emozione, con la precisione di una macchina e il tocco caldo di una bottega. Diamo forma alle idee, vestiamo i progetti, <strong>rendiamo reale ciò che esiste nella tua mente</strong>.</p>
-                                <p>Sperimentiamo, consigliamo, accompagniamo. Usiamo la tecnologia per <strong>potenziare la creatività</strong>, non per sostituirla. E ogni progetto è un pezzo unico, perché ci <strong>mettiamo testa, mani e cuore</strong>.</p>
-                                <p>Chi entra da noi non cerca solo una stampa: cerca un'esperienza, un impatto, un risultato che parli forte e chiaro.</p>
-                                <p>Benvenuti in <strong>Tipolitografia Giacoia</strong>. Dove ogni foglio ha una storia. E ogni storia <strong>merita di essere stampata come si deve</strong>.</p>
+                    <!-- SEZIONE CHI SIAMO -->
+                    <div id="chi-siamo" class="chi-siamo-container">
+                        <!-- Colonna Sinistra -->
+                        <div class="chi-siamo-left-col">
+                            <div class="chi-siamo-card-large reveal">
+                                <img src="data/Tavola disegno 1@3x.png" alt="Card Chi Siamo" loading="lazy">
+                                <div class="card-content">
+                                    <h2 class="section-title">CHI SIAMO.</h2>
+                                    <p>Artigiani della stampa, maestri del dettaglio.</p>
+                                    <p>Da <strong>oltre 30 anni</strong> trasformiamo carta e colore in emozione, con la precisione di una macchina e il tocco caldo di una bottega. Diamo forma alle idee, vestiamo i progetti, <strong>rendiamo reale ciò che esiste nella tua mente</strong>.</p>
+                                    <p>Sperimentiamo, consigliamo, accompagniamo. Usiamo la tecnologia per <strong>potenziare la creatività</strong>, non per sostituirla. E ogni progetto è un pezzo unico, perché ci <strong>mettiamo testa, mani e cuore</strong>.</p>
+                                    <p>Chi entra da noi non cerca solo una stampa: cerca un'esperienza, un impatto, un risultato che parli forte e chiaro.</p>
+                                    <p>Benvenuti in <strong>Tipolitografia Giacoia</strong>. Dove ogni foglio ha una storia. E ogni storia <strong>merita di essere stampata come si deve</strong>.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Colonna Destra -->
+                        <div class="chi-siamo-right-col">
+                            <div class="chi-siamo-metrics reveal">
+                                <div class="metric-card">
+                                    <img src="data/Tavola disegno 2 copia@3x.png" alt="30 anni di esperienza" loading="lazy">
+                                    <div class="metric-text">
+                                        <div class="num">+ 30 ANNI</div>
+                                        <small>di esperienza sul campo.</small>
+                                    </div>
+                                </div>
+                                <div class="metric-card">
+                                    <img src="data/dd.png" alt="3000 clienti soddisfatti" loading="lazy">
+                                    <div class="metric-text">
+                                        <div class="num">+ 3.000</div>
+                                        <small>tra aziende, professionisti e privati soddisfatti.</small>
+                                    </div>
+                                </div>
+                                <div class="metric-card">
+                                    <img src="data/Tavola disegno 3@3x.png" alt="10000 progetti realizzati" loading="lazy">
+                                    <div class="metric-text">
+                                        <div class="num">+ 10.000</div>
+                                        <small>progetti realizzati.</small>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Colonna Destra (Allineata al contenuto) -->
-                    <div class="chi-siamo-right-col">
-                        <div class="chi-siamo-metrics reveal">
-                            <div class="metric-card">
-                                <img src="data/Tavola disegno 2 copia@3x.png" alt="Sfondo metrica 30 anni">
-                                <div class="metric-text">
-                                    <div class="num">+ 30 ANNI</div>
-                                    <small>di esperienza sul campo.</small>
-                                </div>
-                            </div>
-                            <div class="metric-card">
-                                <img src="data/dd.png" alt="Sfondo metrica 3000 clienti">
-                                <div class="metric-text">
-                                    <div class="num">+ 3.000</div>
-                                    <small>tra aziende, professionisti e privati soddisfatti.</small>
-                                </div>
-                            </div>
-                            <div class="metric-card">
-                                <img src="data/Tavola disegno 3@3x.png" alt="Sfondo metrica 10000 progetti">
-                                <div class="metric-text">
-                                    <div class="num">+ 10.000</div>
-                                    <small>progetti realizzati.</small>
-                                </div>
-                            </div>
-                        </div>
+                    <!-- Immagine del Capannone -->
+                    <div class="capannone-overlay reveal">
+                        <img src="data/capannone def.png" alt="Sede della Tipolitografia Giacoia" loading="lazy">
                     </div>
-
                 </div>
+            </section>
 
-                <!-- Immagine del Capannone (ora indipendente) -->
-                <div class="capannone-overlay reveal">
-                    <img src="data/capannone def.png" alt="Sede della Tipolitografia Giacoia">
-                </div>
-
+            <!-- SEPARATORE -->
             <div class="separator"></div>
             
-            <!-- CAROSELLO COVER FLOW -->
+            <!-- SEZIONE PRODOTTI -->
             <section id="prodotti" class="section prodotti">
                 <div class="container">
                     <h2 class="section-title">PRODOTTI.</h2>
                     <div class="carousel-container">
-                        <ul class="carousel-track"></ul>
+                        <ul class="carousel-track" role="region" aria-label="Galleria prodotti"></ul>
                         <div class="carousel-navigation">
                             <button class="arrow prev" aria-label="Prodotto precedente">&lt;</button>
                             <button class="arrow next" aria-label="Prodotto successivo">&gt;</button>
@@ -122,59 +156,77 @@
             </section>
 
             <!-- IMAGE BAND -->
-            <section class="image-band">
+            <section class="image-band" aria-hidden="true">
                 <!-- Sfondo via CSS -->
             </section>
 
+            <!-- SEPARATORE -->
             <div class="separator"></div>
 
-            <!-- CONTATTI -->
+            <!-- SEZIONE CONTATTI -->
             <section id="contattaci" class="section">
                 <div class="container">
                     <h2 class="section-title">CONTATTACI.</h2>
                     <div class="contact-grid">
+                        <!-- Informazioni contatto -->
                         <div class="contact-info">
                             <div class="contact-item-simple">
-                                <img src="data/event.gif" alt="Icona indirizzo" class="contact-icon-gif icon-map">
+                                <img src="data/event.gif" alt="" class="contact-icon-gif icon-map">
                                 <a href="https://www.google.com/maps/search/?api=1&query=Via+Salvatore+Fitto+9+74014+Laterza+TA" target="_blank" rel="noopener noreferrer">
                                     Via Salvatore Fitto, 9 - ZONA P.I.P.<br>74014 Laterza (TA)
                                 </a>
                             </div>
                             <div class="contact-item-simple">
-                                <img src="data/email.gif" alt="Icona email" class="contact-icon-gif">
+                                <img src="data/email.gif" alt="" class="contact-icon-gif">
                                 <a href="mailto:giacoia-e@libero.it">giacoia-e@libero.it</a>
                             </div>
                             <div class="contact-item-simple">
-                                <img src="data/phone.gif" alt="Icona telefono" class="contact-icon-gif icon-phone">
+                                <img src="data/phone.gif" alt="" class="contact-icon-gif icon-phone">
                                 <div class="contact-text-group">
                                     <a href="tel:+390998296355">+39 099 829 63 55</a><br>
                                     <a href="tel:+393288938063">+39 328 89 38 063</a>
                                 </div>
                             </div>
+                            <!-- Mappa -->
                             <div class="map-container">
                                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.992224095493!2d16.79373981534951!3d40.63004897934091!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1346e090f0a4c2a7%3A0x6334a1738e45bf94!2sVia%20Salvatore%20Fitto%2C%209%2C%2074014%20Laterza%20TA!5e0!3m2!1sit!2sit!4v1660000000000!5m2!1sit!2sit" 
                                 width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mappa della nostra sede"></iframe>
                             </div>
                         </div>
+
+                        <!-- Form di contatto -->
                         <form id="contact-form" class="contact-form-column">
                             <label for="nome">Nome <span class="form-required">*obbligatorio</span></label>
-                            <input type="text" id="nome" name="nome" required>
+                            <div class="form-field">
+                                <input type="text" id="nome" name="nome" required aria-describedby="nome-error">
+                            </div>
+                            
                             <label for="email">E-mail <span class="form-required">*obbligatorio</span></label>
-                            <input type="email" id="email" name="email" required>
+                            <div class="form-field">
+                                <input type="email" id="email" name="email" required aria-describedby="email-error">
+                            </div>
+                            
                             <label for="product-search">Selezione Prodotto</label>
                             <div class="product-search-container">
-                                <input type="text" id="product-search" name="prodotto" placeholder="Cerca un prodotto o servizio..." autocomplete="off">
-                                <div id="product-suggestions" class="product-suggestions"></div>
+                                <input type="text" id="product-search" name="prodotto" 
+                                       placeholder="Cerca un prodotto o servizio..." 
+                                       autocomplete="off"
+                                       role="combobox"
+                                       aria-expanded="false"
+                                       aria-haspopup="listbox">
+                                <div id="product-suggestions" class="product-suggestions" role="listbox"></div>
                             </div>
+                            
                             <label for="messaggio">Messaggio <span class="form-required">*obbligatorio</span></label>
-                            <div class="textarea-container">
-                                <textarea id="messaggio" name="messaggio" rows="8" required></textarea>
+                            <div class="textarea-container form-field">
+                                <textarea id="messaggio" name="messaggio" rows="8" required aria-describedby="messaggio-error"></textarea>
                                 <div id="textarea-placeholder" class="textarea-placeholder">
                                     Inserisci una descrizione chiara e completa del progetto: obiettivi, dettagli tecnici, formato, materiali, tempistiche e qualsiasi informazione utile per una corretta analisi e preventivazione.
                                 </div>
                             </div>
+                            
                             <button type="submit" class="cta-button">INVIA</button>
-                            <small id="form-note"></small>
+                            <small id="form-note" class="form-note"></small>
                         </form>
                     </div>
                 </div>
@@ -234,7 +286,7 @@
         </footer>
     </div>
 
-    <!-- ELEMENTI FUORI DAL WRAPPER -->
+    <!-- OVERLAY WORK IN PROGRESS -->
     <div id="wip-overlay" class="wip-overlay">
         <div class="wip-content">
             <img src="data/logo.png" alt="Logo Tipolitografia Giacoia">
@@ -245,6 +297,7 @@
         </div>
     </div>
 
+    <!-- BANNER COOKIE -->
     <div id="cookie-banner" class="cookie-banner">
         <div class="cookie-content">
             <p>

@@ -1368,7 +1368,7 @@ html::after {
 
 .map-container { 
     width: 100%; 
-    height: 250px; 
+    height: 237px; 
     background-color: var(--color-surface); 
     border-radius: var(--radius-lg); 
     overflow: hidden; 
@@ -1437,6 +1437,24 @@ html::after {
     background-image: url('data/Tavola disegno 6@3x.png'); 
     background-size: 400px; 
     transition: border-color var(--duration-fast) var(--ease-standard);
+}
+
+.contact-form-column input, 
+.contact-form-column select, 
+.contact-form-column textarea { 
+    color: #000000; /* Testo nero per visibilità su sfondo chiaro */
+    background-color: var(--color-surface); /* Presumo bianco o chiaro */
+}
+
+.contact-form-column input::placeholder,
+.contact-form-column select::placeholder,
+.contact-form-column textarea::placeholder {
+    color: #555555; /* Placeholder grigio scuro visibile */
+}
+
+/* Se c'è una classe personalizzata per placeholder testuale (come .textarea-placeholder) verifica che abbia colore e contrasto adeguati */
+.textarea-placeholder {
+    color: rgba(0, 0, 0, 0.6); /* Colore di placeholder scuro semitrasparente */
 }
 
 .contact-form-column input:focus,
@@ -1515,9 +1533,17 @@ html::after {
 /* FOOTER */
 /* ========================================================= */
 
-.footer { 
-    padding: var(--space-32) 0 var(--space-16) 0; 
-    font-size: var(--font-size-sm); 
+.footer {
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.2); /* Nero trasparente */
+  padding: var(--space-32) 0 var(--space-16) 0;
+  color: var(--white);
+  z-index: 10;
+}
+
+.footer > .container {
+  position: relative;
+  z-index: 11;
 }
 
 .footer-main { 
@@ -1541,9 +1567,34 @@ html::after {
     margin-bottom: var(--space-24); 
 }
 
-.footer-info p { 
-    margin-bottom: var(--space-20); 
-    line-height: var(--line-height-normal); 
+/* Stile del contenitore principale della colonna info */
+.footer-info {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 5rem; /* <<== VALORE AUMENTATO */
+}
+
+/* Stile per il nuovo contenitore del testo */
+.footer-info-text {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem; /* <<== VALORE AUMENTATO PER PIÙ SPAZIO VERTICALE */
+}
+
+
+.footer-info > div {
+  display: flex;
+  flex-direction: column;     /* Impila info una sotto l’altra */
+  gap: 0.5rem;                /* Spazio verticale tra informazioni */
+  min-width: 0;               /* Evita overflow indesiderati */
+}
+
+
+.footer-info p {
+  margin: 0;
+  white-space: normal;        /* Permette a testo di andare a capo se serve */
+  line-height: 1.4;
 }
 
 .footer-info a { 
@@ -1980,6 +2031,23 @@ html::after {
         font-size: var(--font-size-lg);
     }
 }
+
+@media (max-width: 992px) {
+    .footer-info {
+        /* Impila gli elementi verticalmente */
+        flex-direction: column;
+        
+        /* Centra gli elementi (logo e testo) */
+        align-items: center;
+        
+        /* Allinea il testo al centro */
+        text-align: center;
+        
+        /* Riduci lo spazio quando sono impilati */
+        gap: 1.5rem;
+    }
+}
+
 
 .hero-main-title b, /* le parole dinamiche */
 #dynamic-word-1, 

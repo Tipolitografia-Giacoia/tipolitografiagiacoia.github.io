@@ -1607,12 +1607,13 @@ html::after {
     color: var(--color-warning); 
 }
 
-.footer-links h4 { 
-    font-family: var(--font-family-base); 
-    font-weight: var(--font-weight-bold);
-    margin-bottom: var(--space-24); 
-    font-size: var(--font-size-base); 
-    letter-spacing: var(--letter-spacing-tight); 
+.footer-links h4 {
+    font-family: 'DrukWide', sans-serif;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    color: var(--white); /* Assicura che sia bianco */
 }
 
 .footer-links ul { 

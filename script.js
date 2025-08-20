@@ -38,23 +38,56 @@ document.addEventListener('DOMContentLoaded', function() {
     // ===================================================
     // 3. CAROSELLO PRODOTTI (COVER FLOW)
     // ===================================================
-    const productImages = [
-        'data/prodotti/Tavola disegno 2@3x.png', 'data/prodotti/Tavola disegno 3@3x.png', 'data/prodotti/Tavola disegno 4@3x.png', 'data/prodotti/Tavola disegno 5@3x.png', 'data/prodotti/Tavola disegno 6@3x.png', 'data/prodotti/Tavola disegno 7@3x.png', 'data/prodotti/Tavola disegno 8@3x.png', 'data/prodotti/Tavola disegno 9@3x.png', 'data/prodotti/Tavola disegno 10@3x.png', 'data/prodotti/Tavola disegno 11@3x.png', 'data/prodotti/Tavola disegno 12@3x.png', 'data/prodotti/Tavola disegno 13@3x.png', 'data/prodotti/Tavola disegno 14@3x.png', 'data/prodotti/Tavola disegno 15@3x.png', 'data/prodotti/Tavola disegno 16@3x.png', 'data/prodotti/Tavola disegno 17@3x.png', 'data/prodotti/Tavola disegno 18@3x.png', 'data/prodotti/Tavola disegno 19@3x.png', 'data/prodotti/Tavola disegno 20@3x.png', 'data/prodotti/Tavola disegno 21@3x.png', 'data/prodotti/Tavola disegno 22@3x.png', 'data/prodotti/Tavola disegno 23@3x.png', 'data/prodotti/Tavola disegno 24@3x.png', 'data/prodotti/Tavola disegno 25@3x.png', 'data/prodotti/Tavola disegno 26@3x.png', 'data/prodotti/Tavola disegno 27@3x.png', 'data/prodotti/Tavola disegno 28@3x.png', 'data/prodotti/Tavola disegno 29@3x.png', 'data/prodotti/Tavola disegno 30@3x.png', 'data/prodotti/Tavola disegno 31@3x.png', 'data/prodotti/Tavola disegno 32@3x.png'
+    const carouselProductsData = [
+        { imageSrc: 'data/prodotti/Tavola disegno 2@3x.png', labelText: 'Consulenza e Design' },
+        { imageSrc: 'data/prodotti/Tavola disegno 3@3x.png', labelText: 'Business Stationery' },
+        { imageSrc: 'data/prodotti/Tavola disegno 4@3x.png', labelText: 'Brochure, Flyers, Pieghevoli' },
+        { imageSrc: 'data/prodotti/Tavola disegno 5@3x.png', labelText: 'Editoria e Cataloghi' },
+        { imageSrc: 'data/prodotti/Tavola disegno 6@3x.png', labelText: 'Timbri' },
+        { imageSrc: 'data/prodotti/Tavola disegno 7@3x.png', labelText: 'Custom Gadgets' },
+        { imageSrc: 'data/prodotti/Tavola disegno 8@3x.png', labelText: 'Stampa Offset, Digitale e Serigrafica' },
+        { imageSrc: 'data/prodotti/Tavola disegno 9@3x.png', labelText: 'Etichette e Sticker adesivi' },
+        { imageSrc: 'data/prodotti/Tavola disegno 10@3x.png', labelText: 'Manifesti e Locandine' },
+        { imageSrc: 'data/prodotti/Tavola disegno 11@3x.png', labelText: 'Calendari' },
+        { imageSrc: 'data/prodotti/Tavola disegno 12@3x.png', labelText: 'Stampa Foglia Oro' },
+        { imageSrc: 'data/prodotti/Tavola disegno 13@3x.png', labelText: 'Stampa grandi formati' },
+        { imageSrc: 'data/prodotti/Tavola disegno 14@3x.png', labelText: 'Show Stand' },
+        { imageSrc: 'data/prodotti/Tavola disegno 15@3x.png', labelText: 'Roll Up' },
+        { imageSrc: 'data/prodotti/Tavola disegno 16@3x.png', labelText: 'Expo Banner' },
+        { imageSrc: 'data/prodotti/Tavola disegno 17@3x.png', labelText: 'Totem' },
+        { imageSrc: 'data/prodotti/Tavola disegno 18@3x.png', labelText: 'A-Stand' },
+        { imageSrc: 'data/prodotti/Tavola disegno 19@3x.png', labelText: 'Espositori' },
+        { imageSrc: 'data/prodotti/Tavola disegno 20@3x.png', labelText: 'Tele Canvas' },
+        { imageSrc: 'data/prodotti/Tavola disegno 21@3x.png', labelText: 'Abbigliamento personalizzato' },
+        { imageSrc: 'data/prodotti/Tavola disegno 22@3x.png', labelText: 'Abbigliamento professionale' },
+        { imageSrc: 'data/prodotti/Tavola disegno 23@3x.png', labelText: 'Allestimento Vetrine' },
+        { imageSrc: 'data/prodotti/Tavola disegno 24@3x.png', labelText: 'Insegne Luminose' },
+        { imageSrc: 'data/prodotti/Tavola disegno 25@3x.png', labelText: 'Vehicle Branding' },
+        { imageSrc: 'data/prodotti/Tavola disegno 26@3x.png', labelText: 'Taglio Laser' },
+        { imageSrc: 'data/prodotti/Tavola disegno 27@3x.png', labelText: 'Promo desk' },
+        { imageSrc: 'data/prodotti/Tavola disegno 28@3x.png', labelText: 'Targhe da parete' },
+        { imageSrc: 'data/prodotti/Tavola disegno 29@3x.png', labelText: 'Paper Shopping Bags' },
+        { imageSrc: 'data/prodotti/Tavola disegno 30@3x.png', labelText: 'Cotton Shopping Bags' },
+        { imageSrc: 'data/prodotti/Tavola disegno 31@3x.png', labelText: 'Flags' },
+        { imageSrc: 'data/prodotti/Tavola disegno 32@3x.png', labelText: 'Trofei, Targhe e Medaglie' }
     ];
 
     const carouselTrack = document.querySelector('.carousel-track');
     const carouselPrevButton = document.querySelector('.carousel-container .arrow.prev');
     const carouselNextButton = document.querySelector('.carousel-container .arrow.next');
+    const requestInfoButton = document.getElementById('request-info-btn'); // Selezioniamo il nuovo pulsante
 
-    if (carouselTrack && carouselPrevButton && carouselNextButton) {
+    if (carouselTrack && carouselPrevButton && carouselNextButton && requestInfoButton) {
         let currentIndex = 0;
         
-        productImages.forEach(src => {
+        // Genera dinamicamente gli elementi del carosello
+        carouselProductsData.forEach(product => {
             const listItem = document.createElement('li');
             listItem.className = 'carousel-item';
             const image = document.createElement('img');
-            image.src = src;
-            image.alt = 'Prodotto Giacoia';
+            image.src = product.imageSrc;
+            image.alt = product.labelText;
+            image.loading = 'lazy';
             listItem.appendChild(image);
             carouselTrack.appendChild(listItem);
         });
@@ -83,6 +116,27 @@ document.addEventListener('DOMContentLoaded', function() {
         carouselPrevButton.addEventListener('click', () => {
             currentIndex = (currentIndex - 1 + totalItems) % totalItems;
             updateCarousel();
+        });
+        
+        // === NUOVA LOGICA PER IL PULSANTE "RICHIEDI INFORMAZIONI" ===
+        requestInfoButton.addEventListener('click', () => {
+            // 1. Prendi il nome del prodotto attualmente attivo
+            const currentProduct = carouselProductsData[currentIndex];
+            const productName = currentProduct.labelText;
+
+            // 2. Trova il campo di ricerca nel form
+            const searchInput = document.getElementById('product-search');
+            if (searchInput) {
+                // 3. Compila il campo con il nome del prodotto
+                searchInput.value = productName;
+            }
+
+            // 4. Scorri fino alla sezione contatti
+            // Usiamo questo metodo per uno scroll fluido che funziona ovunque
+            const contactSection = document.getElementById('contattaci');
+            if (contactSection) {
+                contactSection.scrollIntoView({ behavior: 'smooth' });
+            }
         });
 
         updateCarousel();

@@ -912,25 +912,42 @@ html::after {
   font-size: clamp(1rem, 4vw, 3rem); /* Aggiunto dimensione maggiore per grassetto */
 }
 
+/* ========================================================= */
+/* FIX SEZIONE CHI SIAMO - LAYOUT A 2 COLONNE CORRETTO */
+/* ========================================================= */
 
 .chi-siamo-container {
+    padding-top: clamp(4rem, 10vh, 8rem);
+    overflow: visible;
+    position: relative; /* AGGIUNTO: necessario per position absolute */
+}
+
+.chi-siamo-grid-new {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 0;
+    align-items: center;
+    min-height: 70vh;
     position: relative;
-    z-index: 2;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding: clamp(var(--space-32), 10vh, calc(var(--space-32) * 2)) 0 0;
+    max-width: none;
 }
-
+/* --- Colonna Sinistra (Card Testo) - PIÙ PICCOLA E SPOSTATA A SINISTRA --- */
 .chi-siamo-left-col {
-    width: 45%;
-    max-width: 700px;
-    flex-shrink: 0;
+    position: relative;
+    z-index: 3; /* Z-index più alto per stare sopra al capannone */
+    margin-right: -15%; /* Aumentato per maggiore sovrapposizione verso destra */
+    margin-left: -4rem; /* CAMBIATO: da -2rem a -4rem per avvicinarlo al bordo sinistro */
+    max-width: 115%; /* CAMBIATO: da 110% a 115% per permettere più espansione */
 }
 
+/* NUOVO CODICE CORRETTO */
 .chi-siamo-card-large {
     position: relative;
-    z-index: 2;
+    transform: scale(0.85);
+    transform-origin: left center;
+    /* La riga box-shadow è stata rimossa */
+    border-radius: var(--radius);
+    overflow: hidden;
 }
 
 .chi-siamo-card-large > img {
@@ -945,116 +962,50 @@ html::after {
     left: 0;
     width: 100%;
     height: 100%;
-    /* Aumentiamo il padding per dare più respiro al testo */
-    padding: clamp(2rem, 8vw, 6rem); 
+    padding: clamp(1.5rem, 4vw, 3rem); /* Ridotto il padding */
     color: var(--white);
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
+
 .card-content .section-title {
     text-align: left;
-    margin-bottom: 1.5rem;
-    /* Valori di font-size aumentati e più reattivi */
-    font-size: clamp(1.8rem, 5.5vw, 3rem); 
+    margin-bottom: 1.2rem; /* Ridotto margine */
+    font-size: 1.8rem; /* Ridotto font size */
     color: var(--white);
 }
+
 .card-content p {
-    /* Valori di font-size aumentati e più reattivi */
-    font-size: clamp(0.9rem, 2.5vw, 1.2rem); 
+    font-size: 0.9rem; /* Ridotto font size */
     opacity: 0.9;
-    margin-bottom: 1em;
-    line-height: 1.6; /* Aumentiamo l'interlinea per leggibilità */
+    margin-bottom: 0.8em; /* Ridotto margine */
 }
 
-.chi-siamo-right-col {
-    width: 35%;
-    max-width: 450px;
-    flex-shrink: 0;
-}
-
-.chi-siamo-metrics {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-24);
-    padding-top: var(--space-16);
-}
-
-.metric-card {
-    position: relative;
-}
-
-.metric-card img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-.metric-text {
+/* --- Colonna Destra (Capannone) - ATTACCATA AL BORDO DESTRO MA FISSA NELLA SEZIONE --- */
+.capannone-col {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: var(--color-text);
-    text-align: center;
-    width: 90%;
+    right: calc(-1 * max(0px, (100vw - var(--container-xl)) / 2));
+    top: 15%; /* CAMBIATO: da 20% a 15% per dare più spazio in basso */
+    transform: none;
+    width: 60vw;
+    height: 70vh; /* CAMBIATO: da 60vh a 70vh per più altezza */
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    z-index: 1;
+    overflow: hidden;
 }
 
-.metric-text .num { 
-    font-family: var(--font-family-base); 
-    font-weight: var(--font-weight-bold);
-    font-size: clamp(var(--font-size-xl), 4vw, var(--font-size-3xl)); 
-    margin-bottom: var(--space-4); 
-}
 
-.metric-text small { 
-    font-size: clamp(var(--font-size-sm), 2vw, var(--font-size-base)); 
-    opacity: 0.9; 
-}
-
-/* CORREZIONE: Elimina spazio extra dopo capannone */
-.capannone-overlay {
-    margin-top: -20%;
-    margin-bottom: 0;
-    position: relative;
-    z-index: 10;
-    line-height: 0;
-}
-
-.capannone-overlay img {
+.capannone-col img {
     width: 100%;
-    height: auto;
-    display: block;
-}
-
-/* ========================================================= */
-/* SEZIONE PRODOTTI - SFONDO SPECIFICO */
-/* ========================================================= */
-
-.prodotti { 
-    background-color: var(--color-surface); 
-    background-image: url('data/Tavola disegno 6@3x.png'); 
-    background-size: 400px; 
-    background-repeat: repeat; 
-    color: var(--color-text); 
-}
-
-/* ========================================================= */
-/* SEZIONE CONTATTI - NESSUN SFONDO SPECIFICO */
-/* ========================================================= */
-
-#contattaci.section {
-    /* IMPORTANTE: Deve mostrare SOLO il sfondo globale back 2.png */
-    background: none !important;
-    background-image: none !important;
-    background-color: transparent !important;
-    padding-top: clamp(var(--space-32), 8vw, calc(var(--space-32) * 1.5));
-    padding-bottom: clamp(var(--space-32), 8vw, calc(var(--space-32) * 1.5));
-}
-
-/* ========================================================= */
+    height: 100%;
+    object-fit: cover;
+    object-position: right center; /* CAMBIATO: da "right top" a "right center" per centrare verticalmente */
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}/* ========================================================= */
 /* COMPONENTI BASE */
 /* ========================================================= */
 
@@ -1351,10 +1302,10 @@ html::after {
     height: 32px; 
 }
 
-.contact-text-group { 
+.contact-item-simple { 
     display: flex; 
-    flex-direction: column; 
-    justify-content: center; 
+    align-items: center; /* <-- Questa è la regola che fa l'allineamento */
+    gap: var(--space-24); 
 }
 
 .contact-item-simple a { 
@@ -1370,7 +1321,7 @@ html::after {
 
 .map-container { 
     width: 100%; 
-    height: 237px; 
+    height: 268px; 
     background-color: var(--color-surface); 
     border-radius: var(--radius-lg); 
     overflow: hidden; 
@@ -1456,7 +1407,7 @@ html::after {
 
 /* Se c'è una classe personalizzata per placeholder testuale (come .textarea-placeholder) verifica che abbia colore e contrasto adeguati */
 .textarea-placeholder {
-    color: rgba(0, 0, 0, 0.6); /* Colore di placeholder scuro semitrasparente */
+    color: rgba(85, 85, 85, 0.6); /* Stesso colore base (#555555) con trasparenza */
 }
 
 .contact-form-column input:focus,
@@ -1476,7 +1427,7 @@ html::after {
     left: var(--space-16); 
     width: calc(100% - var(--space-32)); 
     user-select: none; 
-    color: var(--color-text-secondary); 
+    color: #555555; /* CAMBIATO: stesso colore degli altri placeholder */
     pointer-events: none; 
     transition: opacity var(--duration-fast) var(--ease-standard); 
     font-size: var(--font-size-base); 
@@ -2072,8 +2023,16 @@ html::after {
 
 /* Testo normale nella sezione Prodotti resta bianco e font normale */
 .prodotti {
-  font-family: var(--font-body);
-  color: #ffffff; /* Bianco */
+    position: relative; /* Necessario per il corretto rendering degli sfondi */
+    
+    /* Sfondo corretto con il pattern */
+    background-color: var(--color-surface); /* Colore di base chiaro */
+    background-image: url('data/Tavola disegno 6@3x.png');
+    background-size: 400px;
+    background-repeat: repeat;
+    
+    /* Colore del testo di base per la sezione (se necessario) */
+    color: var(--color-text);
 }
 
 /* Parole dinamiche nel video hero con font DrukWide e nero */
@@ -2100,4 +2059,68 @@ html::after {
 .chi-siamo-metrics small {
   font-family: var(--font-body);
   color: #ffffff; /* Bianco */
+}
+
+/* --- Responsive --- */
+@media (max-width: 992px) {
+    .chi-siamo-grid-new {
+        grid-template-columns: 1fr; /* Le colonne si impilano */
+        gap: 2rem; /* Ripristina il gap normale su mobile */
+    }
+    
+    /* Rimuovi stili vecchi che potrebbero interferire */
+    .chi-siamo-container {
+        display: block;
+        padding-left: var(--space-16);
+        padding-right: var(--space-16);
+        z-index: 2;
+    }
+    
+    .chi-siamo-left-col {
+        width: auto;
+        max-width: none;
+        margin-right: 0; /* Reset margin su mobile */
+        z-index: auto; /* Reset z-index su mobile */
+    }
+    
+    /* Assicuriamoci che il capannone abbia un margine appropriato quando impilato */
+    .capannone-col {
+        width: auto;
+        max-width: none;
+        margin-top: 0; /* Reset eventuali margini precedenti */
+        margin-left: 0; /* Reset margin su mobile */
+        margin-right: 0; /* Reset margin su mobile */
+        height: auto; /* Reset altezza su mobile */
+        z-index: auto; /* Reset z-index su mobile */
+        justify-content: center; /* Centra l'immagine su mobile */
+    }
+    
+    .capannone-col img {
+        width: 100%; /* Reset larghezza su mobile */
+        max-height: 40vh; /* Riduci l'altezza massima su mobile */
+        min-height: 250px; /* Riduci anche l'altezza minima su mobile */
+        height: auto; /* Altezza automatica su mobile */
+    }
+}
+
+/* --- Responsive per tablet --- */
+@media (max-width: 1200px) {
+    .chi-siamo-grid-new {
+        grid-template-columns: 0.75fr 1.25fr; /* Ancora più piccola la colonna sinistra */
+    }
+    
+    .chi-siamo-left-col {
+        margin-left: -1rem;
+        margin-right: -3%;
+    }
+    
+    .chi-siamo-card-large {
+        transform: scale(0.8); /* Scala ancora di più su tablet */
+    }
+    
+    .capannone-col {
+        height: 50vh;
+        min-height: 300px;
+        margin-left: -5%;
+    }
 }

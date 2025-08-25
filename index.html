@@ -86,56 +86,32 @@
                         </div>
                     </div>
 
-                    <!-- SEZIONE CHI SIAMO -->
+                    <!-- SEZIONE CHI SIAMO - LAYOUT MODIFICATO A 2 COLONNE -->
                     <div id="chi-siamo" class="chi-siamo-container">
-                        <!-- Colonna Sinistra -->
-                        <div class="chi-siamo-left-col">
-                            <div class="chi-siamo-card-large reveal">
-                                <img src="data/Tavola disegno 1@3x.png" alt="Card Chi Siamo" loading="lazy">
-                                <div class="card-content">
-                                    <h2 class="section-title">CHI SIAMO.</h2>
-                                    <p>Artigiani della stampa, maestri del dettaglio.</p>
-                                    <p>Da <strong>oltre 30 anni</strong> trasformiamo carta e colore in emozione, con la precisione di una macchina e il tocco caldo di una bottega. Diamo forma alle idee, vestiamo i progetti, <strong>rendiamo reale ciò che esiste nella tua mente</strong>.</p>
-                                    <p>Sperimentiamo, consigliamo, accompagniamo. Usiamo la tecnologia per <strong>potenziare la creatività</strong>, non per sostituirla. E ogni progetto è un pezzo unico, perché ci <strong>mettiamo testa, mani e cuore</strong>.</p>
-                                    <p>Chi entra da noi non cerca solo una stampa: cerca un'esperienza, un impatto, un risultato che parli forte e chiaro.</p>
-                                    <p>Benvenuti in <strong>Tipolitografia Giacoia</strong>. Dove ogni foglio ha una storia. E ogni storia <strong>merita di essere stampata come si deve</strong>.</p>
-                                </div>
-                            </div>
-                        </div>
+                        <div class="container">
+                            <div class="chi-siamo-grid-new">
 
-                        <!-- Colonna Destra -->
-                        <div class="chi-siamo-right-col">
-                            <div class="chi-siamo-metrics reveal">
-                                <div class="metric-card">
-                                    <img src="data/Tavola disegno 2 copia@3x.png" alt="30 anni di esperienza" loading="lazy">
-                                    <div class="metric-text">
-                                        <div class="num">+ 30 ANNI</div>
-                                        <small>di esperienza sul campo.</small>
+                                <!-- Colonna Sinistra: Card con testo -->
+                                <div class="chi-siamo-left-col">
+                                    <div class="chi-siamo-card-large reveal">
+                                        <img src="data/Tavola disegno 1@3x.png" alt="Card Chi Siamo">
+                                        <div class="card-content">
+                                            <h2 class="section-title">CHI SIAMO.</h2>
+                                            <p>Artigiani della stampa, maestri del dettaglio.</p>
+                                            <p>Da <strong>oltre 30 anni</strong> trasformiamo carta e colore in emozione, con la precisione di una macchina e il tocco caldo di una bottega. Diamo forma alle idee, vestiamo i progetti, <strong>rendiamo reale ciò che esiste nella tua mente</strong>.</p>
+                                            <p>Sperimentiamo, consigliamo, accompagniamo. Usiamo la tecnologia per <strong>potenziare la creatività</strong>, non per sostituirla. E ogni progetto è un pezzo unico, perché ci <strong>mettiamo testa, mani e cuore</strong>.</p>
+                                            <p>Chi entra da noi non cerca solo una stampa: cerca un'esperienza, un impatto, un risultato che parli forte e chiaro.</p>
+                                            <p>Benvenuti in <strong>Tipolitografia Giacoia</strong>. Dove ogni foglio ha una storia. E ogni storia <strong>merita di essere stampata come si deve</strong>.</p>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="metric-card">
-                                    <img src="data/dd.png" alt="3000 clienti soddisfatti" loading="lazy">
-                                    <div class="metric-text">
-                                        <div class="num">+ 3.000</div>
-                                        <small>clienti soddisfatti.</small>
-                                    </div>
-                                </div>
-                                <div class="metric-card">
-                                    <img src="data/Tavola disegno 3@3x.png" alt="10000 progetti realizzati" loading="lazy">
-                                    <div class="metric-text">
-                                        <div class="num">+ 10.000</div>
-                                        <small>progetti realizzati.</small>
-                                    </div>
+                                <!-- Colonna Destra: Immagine del Capannone -->
+                                <div class="capannone-col reveal">
+                                    <img src="data/capannone def.png" alt="Sede della Tipolitografia Giacoia">
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Immagine del Capannone -->
-                    <div class="capannone-overlay reveal">
-                        <img src="data/capannone def.png" alt="Sede della Tipolitografia Giacoia" loading="lazy">
-                    </div>
-                </div>
             </section>
 
             <!-- SEPARATORE -->
@@ -185,10 +161,7 @@
                             </div>
                             <div class="contact-item-simple">
                                 <img src="data/phone.gif" alt="" class="contact-icon-gif icon-phone">
-                                <div class="contact-text-group">
-                                    <a href="tel:+390998296355">+39 099 829 63 55</a><br>
-                                    <a href="tel:+393288938063">+39 328 89 38 063</a>
-                                </div>
+                                <a href="tel:+390998296355">+39 099 829 63 55</a>
                             </div>
                             <!-- Mappa -->
                             <div class="map-container">
@@ -201,12 +174,12 @@
                         <form id="contact-form" class="contact-form-column">
                             <label for="nome">Nome <span class="form-required">*obbligatorio</span></label>
                             <div class="form-field">
-                                <input type="text" id="nome" name="nome" required aria-describedby="nome-error" placeholder="es. 'Giovanni Cinieri'">
+                                <input type="text" id="nome" name="nome" required aria-describedby="nome-error">
                             </div>
                             
                             <label for="email">E-mail <span class="form-required">*obbligatorio</span></label>
                             <div class="form-field">
-                                <input type="email" id="email" name="email" required aria-describedby="email-error" placeholder="prova.example@gmail.com">
+                                <input type="email" id="email" name="email" required aria-describedby="email-error">
                             </div>
                             
                             <label for="product-search">Selezione Prodotto</label>
@@ -255,7 +228,6 @@
                             </p>
                             <p>
                                 <a href="tel:+390998296355">+39 099 829 63 55</a><br>
-                                <a href="tel:+393288938063">+39 328 89 38 063</a>
                             </p>
                         </div>
                     </div>

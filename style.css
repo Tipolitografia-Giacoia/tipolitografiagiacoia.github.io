@@ -1205,22 +1205,23 @@ html::after {
 
 .carousel-item.is-active { 
     opacity: 1; 
-    transform: translateX(0) scale(1.15); 
+    transform: translateX(0) scale(1.4); /* Da 1.15 a 1.3 */
     z-index: 3; 
 }
 
 .carousel-item.is-prev { 
     opacity: 0.6; 
-    transform: translateX( min(max(-55vw, -450px), -200px) ) scale(0.9); 
+    transform: translateX( min(max(-55vw, -450px), -200px) ) scale(1.1); /* Da 0.9 a 1.0 */
     z-index: 2; 
 }
 
 .carousel-item.is-next { 
     opacity: 0.6; 
-    transform: translateX( min(max(55vw, 200px), 450px) ) scale(0.9); 
+    transform: translateX( min(max(55vw, 200px), 450px) ) scale(1.1); /* Da 0.9 a 1.0 */
     z-index: 2; 
 }
 
+/* NUOVO CODICE CORRETTO */
 .carousel-navigation {
   order: 2;
   display: flex;
@@ -1228,6 +1229,11 @@ html::after {
   justify-content: center;
   gap: 30px;
   width: 100%;
+
+  /* --- REGOLE CHIAVE AGGIUNTE --- */
+  position: relative; /* Attiva il contesto di impilamento */
+  z-index: 5;         /* Mette la navigazione sopra le card (che hanno z-index max 3) */
+  /* ------------------------------ */
 }
 
 .carousel-container .arrow {

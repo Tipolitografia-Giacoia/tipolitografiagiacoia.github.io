@@ -2067,11 +2067,14 @@ html::after {
 #prodotti .section-title {
   font-family: 'DrukWide', sans-serif;
   color: #000000; /* Nero */
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  color: #000000 !important;
 }
 
 #contattaci .section-title {
   font-family: 'DrukWide', sans-serif;
   color: #ffffff; /* Bianco */
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
 }
 
 /* Testo normale nella sezione Prodotti resta bianco e font normale */

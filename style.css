@@ -1374,7 +1374,7 @@ html::after {
 
 .map-container { 
     width: 100%; 
-    height: 268px; 
+    height: 280px; 
     background-color: var(--color-surface); 
     border-radius: var(--radius-lg); 
     overflow: hidden; 
@@ -1415,7 +1415,8 @@ html::after {
 
 .contact-form-column label { 
     margin-bottom: var(--space-8); 
-    font-size: var(--font-size-sm); 
+    /* Dimensione fluida: min 14px, max 16px */
+    font-size: clamp(var(--font-size-base), 2vw, var(--font-size-lg));
     font-weight: var(--font-weight-medium);
     opacity: 0.9; 
 }

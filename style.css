@@ -2235,14 +2235,6 @@ footer.footer * {
   color: #ffffff !important;
 }
 
-/* 7. PLACEHOLDER */
-#nome::placeholder,
-#email::placeholder,
-#product-search::placeholder,
-#messaggio::placeholder,
-#textarea-placeholder {
-  color: rgba(0,0,0, 0.6) !important;
-}
 
 /* 8. OVERRIDE VARIABILI CSS */
 .footer, .contact-info, #contact-form label, #request-info-btn {
@@ -2356,3 +2348,40 @@ a[href="cookie-policy.html"] {
 .hamburger span {
   background-color: #ffffff !important;
 }
+
+/* ============================================== */
+/* FIX PLACEHOLDER FORM - NERO CON TRASPARENZA */
+/* ============================================== */
+
+/* CORREGGI I PLACEHOLDER DEI CAMPI FORM - DEVONO ESSERE NERI */
+.contact-form-column input::placeholder,
+.contact-form-column select::placeholder,
+.contact-form-column textarea::placeholder,
+#contact-form input::placeholder,
+#contact-form select::placeholder,
+#contact-form textarea::placeholder,
+#nome::placeholder,
+#email::placeholder,
+#product-search::placeholder,
+#messaggio::placeholder {
+  color: rgba(0, 0, 0, 0.6) !important; /* Nero con 60% opacità */
+}
+
+/* PLACEHOLDER PERSONALIZZATO DELLA TEXTAREA */
+#textarea-placeholder,
+.textarea-placeholder {
+  color: rgba(0, 0, 0, 0.6) !important; /* Nero con 60% opacità */
+}
+
+/* ASSICURA CHE LO SFONDO DEI CAMPI SIA CHIARO PER IL CONTRASTO */
+.contact-form-column input,
+.contact-form-column select,
+.contact-form-column textarea,
+#nome,
+#email,
+#product-search,
+#messaggio {
+  background-color: var(--color-surface) !important; /* Sfondo chiaro */
+  color: #000000 !important; /* Testo nero */
+}
+

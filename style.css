@@ -2182,3 +2182,42 @@ html::after {
     }
 }
 
+/* FIX COLORI BIANCHI - Forza il bianco indipendentemente dal tema */
+
+/* 1. PULSANTE "RICHIEDI INFORMAZIONI" */
+.request-info-button {
+  color: #ffffff !important;
+}
+
+/* 2. LABELS del form contattaci */
+.contact-form-column label {
+  color: #ffffff !important;
+}
+
+/* 3. PULSANTE "INVIA" */
+.contact-form-column .cta-button {
+  color: #ffffff !important;
+}
+
+/* 4. INFORMAZIONI CONTATTO (via, email, telefono) */
+.contact-item-simple a,
+.contact-item-simple,
+.footer-info p,
+.footer-info a {
+  color: #ffffff !important;
+}
+
+/* 5. TUTTO IL FOOTER */
+.footer,
+.footer *,
+.footer h4,
+.footer p,
+.footer a,
+.footer-links h4,
+.footer-links a,
+.footer-bottom,
+.footer-bottom a,
+.legal-links a {
+  color: #ffffff !important;
+}
+

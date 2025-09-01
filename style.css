@@ -753,7 +753,7 @@ select.form-control {
     --muted: var(--color-surface);
     --shadow: var(--shadow-md);
     --radius: var(--radius-lg);
-    --font-heading: var(--font-family-base);
+    --font-heading: 'DrukWide', sans-serif;
     --font-body: var(--font-family-base);
 }
 
@@ -1707,8 +1707,7 @@ html::after {
 .wip-overlay { 
     position: fixed; 
     inset: 0; 
-    background-color: rgba(var(--color-charcoal-700-rgb), 0.95); 
-    backdrop-filter: blur(10px); 
+    background-color: rgba(0, 0, 0, 0.9); /* Nero con opacità all'90% */
     z-index: 2000; 
     display: none; 
     place-items: center; 
@@ -1716,6 +1715,14 @@ html::after {
     opacity: 0; 
     pointer-events: none; 
     transition: opacity var(--duration-fast) var(--ease-standard); 
+}
+
+.wip-content h2 { 
+    font-family: 'DrukWide', sans-serif !important; /* <<== FORZIAMO IL FONT QUI */
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-2xl); 
+    margin-bottom: var(--space-16);
+    color: var(--white);
 }
 
 .wip-overlay.active { 
@@ -1732,13 +1739,6 @@ html::after {
 .wip-content img { 
     width: 80px; 
     margin-bottom: var(--space-24); 
-}
-
-.wip-content h2 { 
-    font-family: var(--font-family-base); 
-    font-weight: var(--font-weight-bold);
-    font-size: var(--font-size-2xl); 
-    margin-bottom: var(--space-16); 
 }
 
 .wip-content p { 

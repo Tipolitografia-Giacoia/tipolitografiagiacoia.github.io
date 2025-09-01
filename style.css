@@ -2235,6 +2235,15 @@ footer.footer * {
   color: #ffffff !important;
 }
 
+/* 7. PLACEHOLDER */
+#nome::placeholder,
+#email::placeholder,
+#product-search::placeholder,
+#messaggio::placeholder,
+#textarea-placeholder {
+  color: rgba(0,0,0, 0.6) !important;
+}
+
 /* 8. OVERRIDE VARIABILI CSS */
 .footer, .contact-info, #contact-form label, #request-info-btn {
   --color-text: #ffffff !important;

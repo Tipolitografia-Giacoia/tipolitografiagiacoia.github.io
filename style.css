@@ -2249,3 +2249,110 @@ footer.footer * {
   --color-text: #ffffff !important;
   --color-btn-primary-text: #ffffff !important;
 }
+
+/* 1. ICONE SOCIAL NEL FOOTER (cerchietti Facebook, Instagram, TikTok) */
+.footer-social .social-icon,
+.footer-social .social-icon svg,
+.social-icon,
+.social-icon svg,
+a.social-icon,
+a.social-icon svg {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+  border-color: #ffffff !important;
+}
+
+/* 2. NAVBAR LINK (Chi Siamo, Prodotti, Contattaci) */
+.nav-menu .nav-link,
+.header .nav-link,
+.navbar .nav-link,
+a.nav-link,
+.nav-item a,
+.nav-item .nav-link,
+ul.nav-menu li a {
+  color: #ffffff !important;
+}
+
+/* 3. BANNER COOKIE - TESTO "Utilizziamo i cookie..." */
+.cookie-banner,
+.cookie-banner *,
+.cookie-content,
+.cookie-content p,
+#cookie-banner,
+#cookie-banner *,
+#cookie-banner .cookie-content,
+#cookie-banner .cookie-content p {
+  color: #ffffff !important;
+}
+
+/* 4. WIP OVERLAY - "Work In Progress" e testo */
+.wip-overlay,
+.wip-overlay *,
+.wip-content,
+.wip-content h2,
+.wip-content p,
+#wip-overlay,
+#wip-overlay *,
+#wip-overlay .wip-content,
+#wip-overlay .wip-content h2,
+#wip-overlay .wip-content p {
+  color: #ffffff !important;
+}
+
+/* 5. UNIFORMA PULSANTI - STESSO STILE DI "RICHIEDI INFORMAZIONI" E "INVIA" */
+
+/* Pulsante "ACCETTA" nel banner cookie */
+#accept-cookies,
+#accept-cookies.cta-button,
+.cookie-banner .cta-button,
+.cookie-content .cta-button {
+  background: linear-gradient(90deg, #6B0DB4, #E21673) !important;
+  color: #ffffff !important;
+  border: none !important;
+  border-radius: 14px !important;
+  padding: 12px 24px !important;
+  font-weight: bold !important;
+  box-shadow: 0 4px 10px rgba(107, 13, 180, 0.5) !important;
+  transition: background 0.3s ease !important;
+}
+
+#accept-cookies:hover,
+.cookie-banner .cta-button:hover {
+  background: linear-gradient(90deg, #7E1ED3, #F1328B) !important;
+  box-shadow: 0 6px 14px rgba(126, 30, 211, 0.7) !important;
+}
+
+/* Pulsante "TORNA AL SITO" nel wip overlay */
+#wip-close,
+#wip-close.cta-button,
+.wip-content .cta-button,
+.wip-overlay .cta-button {
+  background: linear-gradient(90deg, #6B0DB4, #E21673) !important;
+  color: #ffffff !important;
+  border: none !important;
+  border-radius: 14px !important;
+  padding: 12px 24px !important;
+  font-weight: bold !important;
+  box-shadow: 0 4px 10px rgba(107, 13, 180, 0.5) !important;
+  transition: background 0.3s ease !important;
+}
+
+#wip-close:hover,
+.wip-content .cta-button:hover {
+  background: linear-gradient(90deg, #7E1ED3, #F1328B) !important;
+  box-shadow: 0 6px 14px rgba(126, 30, 211, 0.7) !important;
+}
+
+/* 6. LINK NEL BANNER COOKIE ("Leggi la nostra Cookie Policy") */
+.cookie-content a,
+#cookie-banner .cookie-content a,
+a[href="cookie-policy.html"] {
+  color: var(--color-warning) !important;
+  text-decoration: underline !important;
+}
+
+/* 7. HAMBURGER MENU (nel caso servisse) */
+.hamburger .bar,
+.hamburger span {
+  background-color: #ffffff !important;
+}

@@ -2185,39 +2185,67 @@ html::after {
 /* FIX COLORI BIANCHI - Forza il bianco indipendentemente dal tema */
 
 /* 1. PULSANTE "RICHIEDI INFORMAZIONI" */
-.request-info-button {
+#request-info-btn,
+#request-info-btn.request-info-button,
+.carousel-navigation #request-info-btn,
+button#request-info-btn {
   color: #ffffff !important;
 }
 
-/* 2. LABELS del form contattaci */
-.contact-form-column label {
+/* 2. LABELS DEL FORM CONTATTI */
+#contact-form label,
+.contact-form-column label,
+label[for="nome"],
+label[for="email"], 
+label[for="product-search"],
+label[for="messaggio"] {
   color: #ffffff !important;
 }
 
-/* 3. PULSANTE "INVIA" */
+/* 3. SPAN "OBBLIGATORIO" */
+.form-required,
+#contact-form .form-required {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* 4. PULSANTE "INVIA" */
+#contact-form .cta-button,
+#contact-form button[type="submit"],
 .contact-form-column .cta-button {
   color: #ffffff !important;
 }
 
-/* 4. INFORMAZIONI CONTATTO (via, email, telefono) */
-.contact-item-simple a,
-.contact-item-simple,
-.footer-info p,
-.footer-info a {
+/* 5. INFORMAZIONI CONTATTO */
+.contact-info .contact-item-simple a,
+.contact-item-simple a[href^="https://www.google.com/maps"],
+.contact-item-simple a[href^="mailto:"],
+.contact-item-simple a[href^="tel:"] {
   color: #ffffff !important;
 }
 
-/* 5. TUTTO IL FOOTER */
+/* 6. TUTTO IL FOOTER */
 .footer,
 .footer *,
-.footer h4,
-.footer p,
-.footer a,
-.footer-links h4,
-.footer-links a,
-.footer-bottom,
-.footer-bottom a,
-.legal-links a {
+.footer-main *,
+.footer-column *,
+.footer-info *,
+.footer-links *,
+.footer-bottom *,
+footer.footer * {
   color: #ffffff !important;
 }
 
+/* 7. PLACEHOLDER */
+#nome::placeholder,
+#email::placeholder,
+#product-search::placeholder,
+#messaggio::placeholder,
+#textarea-placeholder {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* 8. OVERRIDE VARIABILI CSS */
+.footer, .contact-info, #contact-form label, #request-info-btn {
+  --color-text: #ffffff !important;
+  --color-btn-primary-text: #ffffff !important;
+}

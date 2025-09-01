@@ -1155,6 +1155,16 @@ html::after {
     transition: all var(--duration-fast) var(--ease-standard); 
 }
 
+.scroll-anchor {
+    position: relative;
+    /* Sposta l'ancoraggio più in alto della sua posizione naturale */
+    top: -100px; /* Altezza della navbar + un po' di margine */
+    
+    /* Rende l'elemento invisibile e non occupa spazio */
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
 /* ========================================================= */
 /* CAROSELLO PRODOTTI */
 /* ========================================================= */

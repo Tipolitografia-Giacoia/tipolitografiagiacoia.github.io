@@ -766,6 +766,14 @@ select.form-control {
     font-display: swap;
 }
 
+@font-face {
+    font-family: 'DrukWide';
+    src: url('data/DrukWide-BoldItalic-Trial.otf') format('opentype');
+    font-weight: 600; /* <<== MODIFICA CHIAVE: Sostituita la variabile con il valore numerico */
+    font-style: italic;
+    font-display: swap;
+}
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 html {

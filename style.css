@@ -2260,15 +2260,27 @@ body {
       opacity: 0;
   }
 
-  /* NUOVA REGOLA: Permette lo scroll verticale sulla pagina anche sopra il carosello */
-  .carousel-track {
-      height: 40vh;
-      touch-action: pan-x; /* Lasciamolo per sicurezza */
-      pointer-events: none; /* <<== NUOVA REGOLA CHIAVE: Disabilita il tocco sull'intera area */
+ .carousel-container {
+    touch-action: manipulation;
+    margin: 2rem 0; /* Aree sicure per scroll */
   }
-
-    .carousel-item img {
-      pointer-events: auto; /* Riattiva il tocco per le immagini */
+  
+  /* Track carosello - PERMETTE SCROLL VERTICALE */
+  .carousel-track {
+    height: 40vh;
+    touch-action: pan-y pinch-zoom !important; /* 🔑 CHIAVE DELLA SOLUZIONE */
+  }
+  
+  /* Immagini - cliccabili ma non bloccano scroll */
+  .carousel-item img {
+    touch-action: manipulation;
+    cursor: pointer;
+  }
+  
+  /* Controlli navigazione */
+  .carousel-navigation {
+    touch-action: manipulation;
+    padding: 1rem 0;
   }
 
   #prodotti .section-title {

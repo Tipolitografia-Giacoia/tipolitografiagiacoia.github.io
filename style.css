@@ -967,7 +967,6 @@ html::after {
     margin-bottom: 1rem;
     font-size: clamp(1.8rem, 4vw, 2.5rem);
     color: #000000 !important;
-    font-family: 'DrukWide', sans-serif;
     
     /* Ombra bianca per staccare dal fondo */
     text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.7); 
@@ -1023,6 +1022,23 @@ html::after {
     background: url("data/Tavola disegno 4@3x.png") center/cover no-repeat; 
     box-shadow: var(--shadow-inset-sm); 
     margin: 0;
+}
+
+.hero-main-title b,
+#dynamic-word-1,
+#dynamic-word-2,
+.card-content .section-title,
+#prodotti .section-title,
+#contattaci .section-title,
+.footer-links h4,
+.wip-content h2 {
+  font-family: 'DrukWide', sans-serif;
+  font-weight: var(--font-weight-bold);
+  font-style: italic;
+}
+
+#prodotti .section-title {
+  color: #000000 !important; /* Forza il colore nero */
 }
 
 /* ========================================================= */
@@ -1659,7 +1675,6 @@ html::after {
 }
 
 .wip-content h2 { 
-    font-family: 'DrukWide', sans-serif !important; /* <<== FORZIAMO IL FONT QUI */
     font-weight: var(--font-weight-bold);
     font-size: var(--font-size-2xl); 
     margin-bottom: var(--space-16);
@@ -1787,20 +1802,6 @@ html::after {
 #dynamic-word-2 {
   font-family: 'DrukWide', sans-serif;
   color: #ffffff; /* Bianco */
-}
-
-/* Titolo sezione Prodotti - font DrukWide, colore bianco */
-#prodotti .section-title {
-  font-family: 'DrukWide', sans-serif;
-  color: #000000; /* Nero */
-  font-size: clamp(1.8rem, 4vw, 2.5rem);
-  color: #000000 !important;
-}
-
-#contattaci .section-title {
-  font-family: 'DrukWide', sans-serif;
-  color: #ffffff; /* Bianco */
-  font-size: clamp(1.8rem, 4vw, 2.5rem);
 }
 
 /* Testo normale nella sezione Prodotti resta bianco e font normale */
@@ -2169,17 +2170,6 @@ body {
     --font-size-base: 16px;
     --font-size-sm: 14px;
     --line-height-normal: 1.6;
-  }
-
-  .hero-main-title b,
-  #dynamic-word-1,
-  #dynamic-word-2,
-  .card-content .section-title,  /* Titolo "Chi Siamo" */
-  #prodotti .section-title,
-  #contattaci .section-title,
-  .footer-links h4,             /* Titolo "Link Rapidi" */
-  .wip-content h2 {               /* Titolo "Work In Progress" */
-    font-family: 'DrukWide', sans-serif !important;
   }
 
   /* === HEADER E NAVIGAZIONE === */

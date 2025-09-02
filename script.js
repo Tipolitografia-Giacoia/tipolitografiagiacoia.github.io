@@ -75,13 +75,25 @@ document.addEventListener('DOMContentLoaded', function() {
     const carouselTrack = document.querySelector('.carousel-track');
     const carouselPrevButton = document.querySelector('.carousel-container .arrow.prev');
     const carouselNextButton = document.querySelector('.carousel-container .arrow.next');
-    const requestInfoButton = document.getElementById('request-info-btn'); // Selezioniamo il nuovo pulsante
+    const requestInfoButton = document.getElementById('request-info-btn');
 
     if (carouselTrack && carouselPrevButton && carouselNextButton && requestInfoButton) {
         let currentIndex = 0;
-        
+
+        // Funzione riutilizzabile per andare al form di contatto
+        const goToContactFormWithProduct = (productName) => {
+            const searchInput = document.getElementById('product-search');
+            if (searchInput) {
+                searchInput.value = productName;
+            }
+            const contactSection = document.getElementById('contattaci');
+            if (contactSection) {
+                contactSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        };
+
         // Genera dinamicamente gli elementi del carosello
-        carouselProductsData.forEach(product => {
+        carouselProductsData.forEach((product, index) => {
             const listItem = document.createElement('li');
             listItem.className = 'carousel-item';
             const image = document.createElement('img');
@@ -89,6 +101,14 @@ document.addEventListener('DOMContentLoaded', function() {
             image.alt = product.labelText;
             image.loading = 'lazy';
             listItem.appendChild(image);
+            
+            // Aggiungi l'evento click all'immagine (listItem)
+            listItem.addEventListener('click', () => {
+                if (index === currentIndex) {
+                    goToContactFormWithProduct(product.labelText);
+                }
+            });
+
             carouselTrack.appendChild(listItem);
         });
         
@@ -108,6 +128,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
 
+        // Aggiungi gli eventi alle frecce
         carouselNextButton.addEventListener('click', () => {
             currentIndex = (currentIndex + 1) % totalItems;
             updateCarousel();
@@ -118,29 +139,73 @@ document.addEventListener('DOMContentLoaded', function() {
             updateCarousel();
         });
         
-        // === NUOVA LOGICA PER IL PULSANTE "RICHIEDI INFORMAZIONI" ===
+        // Aggiungi l'evento al pulsante "RICHIEDI INFO"
         requestInfoButton.addEventListener('click', () => {
-            // 1. Prendi il nome del prodotto attualmente attivo
             const currentProduct = carouselProductsData[currentIndex];
-            const productName = currentProduct.labelText;
-
-            // 2. Trova il campo di ricerca nel form
-            const searchInput = document.getElementById('product-search');
-            if (searchInput) {
-                // 3. Compila il campo con il nome del prodotto
-                searchInput.value = productName;
-            }
-
-            // 4. Scorri fino alla sezione contatti
-            // Usiamo questo metodo per uno scroll fluido che funziona ovunque
-            const contactSection = document.getElementById('contattaci');
-            if (contactSection) {
-                contactSection.scrollIntoView({ behavior: 'smooth' });
-            }
+            goToContactFormWithProduct(currentProduct.labelText);
         });
 
+
+        // ===============================================
+        // LOGICA PER SWIPE/DRAG SUL CAROSELLO
+        // ===============================================
+        let isDown = false;
+        let startX;
+        let isDragging = false;
+
+        const startDrag = (e) => {
+            isDown = true;
+            carouselTrack.style.cursor = 'grabbing';
+            startX = (e.pageX || e.touches[0].pageX) - carouselTrack.offsetLeft;
+            isDragging = false;
+        };
+
+        const endDrag = (e) => {
+            carouselTrack.style.cursor = 'grab';
+            if (!isDown || !isDragging) {
+                isDown = false;
+                return;
+            }
+            isDown = false;
+            
+            // Calcoliamo lo spostamento finale
+            const endX = e.pageX || e.changedTouches[0].pageX;
+            const walk = endX - (e.touches ? 0 : carouselTrack.offsetLeft) - startX;
+            const swipeThreshold = 50; // Soglia minima in pixel per considerare lo swipe
+
+            // Se lo swipe è abbastanza ampio...
+            if (walk < -swipeThreshold) {
+                // ...vai avanti (swipe a sinistra)
+                currentIndex = (currentIndex + 1) % totalItems;
+                updateCarousel();
+            } else if (walk > swipeThreshold) {
+                // ...vai indietro (swipe a destra)
+                currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+                updateCarousel();
+            }
+        };
+
+        const onDrag = (e) => {
+            if (!isDown) return;
+            e.preventDefault(); // Impedisce comportamenti strani del browser (es. selezionare testo)
+            isDragging = true;
+        };
+
+        // Eventi del Mouse
+        carouselTrack.addEventListener('mousedown', startDrag);
+        carouselTrack.addEventListener('mouseup', endDrag);
+        carouselTrack.addEventListener('mouseleave', endDrag);
+        carouselTrack.addEventListener('mousemove', onDrag);
+
+        // Eventi Touch
+        carouselTrack.addEventListener('touchstart', startDrag, { passive: true });
+        carouselTrack.addEventListener('touchend', endDrag);
+        carouselTrack.addEventListener('touchmove', onDrag);
+
+        // Inizializza il carosello
         updateCarousel();
     }
+
 
     // ===================================================
     // 4. POPOLARE IL SELECT DEI PRODOTTI NEL FORM

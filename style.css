@@ -2171,6 +2171,17 @@ body {
     --line-height-normal: 1.6;
   }
 
+  .hero-main-title b,
+  #dynamic-word-1,
+  #dynamic-word-2,
+  .card-content .section-title,  /* Titolo "Chi Siamo" */
+  #prodotti .section-title,
+  #contattaci .section-title,
+  .footer-links h4,             /* Titolo "Link Rapidi" */
+  .wip-content h2 {               /* Titolo "Work In Progress" */
+    font-family: 'DrukWide', sans-serif !important;
+  }
+
   /* === HEADER E NAVIGAZIONE === */
   /* Mostriamo il pulsante hamburger e nascondiamo il menu desktop */
   .hamburger {
@@ -2223,14 +2234,12 @@ body {
       padding: 1.5rem;
   }
 
-
   /* === SEZIONE CONTATTACI === */
   /* Le colonne delle info e del form vanno una sotto l'altra */
   .contact-grid {
     grid-template-columns: 1fr; /* Una sola colonna */
     gap: 3rem; /* Spazio verticale tra i blocchi */
   }
-
 
   /* === CAROSELLO === */
   /* Riduciamo l'altezza e l'ingrandimento per schermi piccoli */
@@ -2298,11 +2307,12 @@ body {
       flex-direction: column;
       gap: 1rem;
   }
-  
+
   /* NUOVA REGOLA: Centra e manda a capo i link legali */
   .legal-links {
     justify-content: center; /* Centra i link orizzontalmente */
     flex-wrap: wrap;         /* Permette ai link di andare a capo se non c'è spazio */
     gap: 1.5rem;             /* Riduciamo un po' lo spazio per schermi piccoli */
   }
+
 }

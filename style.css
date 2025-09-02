@@ -2252,40 +2252,57 @@ body {
     gap: 3rem; /* Spazio verticale tra i blocchi */
   }
 
-    /* === FOOTER === */
-    /* Le colonne del footer vanno una sotto l'altra */
-    .footer-main {
-      grid-template-columns: 1fr; /* Imposta una sola colonna */
-      text-align: center;         /* Centra il testo di tutte le colonne */
-    }
+  .contact-info {
+    align-items: center; 
+    text-align: center;
+  }
 
-    /* Rimuove le linee verticali e aggiunge linee orizzontali di separazione */
-    .footer-column + .footer-column {
-      border-left: none;
-      border-top: 1px solid rgba(255, 255, 255, 0.2); /* Bordo bianco trasparente */
-      padding-top: 2rem;
-      margin-top: 2rem; /* Aggiunge spazio sopra ogni nuova sezione */
-    }
-    
-    /* Centra il logo */
-    .footer-logo {
-      margin: 0 auto 1.5rem auto;
-    }
+  /* NUOVA REGOLA: Manda a capo le linee dell'indirizzo */
+  .address-line {
+    display: block; /* Ogni span va su una nuova riga */
+  }
 
-      .footer-info {
-        flex-direction: column; /* Imposta la direzione verticale */
-        align-items: center;    /* Centra il logo e il blocco di testo */
-        gap: 2rem;              /* Aggiunge uno spazio verticale adeguato */
-    }
-    
-    /* Centra le icone dei social */
-    .footer-social {
-      justify-content: center;
-    }
+  /* === FOOTER === */
+  /* Le colonne del footer vanno una sotto l'altra */
+  .footer-main {
+    grid-template-columns: 1fr; /* Imposta una sola colonna */
+    text-align: center;         /* Centra il testo di tutte le colonne */
+  }
 
-    /* Impila la parte inferiore del footer (copyright e link) */
-    .footer-bottom {
-        flex-direction: column;
-        gap: 1rem;
-    }
+  /* Rimuove le linee verticali e aggiunge linee orizzontali di separazione */
+  .footer-column + .footer-column {
+    border-left: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 1.5rem; /* <-- Ridotto da 2rem */
+    margin-top: 1.5rem;  /* <-- Ridotto da 2rem */
+  }
+  
+  /* Centra il logo */
+  .footer-logo {
+    margin: 0 auto 1.5rem auto;
+  }
+
+  .footer-info {
+    flex-direction: column; /* Imposta la direzione verticale */
+    align-items: center;    /* Centra il logo e il blocco di testo */
+    gap: 2rem;              /* Aggiunge uno spazio verticale adeguato */
+  }
+  
+  /* Centra le icone dei social */
+  .footer-social {
+    justify-content: center;
+  }
+
+  /* Impila la parte inferiore del footer (copyright e link) */
+  .footer-bottom {
+      flex-direction: column;
+      gap: 1rem;
+  }
+  
+  /* NUOVA REGOLA: Centra e manda a capo i link legali */
+  .legal-links {
+    justify-content: center; /* Centra i link orizzontalmente */
+    flex-wrap: wrap;         /* Permette ai link di andare a capo se non c'è spazio */
+    gap: 1.5rem;             /* Riduciamo un po' lo spazio per schermi piccoli */
+  }
 }

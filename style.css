@@ -2395,3 +2395,61 @@ a[href="cookie-policy.html"] {
   color: #000000 !important; /* Testo nero */
 }
 
+
+/* Container con limiti min/max */
+.container {
+  width: 100%;
+  min-width: 320px;  /* Mai più piccolo */
+  max-width: 1440px; /* Mai più grande */  
+  margin: 0 auto;
+  padding: 0 clamp(16px, 2vw, 40px); /* Padding fluido */
+}
+
+body {
+  min-width: 320px;
+}
+
+/* TESTI CHE SI ADATTANO (mantengono il layout) */
+
+/* Hero - titoli fluidi */
+.hero-main-title span {
+  font-size: clamp(1.8rem, 4vw, 3rem) !important;
+}
+
+.hero-main-title b {
+  font-size: clamp(1.4rem, 3vw, 2.5rem) !important;
+}
+
+/* Chi siamo - testi fluidi */
+.card-content .section-title {
+  font-size: clamp(1.6rem, 3vw, 2.5rem) !important;
+}
+
+.card-content p {
+  font-size: clamp(0.95rem, 1.5vw, 1.1rem) !important;
+}
+
+/* Tutti i titoli sezione */
+.section-title {
+  font-size: clamp(1.8rem, 4vw, 2.8rem) !important;
+}
+
+/* Contatti - form fluido */
+.contact-form-column label {
+  font-size: clamp(14px, 1.3vw, 16px) !important;
+}
+
+.contact-form-column input,
+.contact-form-column textarea {
+  font-size: clamp(14px, 1.2vw, 16px) !important;
+  padding: clamp(10px, 1vw, 16px) clamp(14px, 1.5vw, 20px) !important;
+}
+
+/* Gap fluidi (mantiene proporzioni) */
+.chi-siamo-grid-new {
+  gap: clamp(1.5rem, 3vw, 2.5rem) !important;
+}
+
+.contact-grid {
+  gap: clamp(1.5rem, 3vw, 2rem) !important;
+}

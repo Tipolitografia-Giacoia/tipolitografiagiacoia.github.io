@@ -1051,6 +1051,10 @@ html::after {
   color: #000000 !important; /* Forza il colore nero */
 }
 
+#contattaci .section-title {
+  color: #ffffff !important; /* Forza il colore bianco */
+}
+
 /* ========================================================= */
 /* HEADER */
 /* ========================================================= */

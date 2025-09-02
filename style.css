@@ -2246,8 +2246,8 @@ body {
   }
 
   /* === CAROSELLO === */
+  
   /* Riduciamo l'altezza e l'ingrandimento per schermi piccoli */
-
   .carousel-track {
       height: 45vh;
   }
@@ -2259,17 +2259,9 @@ body {
       opacity: 0;
   }
 
-  /* 
-    NUOVE REGOLE PER FIX SCROLL VERTICALE 
-  */
-  /* 1. Rendi l'intera area del carosello "trasparente" ai tocchi */
+  /* NUOVA REGOLA: Permette lo scroll verticale sulla pagina anche sopra il carosello */
   .carousel-track {
-    pointer-events: none;
-  }
-  
-  /* 2. Riattiva i tocchi SOLO sulle singole slide (le immagini) */
-  .carousel-item {
-    pointer-events: auto;
+    touch-action: pan-x;
   }
 
   /* === SEZIONE CONTATTACI === */

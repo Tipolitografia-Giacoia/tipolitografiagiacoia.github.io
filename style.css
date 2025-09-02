@@ -786,8 +786,8 @@ body {
     font-family: var(--font-family-base);
     color: var(--color-text);
     line-height: var(--line-height-normal);
+    min-width: 375px; /* <<== NUOVA REGOLA: Impedisce al sito di restringersi troppo */
 }
-
 strong, b {
     font-family: var(--font-family-base);
     font-weight: var(--font-weight-bold);
@@ -905,28 +905,29 @@ html::after {
 .chi-siamo-container {
     padding-top: clamp(4rem, 10vh, 8rem);
     position: relative;
-    z-index: 15; /* <<== VALORE AUMENTATO */
+    z-index: 15;
+    /* Sposta l'intera sezione verso l'alto in modo stabile */
+    margin-top: -30vh;
 }
 
 .chi-siamo-grid-new {
     display: grid;
-    /* Due colonne: la sinistra si adatta, la destra occupa il resto */
-    grid-template-columns: 55% 1fr; 
-    gap: 2.5rem; /* Spazio tra le colonne */
-    align-items: start; /* Allinea gli elementi in alto */
-
-     position: relative;   /* necessario per far valere z-index */
-     z-index: 20;          /* superiore a .hero-background (z-index:1) */
+    /* Colonne proporzionali: 1.2fr è circa il 55% e 1fr il 45% del totale */
+    grid-template-columns: 1.2fr 1fr;
+    gap: clamp(1.5rem, 3vw, 2.5rem); /* Spazio fluido */
+    align-items: start;
+    position: relative;
+    z-index: 20;
+    max-width: 1440px; /* Limita larghezza massima per coerenza */
+    margin: 0 auto;    /* Centra la griglia */
 }
-
 /* Colonna sinistra (Capannone) */
 .capannone-col {
-    grid-column: 1; /* Sta nella prima colonna */
-    min-height: clamp(420px, 60vh, 780px);
-    transform: translateY(-6vh);
+    grid-column: 1;
     z-index: 5;
-    overflow: hidden;
-    transform: translateY(-50vh);
+    /* Allinea l'immagine al fondo della sua cella per un look pulito */
+    align-self: end; 
+    /* Rimosse tutte le proprietà instabili */
 }
 
 .capannone-col img {
@@ -947,15 +948,14 @@ html::after {
 }
 .chi-siamo-card-large > img { display: none; }
 .card-content {
-    padding: clamp(1rem, 3vw, 2rem) 5rem clamp(1rem, 3vw, 2rem) clamp(1rem, 3vw, 2rem);
+    /* Padding verticale E ORIZZONTALE fluidi! */
+    padding: clamp(1.5rem, 3vw, 2.5rem) clamp(1.5rem, 6vw, 4rem);
     
-    /* 1. RIMUOVIAMO COMPLETAMENTE LO SFONDO E I BORDI */
     background: transparent;
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
     border: none;
     box-shadow: none;
-
     position: relative;
     z-index: 30;
     transform: translateY(-3vh);
@@ -1782,10 +1782,6 @@ html::after {
     transform: translateY(0);
 }
 
-/* ========================================================= */
-/* RESPONSIVE DESIGN */
-/* ========================================================= */
-
 .hero-main-title b, /* le parole dinamiche */
 #dynamic-word-1, 
 #dynamic-word-2 {
@@ -2054,10 +2050,12 @@ a[href="cookie-policy.html"] {
 /* Container con limiti min/max */
 .container {
   width: 100%;
-  min-width: 320px;  /* Mai più piccolo */
-  max-width: 1440px; /* Mai più grande */  
-  margin: 0 auto;
-  padding: 0 clamp(16px, 2vw, 40px); /* Padding fluido */
+  max-width: 1440px; /* <<== NUOVA REGOLA: Limite massimo per il contenuto */
+  margin-left: auto;
+  margin-right: auto;
+  /* Padding laterale fluido che si adatta allo schermo */
+  padding-left: clamp(1rem, 4vw, 2.5rem);
+  padding-right: clamp(1rem, 4vw, 2.5rem);
 }
 
 body {
@@ -2110,3 +2108,184 @@ body {
 }
 
 
+.container {
+  width: 100%;
+  min-width: 320px;  /* Mai più piccolo */
+  max-width: 1440px; /* Mai più grande */
+  margin: 0 auto;
+  padding: 0 var(--space-16);
+}
+
+body {
+  min-width: 320px; /* Controllo globale */
+}
+
+.hero-about-section,
+.section,
+.footer {
+  min-width: 320px; /* Applica a tutte le sezioni */
+}
+
+
+
+/* 
+  MODALITÀ TABLET 
+  Si applica a schermi con larghezza massima di 1024px
+  (Include anche gli smartphone, che verranno ulteriormente modificati sotto)
+*/
+@media (max-width: 1024px) {
+  
+  /* Sezione Chi Siamo: riduciamo leggermente il gap tra le colonne */
+  .chi-siamo-grid-new {
+    gap: 1.5rem;
+    /* Riduciamo leggermente le colonne per dare più respiro */
+    grid-template-columns: 1.1fr 1fr;
+  }
+
+  /* Footer: Passiamo da 3 a 2 colonne */
+  .footer-main {
+    grid-template-columns: 1.5fr 1fr;
+    gap: 2rem;
+  }
+  .footer-main .footer-column:nth-child(3) {
+      grid-column: 1 / -1; /* La terza colonna va a capo e occupa tutta la larghezza */
+      border-left: none;
+      border-top: 1px solid var(--color-border);
+      margin-top: 2rem;
+      padding-top: 2rem;
+  }
+}
+
+
+/* 
+  MODALITÀ SMARTPHONE 
+  Si applica a schermi con larghezza massima di 768px
+*/
+@media (max-width: 768px) {
+  
+  /* === TIPOGRAFIA GLOBALE === */
+  /* Aumentiamo la dimensione del testo per migliore leggibilità */
+  :root {
+    --font-size-base: 16px;
+    --font-size-sm: 14px;
+    --line-height-normal: 1.6;
+  }
+
+  /* === HEADER E NAVIGAZIONE === */
+  /* Mostriamo il pulsante hamburger e nascondiamo il menu desktop */
+  .hamburger {
+    display: block;
+    z-index: 1001; /* Sopra a tutto */
+  }
+  .nav-menu {
+    display: none; /* Nascondiamo il menu orizzontale */
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(var(--color-charcoal-700-rgb, 31, 33, 33), 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: left 0.3s ease;
+    gap: 2rem;
+  }
+  .nav-menu.active {
+    display: flex; /* Mostriamo il menu quando è attivo */
+    left: 0;
+  }
+  .nav-item {
+    font-size: var(--font-size-2xl);
+  }
+
+  /* === SEZIONE CHI SIAMO === */
+  /* Le colonne del capannone e del testo vanno una sotto l'altra */
+  .chi-siamo-grid-new {
+    grid-template-columns: 1fr; /* Una sola colonna */
+  }
+  /* L'immagine del capannone viene prima del testo */
+  .capannone-col {
+    order: 1;
+  }
+  .chi-siamo-left-col {
+    order: 2;
+  }
+  /* Reset del posizionamento verticale della sezione */
+  .chi-siamo-container {
+      margin-top: 0;
+      padding-top: 2rem;
+  }
+  /* Adeguiamo il padding del box di testo */
+  .card-content {
+      padding: 1.5rem;
+  }
+
+
+  /* === SEZIONE CONTATTACI === */
+  /* Le colonne delle info e del form vanno una sotto l'altra */
+  .contact-grid {
+    grid-template-columns: 1fr; /* Una sola colonna */
+    gap: 3rem; /* Spazio verticale tra i blocchi */
+  }
+
+
+  /* === CAROSELLO === */
+  /* Riduciamo l'altezza e l'ingrandimento per schermi piccoli */
+  .carousel-track {
+      height: 45vh;
+  }
+  .carousel-item.is-active {
+      transform: scale(1.1);
+  }
+  .carousel-item.is-prev,
+  .carousel-item.is-next {
+      opacity: 0; /* Nascondiamo le slide laterali per semplicità */
+  }
+
+  /* === SEZIONE CONTATTACI === */
+  /* Le colonne delle info e del form vanno una sotto l'altra */
+  .contact-grid {
+    grid-template-columns: 1fr; /* Una sola colonna */
+    gap: 3rem; /* Spazio verticale tra i blocchi */
+  }
+
+    /* === FOOTER === */
+    /* Le colonne del footer vanno una sotto l'altra */
+    .footer-main {
+      grid-template-columns: 1fr; /* Imposta una sola colonna */
+      text-align: center;         /* Centra il testo di tutte le colonne */
+    }
+
+    /* Rimuove le linee verticali e aggiunge linee orizzontali di separazione */
+    .footer-column + .footer-column {
+      border-left: none;
+      border-top: 1px solid rgba(255, 255, 255, 0.2); /* Bordo bianco trasparente */
+      padding-top: 2rem;
+      margin-top: 2rem; /* Aggiunge spazio sopra ogni nuova sezione */
+    }
+    
+    /* Centra il logo */
+    .footer-logo {
+      margin: 0 auto 1.5rem auto;
+    }
+
+      .footer-info {
+        flex-direction: column; /* Imposta la direzione verticale */
+        align-items: center;    /* Centra il logo e il blocco di testo */
+        gap: 2rem;              /* Aggiunge uno spazio verticale adeguato */
+    }
+    
+    /* Centra le icone dei social */
+    .footer-social {
+      justify-content: center;
+    }
+
+    /* Impila la parte inferiore del footer (copyright e link) */
+    .footer-bottom {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}

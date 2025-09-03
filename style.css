@@ -2258,7 +2258,7 @@ body {
   /* === CAROSELLO === */
   
   /* Riduciamo l'altezza e l'ingrandimento per schermi piccoli */
-.carousel-track {
+  .carousel-track {
       height: 40vh; /* <<== RIDOTTO DA 45vh */
       touch-action: pan-x; /* Permette lo swipe orizzontale, libera quello verticale */
   }
@@ -2325,6 +2325,10 @@ body {
   /* NUOVA REGOLA: Manda a capo le linee dell'indirizzo */
   .address-line {
     display: block; /* Ogni span va su una nuova riga */
+  }
+
+  .form-required {
+    margin-left: var(--space-1); /* Riduciamo da 8px a 4px */
   }
 
   /* === FOOTER === */

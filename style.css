@@ -2437,8 +2437,8 @@ body {
   }
 
   .cookie-content p {
-    margin-bottom: 1rem;
-    flex-grow: 0; /* <<== AGGIUNGI QUESTA RIGA FONDAMENTALE */
+    margin-bottom: 0.25rem; /* Solo 4px di spazio invece di 16px */
+    flex-grow: 0;
   }
 
   .cookie-buttons {

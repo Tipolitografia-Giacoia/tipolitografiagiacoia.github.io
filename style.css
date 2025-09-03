@@ -2438,6 +2438,7 @@ body {
 
   .cookie-content p {
     margin-bottom: 1rem;
+    flex-grow: 0; /* <<== AGGIUNGI QUESTA RIGA FONDAMENTALE */
   }
 
   .cookie-buttons {

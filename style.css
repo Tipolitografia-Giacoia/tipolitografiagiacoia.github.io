@@ -2156,35 +2156,6 @@ body {
 }
 
 /* 
-  MODALITÀ TABLET 
-  Si applica a schermi con larghezza massima di 1024px
-  (Include anche gli smartphone, che verranno ulteriormente modificati sotto)
-*/
-@media (max-width: 1024px) {
-  
-  /* Sezione Chi Siamo: riduciamo leggermente il gap tra le colonne */
-  .chi-siamo-grid-new {
-    gap: 1.5rem;
-    /* Riduciamo leggermente le colonne per dare più respiro */
-    grid-template-columns: 1.1fr 1fr;
-  }
-
-  /* Footer: Passiamo da 3 a 2 colonne */
-  .footer-main {
-    grid-template-columns: 1.5fr 1fr;
-    gap: 2rem;
-  }
-  .footer-main .footer-column:nth-child(3) {
-      grid-column: 1 / -1; /* La terza colonna va a capo e occupa tutta la larghezza */
-      border-left: none;
-      border-top: 1px solid var(--color-border);
-      margin-top: 2rem;
-      padding-top: 2rem;
-  }
-}
-
-
-/* 
   MODALITÀ SMARTPHONE 
   Si applica a schermi con larghezza massima di 768px
 */

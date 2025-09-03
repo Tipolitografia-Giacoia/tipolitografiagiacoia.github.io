@@ -2333,12 +2333,12 @@ body {
 
   /* Riduciamo lo spazio sotto il titolo "Prodotti" */
   #prodotti .section-title {
-      margin-bottom: var(--space-8); /* Da 1rem (16px) a 8px */
+    margin-bottom: var(--space-8) !important;
   }
 
-    /* Riduci spazio tra carosello e pulsante "richiedi informazioni" */
+  /* Riduci spazio tra carosello e pulsante "richiedi informazioni" */
   .carousel-navigation {
-      margin-top: -var(--space-8); /* Sposta verso l'alto di 8px */
+    margin-top: -var(--space-8) !important;
   }
   /* === IMAGE BAND === */
   .image-band {

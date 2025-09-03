@@ -1760,20 +1760,42 @@ html::after {
     transform: translateY(0);
 }
 
+/* AGGIUNGI QUESTE REGOLE PER DESKTOP ↓ */
+.cookie-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-16);
+    max-width: var(--container-xl);
+    margin: 0 auto;
+}
+
+/* PULSANTI ORIZZONTALI ANCHE PER DESKTOP */
+.cookie-buttons,
+.cookie-content .cookie-buttons,
+#cookie-banner .cookie-buttons,
+.cookie-banner .cookie-buttons {
+    display: flex !important;
+    flex-direction: row !important; /* Orizzontale per desktop */
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 1rem !important;
+    flex-wrap: nowrap !important;
+    width: auto !important;
+}
+
+.cookie-buttons .cta-button,
+.cookie-buttons button,
+#cookie-banner button {
+    flex-grow: 0 !important;
+    flex-shrink: 0 !important;
+    white-space: nowrap !important;
+}
 
 .cookie-content .cta-button {
     margin: 0;
     flex-shrink: 0;
-}
-
-#cookie-banner .cookie-content a,
-#cookie-banner .cookie-content a:visited {
-    color: var(--color-warning) !important;
-    text-decoration: underline;
-}
-
-#cookie-banner .cookie-content a:hover {
-    color: var(--color-text);
 }
 
 /* ========================================================= */

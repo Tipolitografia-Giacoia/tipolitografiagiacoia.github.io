@@ -2432,20 +2432,22 @@ body {
 
   /* === BANNER COOKIE === */
   .cookie-content {
-    flex-direction: column; /* Impila testo e pulsanti */
+    flex-direction: column;
     text-align: center;
   }
 
   .cookie-content p {
-    margin-bottom: 1rem; /* Aggiungi spazio tra testo e pulsanti su mobile */
+    margin-bottom: 1rem;
   }
 
   .cookie-buttons {
-    width: 100%; /* Il contenitore dei pulsanti occupa tutta la larghezza */
+    /* Il contenitore dei pulsanti rimane un flex container */
+    /* Non serve più width: 100% */
   }
 
+  /* I pulsanti ora hanno larghezza automatica e non crescono più */
   .cookie-buttons .cta-button {
-    flex-grow: 1; /* I pulsanti crescono per avere la stessa larghezza */
-    max-width: 200px; /* ...ma non diventano enormi */
+    flex-grow: 0; /* <<== ANNULLA LA CRESCITA */
+    padding: 0.75rem 1.5rem; /* Un po' più di padding per renderli belli */
   }
 }

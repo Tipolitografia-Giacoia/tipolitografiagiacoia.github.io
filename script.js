@@ -356,6 +356,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // ========= 8. GESTIONE BANNER COOKIE =========
     const cookieBanner = document.getElementById('cookie-banner');
     const acceptCookiesButton = document.getElementById('accept-cookies');
+    const rejectCookies = document.getElementById('reject-cookies');
 
     // Controlla se l'utente ha già dato il consenso
     if (!localStorage.getItem('cookie_consent')) {
@@ -365,15 +366,18 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 1000);
     }
 
-    // Quando l'utente clicca "Accetta"
-    if (acceptCookiesButton) {
-        acceptCookiesButton.addEventListener('click', () => {
-            // Salva il consenso nel localStorage del browser
-            localStorage.setItem('cookie_consent', 'true');
-            // Nascondi il banner
-            if(cookieBanner) cookieBanner.classList.remove('active');
-        });
-    }
+    // Gestione del pulsante ACCETTA
+    acceptCookies.addEventListener('click', () => {
+        localStorage.setItem('cookieConsent', 'accepted');
+        cookieBanner.classList.remove('active');
+    });
+
+    // NUOVA GESTIONE per il pulsante RIFIUTA
+    rejectCookies.addEventListener('click', () => {
+        localStorage.setItem('cookieConsent', 'rejected');
+        cookieBanner.classList.remove('active');
+    });
+    
     // ===================================================
     // 9. ANIMAZIONE PAROLE DINAMICHE (EFFETTO TYPEWRITER ASINCRONO)
     // ===================================================

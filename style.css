@@ -2081,11 +2081,12 @@ body {
 
 /* Hero - titoli fluidi */
 .hero-main-title span {
-  font-size: clamp(1.8rem, 4vw, 3rem) !important;
+  font-size: clamp(1.8rem, 4vw, 3rem); /* Dimensione per "DESIGN CHE" e "STAMPA CHE" */
 }
 
 .hero-main-title b {
-  font-size: clamp(1.4rem, 3vw, 2.5rem) !important;
+  /* <<== MODIFICA CHIAVE: Valori molto più grandi per un maggiore impatto */
+  font-size: clamp(2rem, 6vw, 4rem); 
 }
 
 /* Chi siamo - testi fluidi */
@@ -2214,6 +2215,17 @@ body {
   }
   .nav-item {
     font-size: var(--font-size-2xl);
+  }
+
+  /* Manda a capo le parole dinamiche */
+  .hero-main-title b {
+    display: block; /* <<== QUESTA È LA RIGA FONDAMENTALE MANCANTE */
+  }
+
+  /* Allinea a sinistra il testo (annulla eventuali centrature precedenti) */
+  .hero-main-title {
+    align-items: flex-start; /* Allinea gli span a sinistra */
+    text-align: left;        /* Allinea il testo interno a sinistra */
   }
 
   /* === SEZIONE CHI SIAMO === */

@@ -2296,11 +2296,20 @@ body {
 
   /* === CAROSELLO === */
 
+  #prodotti .section-title {
+    margin-bottom: var(--space-16); 
+  }
+
   /* Manteniamo le regole per l'altezza e l'interazione di scroll */
   .carousel-track {
+    position: relative;
+    width: 100%;
     height: 60vh;
+    list-style: none;
+    padding: 0;
+    margin: 0; /* MODIFICATO: Rimuove tutti i margini, incluso quello inferiore */
+    order: 1;
     touch-action: pan-y;
-    pointer-events: none;
   }
   .carousel-item img {
     pointer-events: auto;

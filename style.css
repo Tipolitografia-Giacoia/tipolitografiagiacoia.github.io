@@ -1401,7 +1401,7 @@ html::after {
     opacity: 0.6; 
     font-weight: var(--font-weight-normal); 
     font-size: var(--font-size-xs); 
-    margin-left: var(--space-6); /* Da 8px a zpx */
+    margin-left: var(--space-6d); /* Da 8px a zpx */
 }
 
 /* GLI ELEMENTI DEL FORM mantengono il pattern Tavola 6 per leggibilità */
@@ -1534,15 +1534,16 @@ html::after {
     grid-template-columns: 2fr 1fr 1fr; 
     gap: calc(var(--space-16) * 1.5); 
     padding-bottom: var(--space-24); 
-    border-bottom: 1px solid var(--color-border); 
+    border-bottom: 2px solid var(--color-border); /* MODIFICATO DA 1px A 2px */
+}
+
+/* Intorno alla riga 1625 */
+.footer-column + .footer-column { 
+    border-left: 2px solid var(--color-border); /* MODIFICATO DA 1px A 2px */
 }
 
 .footer-column { 
     padding: 0 var(--space-24); 
-}
-
-.footer-column + .footer-column { 
-    border-left: 1px solid var(--color-border); 
 }
 
 .footer-logo { 

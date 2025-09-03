@@ -2226,28 +2226,50 @@ body {
     text-align: left;        /* Allinea il testo interno a sinistra */
   }
 
-  /* === SEZIONE CHI SIAMO === */
-  /* Le colonne del capannone e del testo vanno una sotto l'altra */
-  .chi-siamo-grid-new {
-    grid-template-columns: 1fr; /* Una sola colonna */
-  }
-  /* L'immagine del capannone viene prima del testo */
-  .capannone-col {
-    order: 1;
-  }
-  .chi-siamo-left-col {
-    order: 2;
-  }
-  /* Reset del posizionamento verticale della sezione */
+ /* Reset del contenitore principale */
   .chi-siamo-container {
-      margin-top: 0;
-      padding-top: 2rem;
+    margin-top: 0;
+    padding-top: 0;
   }
-  /* Adeguiamo il padding del box di testo */
-  .card-content {
-      padding: 1.5rem;
+  
+  /* Trasformiamo la griglia in un contenitore per l'effetto di sovrapposizione */
+  .chi-siamo-grid-new {
+    display: flex; /* Usiamo flexbox invece di grid */
+    flex-direction: column; /* Impiliamo gli elementi verticalmente */
+    align-items: center; /* Centriamo gli elementi orizzontalmente */
+    padding-bottom: 3rem; /* Spazio sotto la sezione */
   }
 
+  /* Reset del contenitore principale */
+  .chi-siamo-container {
+    margin-top: 2rem; /* ← NUOVO VALORE */
+    padding-top: 1rem;
+    position: relative;
+    z-index: 5;
+  }
+  
+  .chi-siamo-grid-new {
+    grid-template-columns: 1fr;
+    gap: 0.5rem !important; /* <<== RIDUCI QUESTO VALORE: era 1.5rem */
+    margin-top: -1rem !important; /* Mantieni questo che funziona */
+    padding-top: 2rem !important; /* Mantieni questo che funziona */
+  }
+
+  /* Rimuoviamo le regole di posizionamento complesse */
+  .capannone-col {
+    order: 1;
+    transform: none; /* Annulliamo qualsiasi transform precedente */
+    margin-bottom: 0; /* Annulliamo il margine negativo */
+  }
+
+  .chi-siamo-left-col {
+    order: 2;
+    width: 100%; /* La textbox occupa tutta la larghezza */
+  }
+  
+  .card-content {
+      padding: 0.2rem 1rem 1rem 1rem; /* top ridotto da 1rem a 0.2rem */
+  }
   /* === SEZIONE CONTATTACI === */
   /* Le colonne delle info e del form vanno una sotto l'altra */
   .contact-grid {
@@ -2392,8 +2414,8 @@ body {
 
   /* NUOVA REGOLA: Centra e manda a capo i link legali */
   .legal-links {
-    justify-content: center; /* Centra i link orizzontalmente */
-    flex-wrap: wrap;         /* Permette ai link di andare a capo se non c'è spazio */
-    gap: 1.5rem;             /* Riduciamo un po' lo spazio per schermi piccoli */
-  }
+      justify-content: center; /* Centra i link orizzontalmente */
+      flex-wrap: wrap;         /* Permette ai link di andare a capo se non c'è spazio */
+      gap: 1.5rem;             /* Riduciamo un po' lo spazio per schermi piccoli */
+    }
 }

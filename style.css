@@ -2217,7 +2217,8 @@ body {
 
   /* Manda a capo le parole dinamiche */
   .hero-main-title b {
-    display: block; /* <<== QUESTA È LA RIGA FONDAMENTALE MANCANTE */
+    display: block;
+    min-height: 1.2em; /* <<== AGGIUNGI QUESTA RIGA */
   }
 
   /* Allinea a sinistra il testo (annulla eventuali centrature precedenti) */
@@ -2328,7 +2329,7 @@ body {
   }
 
   .form-required {
-    margin-left: var(--space-1); /* Riduciamo da 8px a 4px */
+    margin-left: var(--space-2); /* Riduciamo da 8px a 4px */
   }
 
   /* === FOOTER === */

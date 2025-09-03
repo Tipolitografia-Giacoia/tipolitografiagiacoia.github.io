@@ -2142,8 +2142,6 @@ body {
   min-width: 320px; /* Applica a tutte le sezioni */
 }
 
-
-
 /* 
   MODALITÀ TABLET 
   Si applica a schermi con larghezza massima di 1024px
@@ -2306,9 +2304,22 @@ body {
     gap: 3rem; /* Spazio verticale tra i blocchi */
   }
 
-  .contact-info {
-    align-items: center; 
-    text-align: center;
+  .contact-item-simple {
+    justify-content: center;
+  }
+  
+  /* NUOVA REGOLA: Riduci lo spazio SOLO per la riga dell'indirizzo */
+  .contact-item-simple:has(.icon-map) {
+    gap: 0.75rem; /* Riduciamo lo spazio a 12px */
+  }
+
+    .contact-item-simple:has(.icon-phone) {
+    gap: 1.24rem; /* Esempio: uno spazio leggermente più grande (20px) */
+  }
+
+  /* Modifica lo spazio per la riga della mail (l'icona non ha classe, usiamo l'attributo del link) */
+  .contact-item-simple:has(a[href^="mailto:"]) {
+    gap: 1.75rem; /* Esempio: stesso spazio del telefono (20px) */
   }
 
   /* NUOVA REGOLA: Manda a capo le linee dell'indirizzo */

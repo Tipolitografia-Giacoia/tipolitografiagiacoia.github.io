@@ -1745,7 +1745,6 @@ html::after {
 .cookie-banner {
     background-color: #000000;
     backdrop-filter: none;
-    /* Mantieni gli altri stili esistenti */
     position: fixed;
     bottom: 0;
     left: 0;
@@ -1794,35 +1793,6 @@ html::after {
 #cookie-banner .cookie-content a:hover {
     color: var(--color-text);
 }
-
-  .cookie-content {
-    /* Manteniamo l'impilamento verticale e la centratura del testo */
-    flex-direction: column;
-    text-align: center;
-    
-    /* ANNULLIAMO l'allineamento che causa problemi */
-    align-items: initial;
-  }
-
-  .cookie-content p {
-    /* Annulliamo la crescita e il flex-basis del desktop */
-    flex-grow: 0;
-    flex-basis: auto;
-    
-    /* Aggiungiamo spazio sotto il paragrafo */
-    margin-bottom: 1rem;
-  }
-  
-  /* Centriamo il blocco dei pulsanti */
-  .cookie-buttons {
-    justify-content: center;
-  }
-  
-  /* Stile dei singoli pulsanti */
-  .cookie-buttons .cta-button {
-    flex-grow: 0; /* Assicuriamoci che non crescano */
-    padding: 0.75rem 1.5rem;
-  }
 
 /* ========================================================= */
 /* ANIMAZIONI */

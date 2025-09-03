@@ -2431,16 +2431,15 @@ body {
     }
 
   /* === BANNER COOKIE === */
-  .cookie-content {
-    flex-direction: column;
-    text-align: center;
+  .cookie-banner {
+    padding: 0.5rem 1rem;
   }
 
+  /* Spazio minimo tra testo e pulsanti */
   .cookie-content p {
-    margin-bottom: 0.25rem; /* Solo 4px di spazio invece di 16px */
+    margin-bottom: 0.25rem;
     flex-grow: 0;
   }
-
   .cookie-buttons {
     /* Il contenitore dei pulsanti rimane un flex container */
     /* Non serve più width: 100% */

@@ -2295,47 +2295,41 @@ body {
   }
 
   /* === CAROSELLO === */
-  
-  /* Riduciamo l'altezza e l'ingrandimento per schermi piccoli */
+
+  /* Manteniamo le regole per l'altezza e l'interazione di scroll */
   .carousel-track {
-      height: 40vh; /* <<== RIDOTTO DA 45vh */
-      touch-action: pan-x; /* Permette lo swipe orizzontale, libera quello verticale */
+    height: 60vh;
+    touch-action: pan-y;
+    pointer-events: none;
   }
+  .carousel-item img {
+    pointer-events: auto;
+  }
+
   .carousel-item.is-active {
-      transform: scale(1.1);
+    opacity: 1;
+    transform: scale(1.1); /* Card centrale leggermente più grande */
   }
+
   .carousel-item.is-prev,
   .carousel-item.is-next {
-      opacity: 0;
+    opacity: 0.5; /* Le rendiamo visibili ma semi-trasparenti */
   }
 
- .carousel-container {
-    touch-action: manipulation;
-    margin: 2rem 0; /* Aree sicure per scroll */
-  }
-  
-  /* Track carosello - PERMETTE SCROLL VERTICALE */
-  .carousel-track {
-    height: 40vh;
-    touch-action: pan-y pinch-zoom !important; /* 🔑 CHIAVE DELLA SOLUZIONE */
-  }
-  
-  /* Immagini - cliccabili ma non bloccano scroll */
-  .carousel-item img {
-    touch-action: manipulation;
-    cursor: pointer;
-  }
-  
-  /* Controlli navigazione */
-  .carousel-navigation {
-    touch-action: manipulation;
-    padding: 1rem 0;
+  .carousel-item.is-prev {
+    /* <<== VALORI RIDOTTI E SEMPLIFICATI */
+    transform: translateX(-30%) scale(0.7);
   }
 
+  .carousel-item.is-next {
+    /* <<== VALORI RIDOTTI E SEMPLIFICATI */
+    transform: translateX(30%) scale(0.7);
+  }
+
+  /* Riduciamo lo spazio sotto il titolo "Prodotti" */
   #prodotti .section-title {
-      margin-bottom: -1rem; /* Riduciamo il margine inferiore del titolo */
+      margin-bottom: 1rem;
   }
-
   /* === IMAGE BAND === */
 .image-band {
     /* Altezza FLUIDA con una transizione più dolce */

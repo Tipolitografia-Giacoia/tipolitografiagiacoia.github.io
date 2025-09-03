@@ -2397,39 +2397,43 @@ body {
 
   /* === BANNER COOKIE === */
   .cookie-banner {
-    padding: 0.5rem 1rem !important; /* Forza padding minimo */
-    min-height: auto !important; /* Evita altezze forzate */
+    padding: 0.5rem 1rem !important;
   }
 
-  /* LAYOUT SEMPLIFICATO - ANNULLA TUTTE LE REGOLE PRECEDENTI */
   .cookie-content {
-    flex-direction: column;
-    text-align: center;
-    gap: 1rem; /* Spazio tra testo e blocco pulsanti */
+    display: flex !important;
+    flex-direction: column !important;
+    text-align: center !important;
+    gap: 0.75rem !important; /* Spazio ridotto tra testo e pulsanti */
+    align-items: center !important;
   }
 
-  /* Annulliamo la crescita del paragrafo ereditata dal desktop */
   .cookie-content p {
-    flex-grow: 0;
-    margin: 0;
-  }
-  
-  /* Assicuriamoci che i pulsanti stiano in riga */
-  .cookie-buttons {
-    display: flex;
-    flex-direction: row; /* Forza la direzione orizzontale */
-    justify-content: center;
-    gap: 1rem;
-  }
-  
-  /* Stile dei singoli pulsanti */
-  .cookie-buttons .cta-button {
-    /* Non servono regole speciali, ereditano lo stile corretto */
+    flex-grow: 0 !important;
+    margin: 0 !important;
   }
 
-  /* ANNULLA EVENTUALI REGOLE CHE CREANO ALTEZZA EXTRA */
-  .cookie-content *:not(.cta-button) {
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
+  /* FORZARE I PULSANTI IN ORIZZONTALE CON MASSIMA SPECIFICITÀ */
+  .cookie-buttons,
+  .cookie-content .cookie-buttons,
+  #cookie-banner .cookie-buttons,
+  .cookie-banner .cookie-buttons {
+    display: flex !important;
+    flex-direction: row !important; /* ← ORIZZONTALE FORZATO */
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 1rem !important;
+    flex-wrap: nowrap !important; /* Non vanno a capo */
+    width: auto !important;
   }
+
+  /* ASSICURATI CHE I SINGOLI PULSANTI NON CRESCANO */
+  .cookie-buttons .cta-button,
+  .cookie-buttons button,
+  #cookie-banner button {
+    flex-grow: 0 !important;
+    flex-shrink: 0 !important;
+    white-space: nowrap !important; /* Il testo non va a capo */
+  }
+
 }

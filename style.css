@@ -1796,10 +1796,18 @@ html::after {
 }
 
 .cookie-buttons {
-  display: flex; /* Mette i pulsanti uno accanto all'altro */
-  gap: 1rem;     /* Aggiunge spazio tra i due pulsanti */
-  flex-shrink: 0; /* Impedisce ai pulsanti di restringersi su schermi piccoli */
+  display: flex; /* Mette i pulsanti in riga */
+  gap: 1rem;     /* Spazio tra i pulsanti */
+  width: 100%;   /* Occupa tutta la larghezza disponibile */
+  justify-content: center; /* Centra i pulsanti orizzontalmente */
 }
+
+/* Regola per i singoli pulsanti (per tutte le risoluzioni) */
+.cookie-buttons .cta-button {
+  flex-grow: 1;      /* Permette ai pulsanti di crescere per riempire lo spazio */
+  max-width: 200px;  /* Limita la larghezza massima di ogni pulsante */
+}
+
 /* ========================================================= */
 /* ANIMAZIONI */
 /* ========================================================= */
@@ -2424,4 +2432,9 @@ body {
       flex-wrap: wrap;         /* Permette ai link di andare a capo se non c'è spazio */
       gap: 1.5rem;             /* Riduciamo un po' lo spazio per schermi piccoli */
     }
+
+    /* === BANNER COOKIE === */
+  .cookie-content {
+    flex-direction: column; /* Impila testo e pulsanti su mobile */
+  }
 }

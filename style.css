@@ -2415,54 +2415,56 @@ body {
 
   /* === BANNER COOKIE === */
   .cookie-banner {
-      background-color: #000000;
-      backdrop-filter: none;
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      color: var(--white);
-      z-index: 3000;
-      padding: 1rem;
-      transform: translateY(100%);
-      transition: transform 0.5s ease-in-out;
+    padding: 0.5rem 1rem !important; /* Forza padding minimo */
+    min-height: auto !important; /* Evita altezze forzate */
   }
 
-  .cookie-banner.active {
-      transform: translateY(0);
-  }
-
+  /* LAYOUT SEMPLIFICATO - ANNULLA TUTTE LE REGOLE PRECEDENTI */
   .cookie-content {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      gap: var(--space-16);
-      max-width: var(--container-xl);
-      margin: 0 auto;
+    flex-direction: column !important;
+    text-align: center !important;
+    align-items: center !important;
+    gap: 0.5rem !important; /* Gap minimale */
+    padding: 0 !important; /* Nessun padding interno */
+    margin: 0 !important; /* Nessun margin */
   }
 
+  /* PARAGRAFO COMPATTO - OVERRIDE TOTALE */
   .cookie-content p {
-      margin: 0;
-      font-size: var(--font-size-sm);
-      opacity: 0.9;
-      text-align: center;
-      flex-grow: 1;
-      flex-basis: 300px;
+    margin: 0 !important; /* Azzera completamente i margini */
+    padding: 0 !important; /* Azzera completamente i padding */
+    flex-grow: 0 !important;
+    flex-basis: auto !important;
+    font-size: 14px !important; /* Dimensione fissa piccola */
+    line-height: 1.3 !important; /* Interlinea molto compatta */
   }
-
+  
+  /* CONTENITORE PULSANTI - OVERRIDE */
+  .cookie-buttons {
+    display: flex !important;
+    flex-direction: row !important; /* FORZA DIREZIONE ORIZZONTALE */
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 0.75rem !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important; /* Assicura che occupi tutta la larghezza disponibile */
+  }
+  
+  /* PULSANTI COMPATTI - OVERRIDE */
+  .cookie-buttons .cta-button,
   .cookie-content .cta-button {
-      margin: 0;
-      flex-shrink: 0;
+    flex-grow: 0 !important;
+    padding: 0.5rem 1rem !important; /* Molto più compatto */
+    font-size: 13px !important; /* Testo piccolo */
+    border-radius: 8px !important;
+    margin: 0 !important;
+    min-height: auto !important; /* Evita altezze minime forzate */
   }
 
-  #cookie-banner .cookie-content a,
-  #cookie-banner .cookie-content a:visited {
-      color: var(--color-warning) !important;
-      text-decoration: underline;
-  }
-
-  #cookie-banner .cookie-content a:hover {
-      color: var(--color-text);
+  /* ANNULLA EVENTUALI REGOLE CHE CREANO ALTEZZA EXTRA */
+  .cookie-content *:not(.cta-button) {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
   }
 }

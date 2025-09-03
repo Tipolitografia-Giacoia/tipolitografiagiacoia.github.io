@@ -2223,9 +2223,12 @@ body {
     font-size: var(--font-size-2xl);
   }
 
-  /* Manda a capo le parole dinamiche */
   .hero-main-title b {
-    display: block; /* <<== QUESTA È LA RIGA FONDAMENTALE MANCANTE */
+    display: block; /* QUESTA RIGA CE L'HAI GIÀ */
+
+    /* AGGIUNGI QUESTE RIGHE SOTTO */
+    min-height: 1.2em;      /* Mantiene un'altezza minima (pari alla linea di testo) */
+    vertical-align: bottom; /* Allinea correttamente lo spazio vuoto */
   }
 
   /* Allinea a sinistra il testo (annulla eventuali centrature precedenti) */

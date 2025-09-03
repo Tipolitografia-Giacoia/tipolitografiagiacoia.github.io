@@ -319,7 +319,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (wipTriggers.length > 0 && wipOverlay) {
         const openOverlay = (event) => {
-            event.preventDefault();
             wipOverlay.classList.add('active');
         };
         const closeOverlay = () => {

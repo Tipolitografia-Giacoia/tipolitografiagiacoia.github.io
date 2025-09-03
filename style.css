@@ -2309,7 +2309,7 @@ body {
 
   .carousel-item.is-active {
     opacity: 1;
-    transform: scale(1.1); /* Card centrale leggermente più grande */
+    transform: scale(1.3); /* Card centrale leggermente più grande */
   }
 
   .carousel-item.is-prev,

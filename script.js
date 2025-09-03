@@ -187,7 +187,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const onDrag = (e) => {
             if (!isDown) return;
-            e.preventDefault(); // Impedisce comportamenti strani del browser (es. selezionare testo)
             isDragging = true;
         };
 

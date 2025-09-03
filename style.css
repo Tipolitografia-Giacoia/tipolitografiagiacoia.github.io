@@ -1328,7 +1328,7 @@ html::after {
 
 .contact-item-simple { 
     display: flex; 
-    align-items: center; /* <-- Questa è la regola che fa l'allineamento */
+    align-items: center; /* <-- Questa è la regola importante per l'allineamento */
     gap: var(--space-24); 
 }
 
@@ -1337,6 +1337,11 @@ html::after {
     text-decoration: none; 
     line-height: var(--line-height-normal); 
     transition: color var(--duration-fast) var(--ease-standard); 
+    
+    /* --- AGGIUNGI QUESTE TRE RIGHE --- */
+    font-size: clamp(var(--font-size-base), 2vw, var(--font-size-lg));
+    font-weight: var(--font-weight-medium);
+    opacity: 0.9; 
 }
 
 .contact-item-simple a:hover { 
@@ -1396,7 +1401,7 @@ html::after {
     opacity: 0.6; 
     font-weight: var(--font-weight-normal); 
     font-size: var(--font-size-xs); 
-    margin-left: var(--space-8); 
+    margin-left: var(--space-6); /* Da 8px a zpx */
 }
 
 /* GLI ELEMENTI DEL FORM mantengono il pattern Tavola 6 per leggibilità */

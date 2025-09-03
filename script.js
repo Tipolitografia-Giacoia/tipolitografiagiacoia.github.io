@@ -358,25 +358,32 @@ document.addEventListener('DOMContentLoaded', function() {
     const acceptCookiesButton = document.getElementById('accept-cookies');
     const rejectCookies = document.getElementById('reject-cookies');
 
-    // Controlla se l'utente ha già dato il consenso
-    if (!localStorage.getItem('cookie_consent')) {
-        // Se non c'è il consenso, mostra il banner dopo un breve ritardo
-        setTimeout(() => {
-            if(cookieBanner) cookieBanner.classList.add('active');
-        }, 1000);
+    if (cookieBanner) {
+        // Controlla se l'utente ha già dato il consenso
+        if (!localStorage.getItem('cookieConsent')) { // Modificato da 'cookie_consent' a 'cookieConsent' per coerenza
+            // Se non c'è il consenso, mostra il banner dopo un breve ritardo
+            setTimeout(() => {
+                cookieBanner.classList.add('active');
+            }, 1000);
+        }
     }
 
     // Gestione del pulsante ACCETTA
-    acceptCookies.addEventListener('click', () => {
-        localStorage.setItem('cookieConsent', 'accepted');
-        cookieBanner.classList.remove('active');
-    });
+    if (acceptCookiesButton) {
+        acceptCookiesButton.addEventListener('click', () => {
+            localStorage.setItem('cookieConsent', 'accepted');
+            if (cookieBanner) cookieBanner.classList.remove('active');
+        });
+    }
+
 
     // NUOVA GESTIONE per il pulsante RIFIUTA
-    rejectCookies.addEventListener('click', () => {
-        localStorage.setItem('cookieConsent', 'rejected');
-        cookieBanner.classList.remove('active');
-    });
+    if (rejectCookies) {
+        rejectCookies.addEventListener('click', () => {
+            localStorage.setItem('cookieConsent', 'rejected');
+            if (cookieBanner) cookieBanner.classList.remove('active');
+        });
+    }
     
     // ===================================================
     // 9. ANIMAZIONE PAROLE DINAMICHE (EFFETTO TYPEWRITER ASINCRONO)

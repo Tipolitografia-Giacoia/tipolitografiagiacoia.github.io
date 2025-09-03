@@ -2329,7 +2329,7 @@ body {
     gap: 0.75rem; /* Riduciamo lo spazio a 12px */
   }
 
-    .contact-item-simple:has(.icon-phone) {
+  .contact-item-simple:has(.icon-phone) {
     gap: 1.24rem; /* Esempio: uno spazio leggermente più grande (20px) */
   }
 
@@ -2341,6 +2341,12 @@ body {
   /* NUOVA REGOLA: Manda a capo le linee dell'indirizzo */
   .address-line {
     display: block; /* Ogni span va su una nuova riga */
+  }
+
+  .address-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra orizzontalmente ogni <span> */
   }
 
   .form-required {

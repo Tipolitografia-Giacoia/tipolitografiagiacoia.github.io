@@ -1282,7 +1282,7 @@ html::after {
   top: 50%;
   left: 50%;
   width: 100%;
-  height: auto; /* Per mantenere il 16:9 */
+  height: auto;
   transform: translate(-50%, -50%);
   object-fit: cover;
 }
@@ -2217,8 +2217,7 @@ body {
 
   /* Manda a capo le parole dinamiche */
   .hero-main-title b {
-    display: block;
-    min-height: 1.2em; /* <<== AGGIUNGI QUESTA RIGA */
+    display: block; /* <<== QUESTA È LA RIGA FONDAMENTALE MANCANTE */
   }
 
   /* Allinea a sinistra il testo (annulla eventuali centrature precedenti) */
@@ -2298,6 +2297,22 @@ body {
       margin-bottom: -1rem; /* Riduciamo il margine inferiore del titolo */
   }
 
+  /* === IMAGE BAND === */
+.image-band {
+    /* Altezza FLUIDA con una transizione più dolce */
+    height: clamp(300px, 70vh, 50vw * (16 / 9));
+    padding-top: 0;
+  }
+
+  /* 2. Sovrascriviamo le regole del video per riempire il nuovo contenitore */
+  .image-band video {
+    position: static;     /* <<== CHIAVE 1: Annulla il posizionamento assoluto */
+    transform: none;      /* <<== CHIAVE 2: Annulla lo spostamento */
+    width: 100%;
+    height: 100%;         /* <<== CHIAVE 3: Forza l'altezza a riempire il contenitore */
+    object-fit: cover;
+  }
+
   /* === SEZIONE CONTATTACI === */
   /* Le colonne delle info e del form vanno una sotto l'altra */
   .contact-grid {
@@ -2375,5 +2390,4 @@ body {
     flex-wrap: wrap;         /* Permette ai link di andare a capo se non c'è spazio */
     gap: 1.5rem;             /* Riduciamo un po' lo spazio per schermi piccoli */
   }
-
 }

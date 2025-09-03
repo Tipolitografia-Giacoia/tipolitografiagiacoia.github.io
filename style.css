@@ -1760,29 +1760,34 @@ html::after {
     transform: translateY(0);
 }
 
-/* AGGIUNGI QUESTE REGOLE PER DESKTOP ↓ */
+/* LAYOUT DESKTOP: TESTO A SINISTRA, PULSANTI A DESTRA */
 .cookie-content {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between; /* Separa testo e pulsanti */
     align-items: center;
     gap: var(--space-16);
     max-width: var(--container-xl);
     margin: 0 auto;
+    flex-wrap: nowrap; /* Non va a capo */
 }
 
-/* PULSANTI ORIZZONTALI ANCHE PER DESKTOP */
+.cookie-content p {
+    flex: 1; /* Il testo occupa lo spazio disponibile */
+    margin: 0;
+}
+
+/* PULSANTI ORIZZONTALI A DESTRA PER DESKTOP */
 .cookie-buttons,
 .cookie-content .cookie-buttons,
 #cookie-banner .cookie-buttons,
 .cookie-banner .cookie-buttons {
     display: flex !important;
-    flex-direction: row !important; /* Orizzontale per desktop */
-    justify-content: center !important;
+    flex-direction: row !important;
+    justify-content: flex-end !important; /* Allineati a destra */
     align-items: center !important;
     gap: 1rem !important;
     flex-wrap: nowrap !important;
-    width: auto !important;
+    flex-shrink: 0 !important; /* Non si restringono */
 }
 
 .cookie-buttons .cta-button,

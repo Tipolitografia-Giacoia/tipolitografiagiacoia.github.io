@@ -2296,10 +2296,6 @@ body {
 
   /* === CAROSELLO === */
 
-  #prodotti .section-title {
-    margin-bottom: var(--space-16); 
-  }
-
   /* Manteniamo le regole per l'altezza e l'interazione di scroll */
   .carousel-track {
     position: relative;

@@ -2337,14 +2337,19 @@ body {
 
   /* Riduciamo lo spazio sotto il titolo "Prodotti" */
   #prodotti .section-title {
-      margin-bottom: 1rem;
+      margin-bottom: var(--space-8); /* Da 1rem (16px) a 8px */
+  }
+
+    /* Riduci spazio tra carosello e pulsante "richiedi informazioni" */
+  .carousel-navigation {
+      margin-top: -var(--space-8); /* Sposta verso l'alto di 8px */
   }
   /* === IMAGE BAND === */
-.image-band {
-    /* Altezza FLUIDA con una transizione più dolce */
-    height: clamp(300px, 70vh, 50vw * (16 / 9));
-    padding-top: 0;
-  }
+  .image-band {
+      /* Altezza FLUIDA con una transizione più dolce */
+      height: clamp(300px, 70vh, 50vw * (16 / 9));
+      padding-top: 0;
+    }
 
   /* 2. Sovrascriviamo le regole del video per riempire il nuovo contenitore */
   .image-band video {

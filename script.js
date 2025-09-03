@@ -282,7 +282,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
         contactForm.addEventListener('submit', (e) => {
-            e.preventDefault(); // Impedisce al form di ricaricare la pagina
 
             // 1. Recupera i valori dai campi del form
             const nome = document.getElementById('nome').value.trim();

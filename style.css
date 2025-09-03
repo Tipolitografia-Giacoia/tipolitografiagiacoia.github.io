@@ -1795,17 +1795,20 @@ html::after {
     color: var(--color-text);
 }
 
-.cookie-buttons {
-  display: flex; /* Mette i pulsanti in riga */
-  gap: 1rem;     /* Spazio tra i pulsanti */
-  width: 100%;   /* Occupa tutta la larghezza disponibile */
-  justify-content: center; /* Centra i pulsanti orizzontalmente */
+.cookie-content {
+  /* display: flex; è già presente dal codice originale */
+  align-items: center; /* Allinea verticalmente testo e pulsanti */
 }
 
-/* Regola per i singoli pulsanti (per tutte le risoluzioni) */
-.cookie-buttons .cta-button {
-  flex-grow: 1;      /* Permette ai pulsanti di crescere per riempire lo spazio */
-  max-width: 200px;  /* Limita la larghezza massima di ogni pulsante */
+.cookie-content p {
+  flex-grow: 1; /* Il testo occupa tutto lo spazio disponibile */
+  margin: 0; /* Rimuoviamo il margine di default del paragrafo */
+}
+
+.cookie-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-shrink: 0; /* Impedisce ai pulsanti di restringersi e andare a capo */
 }
 
 /* ========================================================= */
@@ -2433,8 +2436,22 @@ body {
       gap: 1.5rem;             /* Riduciamo un po' lo spazio per schermi piccoli */
     }
 
-    /* === BANNER COOKIE === */
+  /* === BANNER COOKIE === */
   .cookie-content {
-    flex-direction: column; /* Impila testo e pulsanti su mobile */
+    flex-direction: column; /* Impila testo e pulsanti */
+    text-align: center;
+  }
+
+  .cookie-content p {
+    margin-bottom: 1rem; /* Aggiungi spazio tra testo e pulsanti su mobile */
+  }
+
+  .cookie-buttons {
+    width: 100%; /* Il contenitore dei pulsanti occupa tutta la larghezza */
+  }
+
+  .cookie-buttons .cta-button {
+    flex-grow: 1; /* I pulsanti crescono per avere la stessa larghezza */
+    max-width: 200px; /* ...ma non diventano enormi */
   }
 }

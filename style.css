@@ -2415,22 +2415,54 @@ body {
 
   /* === BANNER COOKIE === */
   .cookie-banner {
-    padding: 0.5rem 1rem;
+      background-color: #000000;
+      backdrop-filter: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      color: var(--white);
+      z-index: 3000;
+      padding: 1rem;
+      transform: translateY(100%);
+      transition: transform 0.5s ease-in-out;
   }
 
-  /* Spazio minimo tra testo e pulsanti */
+  .cookie-banner.active {
+      transform: translateY(0);
+  }
+
+  .cookie-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: var(--space-16);
+      max-width: var(--container-xl);
+      margin: 0 auto;
+  }
+
   .cookie-content p {
-    margin-bottom: 0.25rem;
-    flex-grow: 0;
-  }
-  .cookie-buttons {
-    /* Il contenitore dei pulsanti rimane un flex container */
-    /* Non serve più width: 100% */
+      margin: 0;
+      font-size: var(--font-size-sm);
+      opacity: 0.9;
+      text-align: center;
+      flex-grow: 1;
+      flex-basis: 300px;
   }
 
-  /* I pulsanti ora hanno larghezza automatica e non crescono più */
-  .cookie-buttons .cta-button {
-    flex-grow: 0; /* <<== ANNULLA LA CRESCITA */
-    padding: 0.75rem 1.5rem; /* Un po' più di padding per renderli belli */
+  .cookie-content .cta-button {
+      margin: 0;
+      flex-shrink: 0;
+  }
+
+  #cookie-banner .cookie-content a,
+  #cookie-banner .cookie-content a:visited {
+      color: var(--color-warning) !important;
+      text-decoration: underline;
+  }
+
+  #cookie-banner .cookie-content a:hover {
+      color: var(--color-text);
   }
 }

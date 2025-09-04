@@ -432,4 +432,21 @@ document.addEventListener('DOMContentLoaded', function() {
         typeWriter(dynamicWord2, wordsForSeduce, 1800);  // La seconda parte dopo 1.8 secondi, per un effetto sfalsato
     }
 
+    function scalePage() {
+      const wrapper = document.querySelector('.page-wrapper');
+      const maxWidth = 1024;
+      const vw = window.innerWidth;
+      let scale = 1;
+
+      if (vw > maxWidth) {
+        scale = vw / maxWidth;
+      }
+
+      wrapper.style.transform = `scale(${scale})`;
+      wrapper.style.transformOrigin = 'top center';
+    }
+
+window.addEventListener('resize', scalePage);
+window.addEventListener('load', scalePage); // Assicura l’applicazione al caricamento iniziale
+
 }); // Fine del DOMContentLoaded

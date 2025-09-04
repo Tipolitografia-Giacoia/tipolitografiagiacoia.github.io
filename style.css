@@ -1199,31 +1199,9 @@ html::after {
     z-index: 2; 
 }
 
-/* NUOVO CODICE CORRETTO */
-.carousel-navigation {
-  order: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 30px;
-  width: 100%;
-
-  /* --- REGOLE CHIAVE AGGIUNTE --- */
-  position: relative; /* Attiva il contesto di impilamento */
-  z-index: 5;         /* Mette la navigazione sopra le card (che hanno z-index max 3) */
-  /* ------------------------------ */
-}
-
-.carousel-container .arrow {
-  background: transparent;
-  border: none;
-  width: 50px;  /* dimensioni adeguate al tuo file immagine */
-  height: 50px;
-  cursor: pointer;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  transition: filter 0.3s ease;
+.carousel-track {
+  margin: 0 0 24px 0; /* Spazio fisso sotto il carosello */
+  order: 1; /* Il carosello sta per primo */
 }
 
 .carousel-container .arrow.next {
@@ -1244,8 +1222,32 @@ html::after {
   filter: brightness(1.2);
 }
 
+.carousel-navigation {
+  order: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px; /* Spazio uniforme tra tutti gli elementi */
+  width: 100%;
+  position: relative;
+  z-index: 5;
+}
+
+.carousel-container .arrow {
+  background: transparent;
+  border: none;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  transition: filter 0.3s ease;
+  flex-shrink: 0; /* Le frecce non si restringono */
+}
+
 .request-info-button {
-  background: linear-gradient(90deg, #6B0DB4, #E21673); /* Viola a Magenta */
+  background: linear-gradient(90deg, #6B0DB4, #E21673);
   color: var(--white);
   border: none;
   border-radius: 14px;
@@ -1258,7 +1260,8 @@ html::after {
   display: inline-block;
   white-space: nowrap;
   user-select: none;
-  margin: 0 20px;
+  margin: 0; /* ← RIMOSSI I MARGINI LATERALI */
+  flex-shrink: 0; /* Il pulsante non si restringe */
 }
 
 .request-info-button:hover {
@@ -2329,14 +2332,17 @@ body {
   }
 
   /* Riduciamo lo spazio sotto il titolo "Prodotti" */
-  #prodotti .section-title {
-    margin-bottom: var(--space-8) !important;
+  .carousel-track {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px 0; /* ← AGGIUNGI IL MARGINE SOTTO */
+    order: 1;
+    touch-action: pan-y;
   }
 
-  /* Riduci spazio tra carosello e pulsante "richiedi informazioni" */
-  .carousel-navigation {
-    margin-top: -var(--space-8) !important;
-  }
   /* === IMAGE BAND === */
   .image-band {
       /* Altezza FLUIDA con una transizione più dolce */
@@ -2646,13 +2652,15 @@ Si applica a schermi con larghezza massima di 1023px
   }
 
   /* Riduciamo lo spazio sotto il titolo "Prodotti" */
-  #prodotti .section-title {
-    margin-bottom: var(--space-8) !important;
-  }
-
-  /* Riduci spazio tra carosello e pulsante */
-  .carousel-navigation {
-    margin-top: -var(--space-8) !important;
+  .carousel-track {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px 0; /* ← AGGIUNGI IL MARGINE SOTTO */
+    order: 1;
+    touch-action: pan-y;
   }
 
   /* === IMAGE BAND === */

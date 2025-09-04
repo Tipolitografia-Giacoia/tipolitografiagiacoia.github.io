@@ -827,6 +827,10 @@ html::before {
     z-index: -3;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* 2. OVERLAY GLOBALE MOLTO LEGGERO - z-index: -2 */
 html::after {
     content: "";
@@ -2218,24 +2222,26 @@ body {
     z-index: 1001; /* Sopra a tutto */
   }
   .nav-menu {
-    display: none; /* Nascondiamo il menu orizzontale */
-    position: fixed;
+    display: none; /* nascosto di default */
+    position: fixed; /* fondamentale per sovrapporre */
     top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100vh;
+    left: -100%; /* fuori schermo di default */
+    width: 100vw; /* copre tutta la larghezza viewport */
+    height: 100vh; /* copre tutta l’altezza viewport */
+    background-color: rgba(31, 33, 33, 0.95); /* sfondo dark trasparente */
+    backdrop-filter: blur(10px);
+    z-index: 10000; /* sopra tutto */
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgba(var(--color-charcoal-700-rgb, 31, 33, 33), 0.95);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    transition: left 0.3s ease;
     gap: 2rem;
+    transition: left 0.3s ease;
+    overflow-y: auto; /* per scroll interno se necessario */
   }
+
   .nav-menu.active {
-    display: flex; /* Mostriamo il menu quando è attivo */
-    left: 0;
+    display: flex;
+    left: 0; /* entra completamente nel viewport */
   }
   .nav-item {
     font-size: var(--font-size-2xl);
@@ -2867,22 +2873,20 @@ Si applica a schermi con larghezza massima di 1023px
   height: 100%;
 }
 
-body {
-  height: 100%;
-  overflow-y: auto;
-  position: relative;
-}
+  body {
+    height: 100%;
+    overflow-y: auto;
+    position: relative;
+  }
 
-.page-wrapper {
-  transform-origin: top center;
-  transition: transform 0.3s ease;
-  /* Se usi transform: scale(), evita overflow-y: hidden qui */
-}
+  .page-wrapper {
+    transform-origin: top center;
+    transition: transform 0.3s ease;
+    /* Se usi transform: scale(), evita overflow-y: hidden qui */
+  }
 
-html {
-  overflow: hidden;
-  height: 100%;
-}
-
-
+  html {
+    overflow: hidden;
+    height: 100%;
+  }
 }

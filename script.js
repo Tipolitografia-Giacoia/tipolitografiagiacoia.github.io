@@ -7,15 +7,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const navMenu = document.querySelector(".nav-menu");
 
     if (hamburger && navMenu) {
-        hamburger.addEventListener("click", () => {
-            hamburger.classList.toggle("active");
-            navMenu.classList.toggle("active");
-        });
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+        navMenu.classList.toggle("active");
+      });
 
-        document.querySelectorAll(".nav-link").forEach(n => n.addEventListener("click", () => {
-            hamburger.classList.remove("active");
-            navMenu.classList.remove("active");
-        }));
+      document.querySelectorAll(".nav-link").forEach(n => n.addEventListener("click", () => {
+        hamburger.classList.remove("active");
+        navMenu.classList.remove("active");
+      }));
     }
 
     // ===================================================
@@ -466,6 +466,20 @@ document.addEventListener('DOMContentLoaded', function() {
       } else {
         header.classList.remove('scrolled');
       }
+    });
+
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href').substring(1);
+        const targetSection = document.getElementById(targetId);
+        if (targetSection) {
+          targetSection.scrollIntoView({ behavior: 'smooth' });
+        }
+        // Chiudi menu hamburger se attivo (opzionale)
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+      });
     });
 
 }); // Fine del DOMContentLoaded

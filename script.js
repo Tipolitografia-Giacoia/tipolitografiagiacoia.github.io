@@ -484,4 +484,30 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       });
     });
+
+    document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', e => {
+        e.preventDefault();
+        const href = link.getAttribute('href');
+        if (href === '#contattaci') {
+          const contattaciAnchor = document.getElementById('contattaci-anchor');
+          if (contattaciAnchor) {
+            contattaciAnchor.scrollIntoView({ behavior: 'smooth' });
+          }
+          // Chiudi burger se attivo
+          hamburger.classList.remove('active');
+          navMenu.classList.remove('active');
+          return;
+        }
+
+        // gestione normale per altri link
+        const targetId = href.substring(1);
+        const targetSection = document.getElementById(targetId);
+        if (targetSection) {
+          targetSection.scrollIntoView({ behavior: 'smooth' });
+          hamburger.classList.remove('active');
+          navMenu.classList.remove('active');
+        }
+      });
+    });
 }); // Fine del DOMContentLoaded

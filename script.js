@@ -457,4 +457,15 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('resize', scalePage);
     window.addEventListener('load', scalePage);
 
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('.header');
+      if (!header) return;
+
+      if (window.scrollY > 0) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
 }); // Fine del DOMContentLoaded

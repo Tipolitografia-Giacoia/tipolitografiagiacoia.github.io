@@ -311,6 +311,7 @@ html {
 body {
   margin: 0;
   padding: 0;
+  overflow-y: hidden; /* Nasconde la scrollbar verticale falsa */
 }
 
 *,
@@ -1072,13 +1073,16 @@ html::after {
 .header {
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
-  background: rgba(0, 0, 0, 0.4); /* Vetro nero trasparente */
-  backdrop-filter: saturate(180%) blur(10px); /* Effetto vetro sfocato */
-  -webkit-backdrop-filter: saturate(180%) blur(10px);
-  color: var(--white); /* Testo bianco */
-  transition: background-color 0.3s ease;
   z-index: 1000;
+
+  background-color: rgba(0, 0, 0, 0.4);  /* Nero trasparente */
+  backdrop-filter: saturate(180%) blur(10px);
+  -webkit-backdrop-filter: saturate(180%) blur(10px);
+
+  transition: background-color 0.3s ease;
+  color: white;
 }
 
 .header.scrolled {

@@ -792,7 +792,7 @@ html, body, .page-wrapper {
 }
 
 .page-wrapper {
-  max-width: 1024px;
+  max-width: 1300px;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
@@ -2816,3 +2816,42 @@ Si applica a schermi con larghezza massima di 1023px
   html {
     overflow-x: auto;
   }
+
+@media (min-width: 1024px) {
+
+  /* Assicura che il contenitore della sezione non abbia padding o margin inferiori eccessivi */
+  .chi-siamo-container {
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  /* Disabilita qualsiasi allineamento verso il fondo per il capannone */
+  .capannone-col {
+    align-self: start !important;   /* forza posizionamento in alto */
+    margin-bottom: 0 !important;    /* rimuove margini inferiori */
+    padding-bottom: 0 !important;   /* rimuove padding inferiori */
+  }
+
+  /* Controlla padding/margin del contenuto interno */
+  .capannone-col img {
+    object-position: center top !important;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  /* Controlla padding e margin del testo per evitare spazi eccessivi */
+  .chi-siamo-left-col {
+    padding-top: -20rem !important;  /* mantiene distacco in alto */
+    margin-top: 0 !important;
+  }
+
+  /* Aggiungi debug temporaneo (da rimuovere dopo la verifica) */
+
+  .capannone-col {
+    outline: 2px solid red;
+  }
+  .chi-siamo-container {
+    outline: 2px dashed blue;
+  }
+
+}

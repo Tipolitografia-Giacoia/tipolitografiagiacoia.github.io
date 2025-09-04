@@ -1123,21 +1123,22 @@ html::after {
   color: var(--yellow);
 }
 
-
-.hamburger { 
-    display: none; 
-    background: none; 
-    border: none; 
-    cursor: pointer; 
+.mobile-home-icon {
+    display: none; /* Nascosto di default su desktop */
+    width: 32px;
+    height: 32px;
+    z-index: 1001;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
 }
 
-.bar { 
-    display: block; 
-    width: 25px; 
-    height: 3px; 
-    margin: var(--space-6) auto; 
-    background-color: var(--color-text); 
-    transition: all var(--duration-fast) var(--ease-standard); 
+.mobile-home-icon img {
+    width: 100%;
+    height: auto;
+}
+
+.mobile-home-icon:hover {
+    opacity: 0.8;
 }
 
 .scroll-anchor {
@@ -2079,12 +2080,6 @@ a[href="cookie-policy.html"] {
   text-decoration: underline !important;
 }
 
-/* 7. HAMBURGER MENU (nel caso servisse) */
-.hamburger .bar,
-.hamburger span {
-  background-color: #ffffff !important;
-}
-
 /* ============================================== */
 /* FIX PLACEHOLDER FORM - NERO CON TRASPARENZA */
 /* ============================================== */
@@ -2215,12 +2210,6 @@ body {
     --line-height-normal: 1.6;
   }
 
-  /* === HEADER E NAVIGAZIONE === */
-  /* Mostriamo il pulsante hamburger e nascondiamo il menu desktop */
-  .hamburger {
-    display: block;
-    z-index: 1001; /* Sopra a tutto */
-  }
   .nav-menu {
     display: none; /* nascosto di default */
     position: fixed; /* fondamentale per sovrapporre */
@@ -2517,10 +2506,12 @@ Si applica a schermi con larghezza massima di 1023px
     --line-height-normal: 1.6;
   }
 
-  /* === HEADER E NAVIGAZIONE === */
-  .hamburger {
-    display: block;
-    z-index: 1001;
+  .mobile-home-icon {
+      display: block; /* Mostra l'icona home */
+  }
+
+  .nav-menu {
+      display: none; /* Nasconde i link "Chi Siamo", "Prodotti", ecc. */
   }
 
   .nav-menu {
@@ -2889,4 +2880,3 @@ Si applica a schermi con larghezza massima di 1023px
     overflow: hidden;
     height: 100%;
   }
-}

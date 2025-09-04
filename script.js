@@ -1,24 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
 
     // ===================================================
-    // 1. MENU HAMBURGER PER MOBILE
-    // ===================================================
-    const hamburger = document.querySelector(".hamburger");
-    const navMenu = document.querySelector(".nav-menu");
-
-    if (hamburger && navMenu) {
-      hamburger.addEventListener("click", () => {
-        hamburger.classList.toggle("active");
-        navMenu.classList.toggle("active");
-      });
-
-      document.querySelectorAll(".nav-link").forEach(n => n.addEventListener("click", () => {
-        hamburger.classList.remove("active");
-        navMenu.classList.remove("active");
-      }));
-    }
-
-    // ===================================================
     // 2. ANIMAZIONE "REVEAL" ALLO SCORRIMENTO
     // ===================================================
     const revealElements = document.querySelectorAll(".reveal");
@@ -468,46 +450,29 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
 
-    document.querySelectorAll('.nav-link, .footer a[href^="#"]').forEach(link => {
-      link.addEventListener('click', e => {
-        e.preventDefault();
-        const href = link.getAttribute('href');
-        const targetId = href.substring(1);
-        const targetSection = document.getElementById(targetId);
+    // CANCELLA IL VECCHIO BLOCCO .querySelectorAll E INCOLLA QUESTO
+    document.querySelectorAll('.nav-link, .footer a[href^="#"], .mobile-home-icon, .nav-logo').forEach(link => {
+        link.addEventListener('click', e => {
+            e.preventDefault();
+            const href = link.getAttribute('href');
 
-        if (targetSection) {
-          targetSection.scrollIntoView({ behavior: 'smooth' });
+            // Caso speciale per i link #top (icona home e logo)
+            if (href === '#top') {
+                // CORREZIONE: Applichiamo lo scroll al BODY, non alla WINDOW
+                document.body.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+                return; // Interrompe l'esecuzione qui
+            }
+            
+            // Gestione per tutti gli altri link con ancora (#chi-siamo, ecc.)
+            const targetId = href.substring(1);
+            const targetSection = document.getElementById(targetId);
 
-          // Chiudi menu hamburger se attivo (opzionale)
-          hamburger.classList.remove('active');
-          navMenu.classList.remove('active');
-        }
-      });
-    });
-
-    document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', e => {
-        e.preventDefault();
-        const href = link.getAttribute('href');
-        if (href === '#contattaci') {
-          const contattaciAnchor = document.getElementById('contattaci-anchor');
-          if (contattaciAnchor) {
-            contattaciAnchor.scrollIntoView({ behavior: 'smooth' });
-          }
-          // Chiudi burger se attivo
-          hamburger.classList.remove('active');
-          navMenu.classList.remove('active');
-          return;
-        }
-
-        // gestione normale per altri link
-        const targetId = href.substring(1);
-        const targetSection = document.getElementById(targetId);
-        if (targetSection) {
-          targetSection.scrollIntoView({ behavior: 'smooth' });
-          hamburger.classList.remove('active');
-          navMenu.classList.remove('active');
-        }
-      });
+            if (targetSection) {
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
     });
 }); // Fine del DOMContentLoaded

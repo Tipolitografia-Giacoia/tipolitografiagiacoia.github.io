@@ -1512,6 +1512,32 @@ html::after {
     border-radius: 0 0 var(--radius-lg) var(--radius-lg); 
 }
 
+/* ============================================== */
+/* FIX SUGGESTION DROPDOWN - TESTO NERO */
+/* ============================================== */
+
+/* Forza il testo nero nei suggerimenti prodotti */
+.suggestion-item,
+.product-suggestions .suggestion-item,
+.product-search-container .suggestion-item {
+  color: #000000 !important; /* Testo nero */
+  background-image: url('data/Tavola disegno 6@3x.png');
+}
+
+/* Hover state con testo ancora nero */
+.suggestion-item:hover,
+.product-suggestions .suggestion-item:hover,
+.product-search-container .suggestion-item:hover {
+  color: #000000 !important; /* Mantiene il testo nero anche in hover */
+  background-color: rgba(0, 0, 0, 0.1) !important; /* Sfondo leggermente più scuro in hover */
+}
+
+/* Se ci sono sottoelementi nei suggerimenti */
+.suggestion-item *,
+.product-suggestions .suggestion-item * {
+  color: #000000 !important;
+}
+
 /* ========================================================= */
 /* FOOTER */
 /* ========================================================= */
@@ -2771,175 +2797,88 @@ Si applica a schermi con larghezza massima di 1023px
     overflow-x: auto;
   }
 
-  /* === FORM PIÙ GRANDI === */
-  /* (mantieni tutto il codice form che avevi già) */
-  .contact-form-column label {
-    font-size: 20px !important;
-    margin-bottom: 12px !important;
-    font-weight: var(--font-weight-semibold) !important;
-  }
+/* === FORM ANCORA PIÙ GRANDI === */
 
-  .contact-form-column input,
-  .contact-form-column textarea,
-  .contact-form-column select {
-    font-size: 18px !important;
-    padding: 16px 20px !important;
-    margin-bottom: 32px !important;
-    line-height: 1.5 !important;
-  }
+/* Labels del form molto più grandi */
+.contact-form-column label {
+  font-size: 24px !important; /* Era 20px, ora 24px */
+  margin-bottom: 16px !important; /* Era 12px, ora 16px */
+  font-weight: var(--font-weight-bold) !important; /* Da semibold a bold */
+  letter-spacing: 0.3px !important; /* Migliore leggibilità */
+}
 
-  .contact-form-column textarea {
-    min-height: 120px !important;
-    padding: 20px !important;
-  }
+/* Input e select molto più grandi */
+.contact-form-column input,
+.contact-form-column select {
+  font-size: 26px !important; /* Era 22px, ora 26px */
+  padding: 22px 28px !important; /* Era 18px 24px, ora 22px 28px */
+  margin-bottom: 36px !important; /* Era 32px, ora 36px */
+  line-height: 1.6 !important;
+  font-weight: var(--font-weight-medium) !important;
+  min-height: 70px !important; /* Altezza minima per input */
+}
 
-  .contact-form-column .cta-button {
-    font-size: 18px !important;
-    padding: 16px 32px !important;
-    margin-top: 24px !important;
-  }
+/* Textarea ancora più grande */
+.contact-form-column textarea {
+  font-size: 24px !important; /* Era 20px, ora 24px */
+  min-height: 160px !important; /* Era 140px, ora 160px */
+  padding: 26px !important; /* Era 22px, ora 26px */
+  line-height: 1.7 !important;
+  margin-bottom: 36px !important;
+  font-weight: var(--font-weight-medium) !important; /* ← QUESTA RIGA MANCAVA! */
+}
 
-  /* === INFORMAZIONI CONTATTO PIÙ GRANDI === */
-  
-  /* Testi delle informazioni di contatto */
-  .contact-item-simple a {
-    font-size: 22px !important; /* Era clamp(var(--font-size-base), 2vw, var(--font-size-lg)) */
-    font-weight: var(--font-weight-semibold) !important;
-    line-height: 1.4 !important;
-  }
+/* Select dropdown più grande */
+.contact-form-column select {
+  background-size: 28px !important; /* Era 24px, ora 28px */
+  padding-right: 70px !important; /* Era 60px, ora 70px */
+}
 
-  /* Icone più grandi */
-  .contact-icon-gif {
-    width: 60px !important; /* Era 40px */
-    height: 60px !important; /* Era 40px */
-  }
+/* Placeholder molto più grandi */
+.contact-form-column input::placeholder,
+.contact-form-column select::placeholder {
+  font-size: 22px !important; /* Era 20px, ora 22px */
+  opacity: 0.7 !important;
+  font-weight: var(--font-weight-normal) !important;
+  color: rgba(0, 0, 0, 0.6) !important;
+}
 
-  .icon-map {
-    width: 72px !important; /* Era 48px */
-    height: 72px !important; /* Era 48px */
-  }
+.contact-form-column textarea::placeholder {
+  font-size: 20px !important; /* Era 20px, rimane uguale */
+  opacity: 0.7 !important;
+}
 
-  .icon-phone {
-    width: 48px !important; /* Era 32px */
-    height: 48px !important; /* Era 32px */
-  }
+/* Placeholder personalizzato della textarea */
+.textarea-placeholder {
+  font-size: 24px !important; /* Stesso della textarea */
+  top: 26px !important; /* Stesso del padding textarea */
+  left: 26px !important; /* Stesso del padding textarea */
+  padding: 0 6px !important;
+  color: rgba(0, 0, 0, 0.6) !important;
+  pointer-events: none;
+  transition: opacity var(--duration-fast) var(--ease-standard);
+  line-height: 1.7 !important;
+}
 
-  /* Spazio tra icona e testo aumentato */
-  .contact-item-simple {
-    gap: 32px !important; /* Era var(--space-24) = 24px */
-    margin-bottom: 40px !important; /* Spazio tra le righe di contatto */
-  }
+/* Span "obbligatorio" più grande */
+.form-required {
+  font-size: 16px !important; /* Era 14px, ora 16px */
+  margin-left: 10px !important; /* Era 8px, ora 10px */
+  opacity: 0.7 !important;
+}
 
-  /* Container delle informazioni di contatto */
-  .contact-info {
-    gap: 48px !important; /* Era calc(var(--space-16) * 1.5) = 24px */
-  }
+/* Pulsante "Invia" più grande */
+.contact-form-column .cta-button {
+  font-size: 22px !important; /* Era 18px, ora 22px */
+  padding: 20px 40px !important; /* Era 16px 32px, ora 20px 40px */
+  margin-top: 32px !important; /* Era 24px, ora 32px */
+  border-radius: 16px !important; /* Bordi più arrotondati */
+}
 
-  /* === MAPPA PIÙ GRANDE === */
-  
-  .map-container {
-    height: 400px !important; /* Era 280px */
-    margin-top: 32px !important; /* Era var(--space-16) = 16px */
-    border-radius: 16px !important; /* Era var(--radius-lg) = 12px */
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important; /* Ombra più pronunciata */
-  }
-
-  /* === GRID CONTATTI CON PIÙ SPAZIO === */
-  
-  .contact-grid {
-    gap: 48px !important; /* Era var(--space-32) = 32px */
-    padding: 32px 0 !important; /* Padding verticale aggiuntivo */
-  }
-
-  /* === TITOLO SEZIONE CONTATTI === */
-  
-  #contattaci .section-title {
-    font-size: 3.2rem !important; /* Più grande del normale */
-    margin-bottom: 48px !important;
-  }
-
-  /* === FOOTER ELEMENTI PIÙ GRANDI === */
-  /* (mantieni tutto il codice footer che avevi già) */
-  .footer-logo {
-    max-width: 240px !important;
-    margin: 0 auto 2rem auto;
-  }
-
-  .footer-info p,
-  .footer-info a {
-    font-size: 1.2rem !important;
-    line-height: 1.5 !important;
-  }
-
-  .footer-links h4 {
-    font-size: 1.3rem !important;
-    margin-bottom: 2rem !important;
-  }
-
-  .footer-links a {
-    font-size: 1.1rem !important;
-  }
-
-  .footer-links li {
-    margin-bottom: calc(var(--space-16) * 1.3) !important;
-  }
-
-  .social-icon {
-    width: 52px !important;
-    height: 52px !important;
-    border-width: 3px !important;
-  }
-
-  .social-icon svg {
-    width: 60% !important;
-    height: auto;
-  }
-
-  .footer-social {
-    gap: calc(var(--space-16) * 1.5) !important;
-    padding-top: calc(var(--space-16) * 1.5) !important;
-  }
-
-  .footer-bottom {
-    font-size: calc(var(--font-size-xs) * 1.2) !important;
-    gap: 1.5rem !important;
-    padding-top: calc(var(--space-16) * 1.5) !important;
-  }
-
-  .legal-links a {
-    font-size: calc(var(--font-size-xs) * 1.2) !important;
-  }
-
-  .legal-links {
-    gap: 2rem !important;
-  }
-
-  .footer-main {
-    gap: calc(var(--space-16) * 2) !important;
-    padding-bottom: calc(var(--space-24) * 1.3) !important;
-  }
-
-  .footer-column {
-    padding: 0 calc(var(--space-24) * 1.2) !important;
-  }
-
-  .footer-info {
-    gap: 2.5rem !important;
-  }
-
-  .footer-info > div {
-    gap: 0.7rem !important;
-  }
-
-  .footer-column + .footer-column {
-    border-top-width: 2px !important;
-    padding-top: 2rem !important;
-    margin-top: 2rem !important;
-  }
-
-  .footer-main {
-    border-bottom-width: 3px !important;
-  }
+/* Suggerimenti prodotti più grandi */
+.suggestion-item {
+  font-size: 20px !important; /* Era 18px, ora 20px */
+  padding: 22px 28px !important; /* Era 18px 24px, ora 22px 28px */
 }
 
 

@@ -468,18 +468,20 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
 
-    document.querySelectorAll('.nav-link').forEach(link => {
+    document.querySelectorAll('.nav-link, .footer a[href^="#"]').forEach(link => {
       link.addEventListener('click', e => {
         e.preventDefault();
-        const targetId = link.getAttribute('href').substring(1);
+        const href = link.getAttribute('href');
+        const targetId = href.substring(1);
         const targetSection = document.getElementById(targetId);
+
         if (targetSection) {
           targetSection.scrollIntoView({ behavior: 'smooth' });
+
+          // Chiudi menu hamburger se attivo (opzionale)
+          hamburger.classList.remove('active');
+          navMenu.classList.remove('active');
         }
-        // Chiudi menu hamburger se attivo (opzionale)
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
       });
     });
-
 }); // Fine del DOMContentLoaded

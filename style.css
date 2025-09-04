@@ -311,7 +311,6 @@ html {
 body {
   margin: 0;
   padding: 0;
-  overflow-y: hidden; /* Nasconde la scrollbar verticale falsa */
 }
 
 *,
@@ -1076,7 +1075,7 @@ html::after {
   left: 0;
   width: 100%;
   z-index: 1000;
-
+  overflow-y: hidden; /* Nasconde la scrollbar verticale falsa */
   background-color: rgba(0, 0, 0, 0.4);  /* Nero trasparente */
   backdrop-filter: saturate(180%) blur(10px);
   -webkit-backdrop-filter: saturate(180%) blur(10px);
@@ -2862,4 +2861,28 @@ Si applica a schermi con larghezza massima di 1023px
       opacity: 0.8;
     }
   }
+
+  html {
+  overflow-y: scroll; /* obbliga comparsa scrollbar per evitare salto UI */
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  overflow-y: auto;
+  position: relative;
+}
+
+.page-wrapper {
+  transform-origin: top center;
+  transition: transform 0.3s ease;
+  /* Se usi transform: scale(), evita overflow-y: hidden qui */
+}
+
+html {
+  overflow: hidden;
+  height: 100%;
+}
+
+
 }
